@@ -26,6 +26,7 @@
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
   <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 5h12v11H2zM14 9h4l3 4v3h-7"/><circle cx="6" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></symbol>
   <symbol id="i-truck-fast" viewBox="0 0 24 24"><path d="M9 6h6v10H9zM15 9h3l3 4v3h-6"/><path d="M1 8h5M1 12h4M2 16h3"/><circle cx="11" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></symbol>
@@ -111,19 +112,55 @@
         <h1>إزالة المخلفات في دبي</h1>
         <p class="lead">نتخلّص من الأثاث والأجهزة والأغراض المنزلية والمكتبية غير المرغوب فيها من الشقق والفلل والمكاتب والمحلات في جميع أنحاء دبي، ونتولى عنك الحمل والتحميل والنقل.</p>
         <div class="btn-group">
-          <a class="btn btn-teal" href="#quote" data-track="quote_start">اطلب عرض سعر</a>
+          <a class="btn btn-wa" href="https://wa.me/971567021884" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>احجز الآن</a>
           <a class="btn btn-ghost" href="tel:+971567021884" data-track="phone_click"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>اتصل <span class="ltr">056 702 1884</span></a>
-          <a class="btn btn-wa" href="https://wa.me/971567021884" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>واتساب</a>
         </div>
-        <ul class="hero-trust">
-          <!-- VERIFY E3 / E8 / E4: نفس الادعاءات الموجودة في النسخة الإنجليزية -->
-          <li><svg class="icon" aria-hidden="true"><use href="#i-truck-fast"/></svg>خدمة في نفس اليوم</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-team"/></svg>فريق مدرّب ومحترف</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg>تخلّص صديق للبيئة</li>
-        </ul>
+
+        <!-- VERIFY: عدد العملاء ومتوسط التقييم يحتاجان إلى إثبات قبل النشر -->
+        <div class="hero-proof">
+          <img src="../assets/images/customers-avatars.png" alt="" width="460" height="182">
+          <div>
+            <strong>أكثر من <span class="ltr">1,200</span> عميل سعيد</strong>
+            <span class="rating-row">
+              <span class="stars-inline" role="img" aria-label="4.9 من 5">
+                <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+              </span>
+              <span class="rating">(تقييم <span class="ltr">4.9</span>)</span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ===== شريط المزايا (يتداخل مع القسم الرئيسي والخدمات) ===== -->
+  <!-- VERIFY E3 / E4 / F1: جميع هذه الوعود تحتاج إلى تأكيد من الشركة -->
+  <div class="feature-bar">
+    <div class="container">
+      <ul class="feature-list">
+        <li class="feature-item">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <div><strong>في نفس اليوم</strong><span>خدمة سريعة</span></div>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+          <div><strong>صديق للبيئة</strong><span>طرق التخلص</span></div>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-truck-fast"/></svg></span>
+          <div><strong>نصل خلال</strong><span><span class="ltr">30</span> دقيقة</span></div>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <div><strong>جميع المناطق</strong><span>في دبي</span></div>
+        </li>
+        <li class="feature-item">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <div><strong><span class="ltr">24/7</span></strong><span>متاحون دائمًا</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <!-- ===== الخدمات ===== -->
   <section class="services" id="services" aria-labelledby="services-title">
