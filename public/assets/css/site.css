@@ -250,14 +250,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 [dir="rtl"] .flip, .card-go[data-flip] { }
 [dir="rtl"] .flip { transform: scaleX(-1); }
 
-/* ---------- Trust band ---------- */
-.trust-band { background: var(--navy-700); color: #fff; padding-block: 1.5rem; }
-.trust-grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
-.trust-item { display: flex; align-items: center; gap: .85rem; }
-.trust-item .icon { inline-size: 2.2rem; block-size: 2.2rem; color: #7FD3C4; }
-.trust-item strong { display: block; font-family: var(--font-head); font-size: 1rem; }
-.trust-item span { font-size: .88rem; color: var(--on-dark-muted); }
-
 /* ---------- Why choose + quote form ---------- */
 /* Tighter than the other sections: the figure and form already add visual height */
 .why { background: #fff; color: var(--text); padding-block: clamp(1.5rem, 3vw, 2.25rem); position: relative; }
