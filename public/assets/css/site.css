@@ -252,11 +252,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- Why choose + quote form ---------- */
 /* Tighter than the other sections: the figure and form already add visual height */
-.why { background: #fff; color: var(--text); padding-block: clamp(1.5rem, 3vw, 2.25rem); position: relative; }
+.why { background: #0A2C46; color: #fff; padding-block: clamp(1.5rem, 3vw, 2.25rem); position: relative; }
 .why-grid { display: grid; gap: 2.5rem; align-items: center; }
 @media (min-width: 1024px) { .why-grid { grid-template-columns: 1fr .8fr 1fr; gap: 2rem; } }
-.why h2 { font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.35rem); color: var(--navy-800); }
-.why p { color: var(--text-muted); }
+.why h2 { font-size: clamp(1.7rem, 1.2rem + 1.6vw, 2.35rem); color: #fff; }
+.why p { color: var(--on-dark-muted); }
 .why-list { display: grid; gap: .7rem; margin-block: 1.4rem; }
 .why-list li { display: flex; align-items: flex-start; gap: .65rem; font-size: .96rem; }
 .why-list .tick { inline-size: 1.4rem; block-size: 1.4rem; border-radius: 50%; background: var(--gold); color: var(--navy-850); display: grid; place-items: center; flex: none; margin-block-start: .15rem; }
@@ -268,7 +268,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .why-badge .icon { inline-size: 1.6rem; block-size: 1.6rem; color: var(--green); }
 
 /* Quote form sits on the white section, so the card itself carries the brand navy */
-.quote-card { background: #0A2C46; color: #fff; border-radius: var(--radius-lg); padding: clamp(1.25rem, 3vw, 1.75rem); box-shadow: var(--shadow-lg); }
+/* Card and section share #0A2C46, so a hairline edge and deeper shadow keep it readable */
+.quote-card { background: #0A2C46; color: #fff; border: 1px solid rgb(255 255 255 / .16); border-radius: var(--radius-lg); padding: clamp(1.25rem, 3vw, 1.75rem); box-shadow: 0 18px 44px rgb(0 0 0 / .38); }
 .quote-card h2 { font-size: 1.5rem; color: #fff; margin-block-end: .25rem; }
 .quote-card .sub { font-size: .88rem; color: var(--on-dark-muted); margin-block-end: 1.1rem; }
 .form-row { display: grid; gap: .75rem; margin-block-end: .75rem; }
@@ -291,19 +292,25 @@ ul { margin: 0; padding: 0; list-style: none; }
 .section { padding-block: clamp(3rem, 6vw, 4.5rem); }
 .section-dark { background: var(--navy-850); color: #fff; }
 .section-light { background: var(--bg-light); }
+.section-navy { background: #0A2C46; color: #fff; }
+.section-navy .section-head h2 { color: #fff; }
 .section-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-block-end: 1.75rem; }
 .section-head h2 { font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.25rem); margin: 0; }
 .section-dark .section-head h2 { color: #fff; }
 .head-actions { display: inline-flex; align-items: center; gap: .5rem; }
-.circle-btn { inline-size: 40px; block-size: 40px; border-radius: 50%; border: 1px solid rgb(255 255 255 / .35); background: transparent; color: #fff; display: grid; place-items: center; cursor: pointer; }
-.circle-btn:hover { background: rgb(255 255 255 / .12); }
+/* Default suits light sections; dark sections flip it */
+.circle-btn { inline-size: 40px; block-size: 40px; border-radius: 50%; border: 1px solid #C9D6DF; background: transparent; color: var(--navy-800); display: grid; place-items: center; cursor: pointer; }
+.circle-btn:hover { background: var(--bg-light); }
+.section-navy .circle-btn, .section-dark .circle-btn { border-color: rgb(255 255 255 / .35); color: #fff; }
+.section-navy .circle-btn:hover, .section-dark .circle-btn:hover { background: rgb(255 255 255 / .12); }
 
 /* ---------- Projects ---------- */
 .project-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
-.project-card h3 { font-size: 1.05rem; color: #fff; margin-block-start: .85rem; }
+.project-card h3 { font-size: 1.05rem; color: var(--navy-800); margin-block-start: .85rem; }
+.section-navy .project-card h3, .section-dark .project-card h3 { color: #fff; }
 /* Supplied project photos already contain the before/after split, the labels
    and the centre badge, so the card just frames one image. */
-.project-photo { border-radius: var(--radius); overflow: hidden; background: #0B3550; line-height: 0; }
+.project-photo { border-radius: var(--radius); overflow: hidden; background: var(--bg-light); line-height: 0; }
 .project-photo img { inline-size: 100%; block-size: auto; }
 
 /* ---------- Reviews ---------- */
@@ -319,10 +326,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .review-source { font-size: .75rem; color: var(--text-muted); margin-block-start: .75rem; }
 
 /* ---------- CTA band ---------- */
-.cta-band { background: var(--navy-900); color: #fff; padding-block: clamp(2.5rem, 5vw, 3.25rem); }
-.cta-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
-.cta-inner h2 { font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.1rem); color: #fff; margin-block-end: .25rem; }
-.cta-inner p { color: var(--on-dark-muted); margin: 0; }
+.cta-band { position: relative; overflow: hidden; background: #fff; color: var(--text); padding-block: clamp(2.5rem, 5vw, 3.25rem); }
+.cta-inner { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.cta-inner h2 { font-size: clamp(1.5rem, 1.2rem + 1.3vw, 2.1rem); color: var(--navy-800); margin-block-end: .25rem; }
+.cta-inner p { color: var(--text-muted); margin: 0; }
+/* Decorative leaf accents in the top corners */
+.cta-leaf { position: absolute; inset-block-start: 0; z-index: 0; color: #2BA84A; opacity: .15; inline-size: clamp(110px, 13vw, 185px); pointer-events: none; }
+.cta-leaf-start { inset-inline-start: -16px; }
+.cta-leaf-end { inset-inline-end: -16px; transform: scaleX(-1); }
+@media (max-width: 720px) { .cta-leaf { opacity: .1; inline-size: 92px; } }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy-800); color: var(--on-dark-muted); padding-block: clamp(2.5rem, 5vw, 3.5rem) 0; font-size: .9rem; }
