@@ -9,7 +9,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css">
+<!-- ?v= is a cache buster: the server sends Cache-Control max-age=604800 (7 days),
+     so bump this number whenever site.css or site.js changes, otherwise repeat
+     visitors keep the old stylesheet and the layout breaks. -->
+<link rel="stylesheet" href="assets/css/site.css?v=2">
 </head>
 <body>
 
@@ -544,6 +547,6 @@
   <a class="m-quote" href="#quote" data-track="quote_start"><svg class="icon" aria-hidden="true"><use href="#i-quote-doc"/></svg>Get Quote</a>
 </nav>
 
-<script src="assets/js/site.js"></script>
+<script src="assets/js/site.js?v=2"></script>
 </body>
 </html>
