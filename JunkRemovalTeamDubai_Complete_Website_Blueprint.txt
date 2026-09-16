@@ -1,0 +1,3435 @@
+JUNK REMOVAL TEAM DUBAI
+COMPLETE WEBSITE BLUEPRINT
+============================================================
+
+PROJECT INFORMATION
+============================================================
+
+Website:
+https://junkremovalteamdubai.com/
+
+Business Name:
+Junk Removal Dubai
+
+Target Market:
+Dubai, United Arab Emirates
+
+Primary Business Location:
+Al Qouz 3 Industrial Areas, Dubai, UAE
+
+Phone:
+0567021884
+
+Email:
+contact.junkremovalteam@gmail.com
+
+Languages:
+1. English
+2. Arabic
+
+Database:
+MySQL 8.x
+
+Backend:
+PHP 8.x
+
+Frontend:
+HTML5 + CSS3 + Vanilla JavaScript
+
+Development Environment:
+Claude Code
+
+Primary Objective:
+Build a high-performance, bilingual, local-SEO-first, Google-Ads-ready
+lead-generation website for a Dubai junk removal company.
+
+The website must function as:
+- A local SEO asset
+- A Google Ads landing-page platform
+- A lead-generation system
+- A company trust/authority website
+- A scalable PHP/MySQL application
+
+
+============================================================
+1. BUSINESS OBJECTIVES
+============================================================
+
+The website has five primary objectives:
+
+1. Organic SEO
+   Primary target:
+   "junk removal Dubai"
+
+2. Google Ads
+   Support highly relevant landing pages for paid campaigns.
+
+3. Lead Generation
+   Primary conversions:
+   - Phone calls
+   - WhatsApp conversations
+   - Quote requests
+   - Contact forms
+   - Booking requests
+
+4. Local SEO
+   Establish strong relevance for Dubai and genuinely served areas.
+
+5. Trust
+   Clearly communicate:
+   - Who the company is
+   - Where it operates
+   - What services it provides
+   - What items it removes
+   - How the process works
+   - How customers can contact the company
+   - Genuine reviews
+   - Genuine projects
+
+
+============================================================
+2. CORE DEVELOPMENT PRINCIPLE
+============================================================
+
+This is NOT just a brochure website.
+
+It must be built as a:
+"Local SEO + Lead Generation + Google Ads Platform"
+
+Priorities:
+
+1. SEO architecture
+2. Trust
+3. Conversion
+4. Google Ads suitability
+5. Performance
+6. Accessibility
+7. Security
+8. Visual design
+
+Design must support business goals and must not sacrifice SEO,
+performance, accessibility, or usability for unnecessary visual effects.
+
+
+============================================================
+3. TECHNOLOGY STACK
+============================================================
+
+Frontend:
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- SVG
+- Responsive CSS
+
+Backend:
+- PHP 8.x
+
+Database:
+- MySQL 8.x
+
+Architecture:
+- Lightweight MVC-style PHP architecture
+- Server-side rendered HTML
+- Reusable PHP components
+
+Do NOT use React, Vue, Next.js, or another frontend framework unless
+a future technical requirement genuinely justifies it.
+
+Recommended server:
+- Nginx or Apache
+- PHP-FPM where applicable
+- MySQL 8.x
+- OPcache
+- HTTPS
+- Brotli/Gzip
+
+
+============================================================
+4. RECOMMENDED PROJECT STRUCTURE
+============================================================
+
+junkremovalteamdubai/
+|
+|-- CLAUDE.md
+|
+|-- agents/
+|   |-- research-agent.md
+|   |-- seo-agent.md
+|   |-- technical-seo-agent.md
+|   |-- local-seo-agent.md
+|   |-- content-agent.md
+|   |-- arabic-seo-agent.md
+|   |-- uiux-agent.md
+|   |-- frontend-agent.md
+|   |-- backend-agent.md
+|   |-- mysql-agent.md
+|   |-- schema-agent.md
+|   |-- google-ads-agent.md
+|   |-- performance-agent.md
+|   |-- security-agent.md
+|   |-- qa-agent.md
+|
+|-- skills/
+|   |-- local-seo/
+|   |-- technical-seo/
+|   |-- google-ads-compliance/
+|   |-- accessibility/
+|   |-- performance/
+|   |-- php/
+|   |-- mysql/
+|   |-- conversion-optimization/
+|
+|-- app/
+|   |-- Config/
+|   |-- Controllers/
+|   |-- Models/
+|   |-- Services/
+|   |-- Helpers/
+|   |-- Middleware/
+|   |-- Validation/
+|
+|-- resources/
+|   |-- views/
+|   |   |-- layouts/
+|   |   |-- components/
+|   |   |-- pages/
+|   |   |-- services/
+|   |   |-- areas/
+|   |   |-- projects/
+|   |   |-- reviews/
+|   |   |-- admin/
+|   |
+|   |-- lang/
+|   |   |-- en/
+|   |   |-- ar/
+|   |
+|   |-- css/
+|   |-- js/
+|
+|-- public/
+|   |-- index.php
+|   |-- assets/
+|   |-- robots.txt
+|   |-- sitemap.xml
+|
+|-- database/
+|   |-- migrations/
+|   |-- seeders/
+|
+|-- storage/
+|
+|-- tests/
+|
+|-- .env
+|-- .gitignore
+
+
+============================================================
+5. CLAUDE.MD — MASTER PROJECT RULEBOOK
+============================================================
+
+CLAUDE.md must be the master instruction file.
+
+Claude Code must read and follow it before making project changes.
+
+It must contain:
+
+PROJECT IDENTITY
+- Business name
+- Domain
+- Location
+- Phone
+- Email
+- Target market
+- Languages
+- Technology stack
+
+CORE OBJECTIVE
+- Local SEO
+- Lead generation
+- Google Ads
+- Performance
+- Trust
+
+NON-NEGOTIABLE RULES
+
+1. Never invent business information.
+2. Never invent reviews.
+3. Never invent customers.
+4. Never invent projects.
+5. Never invent certifications.
+6. Never invent licenses.
+7. Never invent awards.
+8. Never invent pricing.
+9. Never invent guarantees.
+10. Never invent years of experience.
+11. Never invent team members.
+12. Never invent partnerships.
+13. Never invent recycling/disposal claims.
+14. Never copy competitor content.
+15. Never use hidden SEO text.
+16. Never keyword stuff.
+17. Never create fake schema.
+18. Never create fake ratings.
+19. Never create misleading Google Ads landing pages.
+20. Never create deceptive redirects.
+21. Never expose database credentials.
+22. Never commit secrets to Git.
+23. Never create mass low-value AI pages.
+24. Never create doorway-style location pages.
+25. Never sacrifice accessibility for design.
+26. Never sacrifice performance for animations.
+27. Never modify working functionality unnecessarily.
+
+All factual business claims must come from verified business information.
+
+If a required fact is unknown, use neutral wording or mark it as
+content that requires business verification.
+
+
+============================================================
+6. AGENT SYSTEM
+============================================================
+
+The project should use specialized agents.
+
+------------------------------------------------------------
+6.1 RESEARCH AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- Dubai junk removal market research
+- Competitor research
+- Competitor URL analysis
+- SERP analysis
+- Keyword research
+- Search intent research
+- Service research
+- Content gap analysis
+- Local search opportunities
+- Customer pain points
+
+Outputs:
+- competitors.md
+- keywords.md
+- services.md
+- customer-intent.md
+- content-gaps.md
+
+
+------------------------------------------------------------
+6.2 SEO STRATEGIST AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- Keyword mapping
+- URL architecture
+- Sitemap
+- Page hierarchy
+- Internal linking
+- Topical authority
+- Metadata
+- Canonicals
+- Hreflang
+- Indexation strategy
+- Content architecture
+- SEO QA
+
+
+------------------------------------------------------------
+6.3 TECHNICAL SEO AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- Crawlability
+- Indexability
+- Canonical tags
+- XML sitemaps
+- robots.txt
+- redirects
+- HTTP status codes
+- URL normalization
+- structured data implementation
+- pagination if needed
+- duplicate content controls
+- image SEO
+- Core Web Vitals
+
+
+------------------------------------------------------------
+6.4 LOCAL SEO AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- Dubai local targeting
+- NAP consistency
+- Google Business Profile alignment
+- Service-area strategy
+- LocalBusiness schema
+- Local landing pages
+- Local internal links
+- Local content
+- Citation consistency
+
+Important:
+Do not create thin pages for every Dubai neighborhood.
+
+An area page should only become indexable when it provides genuine
+local value and is supported by real business service coverage.
+
+
+------------------------------------------------------------
+6.5 CONTENT AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- Homepage copy
+- Service pages
+- Area pages
+- Project descriptions
+- FAQs
+- Blog content
+- CTA copy
+- Metadata
+
+Content rules:
+- Original
+- Useful
+- Accurate
+- Natural
+- Human-focused
+- Search-intent aligned
+
+Do not write content solely to increase keyword count.
+
+
+------------------------------------------------------------
+6.6 ARABIC SEO AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- Arabic keyword research
+- Arabic translations
+- Arabic metadata
+- Arabic headings
+- Arabic internal linking
+- RTL content
+- Arabic hreflang
+- Arabic SEO QA
+
+Do not perform literal machine translation without reviewing Arabic
+language quality and search intent.
+
+
+------------------------------------------------------------
+6.7 UI/UX AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- Design system
+- Typography
+- Color system
+- Spacing
+- Navigation
+- Hero sections
+- CTA design
+- Forms
+- Mobile UX
+- Arabic RTL UX
+- Accessibility
+- Conversion design
+
+Visual direction:
+- Professional
+- Clean
+- Modern
+- Premium
+- Industrial
+- Trustworthy
+- Dubai-focused
+
+Avoid:
+- Cheap-looking junk removal templates
+- Excessive orange
+- Cartoon trash graphics
+- Clutter
+- Excessive animation
+- Cheesy stock photography
+
+
+------------------------------------------------------------
+6.8 FRONTEND AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- HTML
+- CSS
+- JavaScript
+- Responsive design
+- Reusable components
+- Accessibility
+- Performance
+- Browser compatibility
+
+
+------------------------------------------------------------
+6.9 PHP BACKEND AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- Routing
+- Controllers
+- Models
+- Services
+- Forms
+- Authentication
+- Authorization
+- Admin dashboard
+- Database integration
+- Content management
+- Email notifications
+
+
+------------------------------------------------------------
+6.10 MYSQL DATABASE AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- Database schema
+- Migrations
+- Seeders
+- Relationships
+- Constraints
+- Indexes
+- Query optimization
+- Data integrity
+- Backup strategy
+
+Database:
+MySQL 8.x
+
+
+------------------------------------------------------------
+6.11 SCHEMA AGENT
+------------------------------------------------------------
+
+Potential structured data:
+- LocalBusiness
+- Organization
+- Service
+- BreadcrumbList
+- WebSite
+- WebPage
+- FAQPage where appropriate
+
+Rules:
+- Schema must represent real visible content.
+- Never create fake reviews.
+- Never create fake ratings.
+- Never create fake prices.
+- Never create unsupported business attributes.
+
+
+------------------------------------------------------------
+6.12 GOOGLE ADS COMPLIANCE AGENT
+------------------------------------------------------------
+
+Review every landing page intended for Google Ads.
+
+Check:
+- Business identity
+- Contact details
+- Destination functionality
+- Service relevance
+- Content quality
+- Mobile usability
+- Crawlability
+- Claims
+- Redirects
+- Destination mismatch
+- Original value
+- Clear service description
+
+Never use unsupported claims such as:
+- #1
+- Best
+- Cheapest
+- No.1
+- Government approved
+- Licensed
+- Certified
+- Insured
+- 24/7
+- Guaranteed
+
+unless verified by the business.
+
+Google Ads landing pages must accurately represent the advertised
+service and business.
+
+
+------------------------------------------------------------
+6.13 PERFORMANCE AGENT
+------------------------------------------------------------
+
+Targets:
+- LCP under 2.5 seconds
+- INP under 200ms
+- CLS under 0.1
+
+Responsibilities:
+- Image optimization
+- WebP/AVIF
+- Lazy loading
+- CSS optimization
+- JS optimization
+- Caching
+- Compression
+- Database performance
+- Server performance
+
+
+------------------------------------------------------------
+6.14 SECURITY AGENT
+------------------------------------------------------------
+
+Responsibilities:
+- CSRF protection
+- XSS prevention
+- SQL injection prevention
+- Prepared statements
+- Authentication security
+- Authorization
+- Session security
+- Rate limiting
+- File upload security
+- Secure headers
+- Environment variables
+- Password hashing
+
+
+------------------------------------------------------------
+6.15 QA AGENT
+------------------------------------------------------------
+
+Final quality gate.
+
+Checks:
+- Functionality
+- SEO
+- Local SEO
+- Google Ads suitability
+- UI/UX
+- Mobile
+- Accessibility
+- Performance
+- Security
+- PHP
+- MySQL
+- English
+- Arabic
+- Schema
+- Forms
+- Tracking
+
+
+============================================================
+7. AGENT WORKFLOW
+============================================================
+
+Research Agent
+        |
+        v
+SEO Strategist
+        |
+        v
+Technical SEO + Local SEO
+        |
+        v
+Content + Arabic SEO
+        |
+        v
+UI/UX
+        |
+        v
+Frontend + PHP Backend + MySQL
+        |
+        v
+Schema
+        |
+        v
+Google Ads Compliance
+        |
+        v
+Performance + Security
+        |
+        v
+QA
+        |
+        v
+Production
+
+
+============================================================
+8. PRIMARY SEO STRATEGY
+============================================================
+
+Primary keyword:
+"junk removal Dubai"
+
+Secondary keyword clusters:
+
+JUNK REMOVAL
+- junk removal Dubai
+- junk removal services Dubai
+- junk removal company Dubai
+- professional junk removal Dubai
+
+JUNK PICKUP
+- junk pickup Dubai
+- junk pickup services Dubai
+- junk collection Dubai
+
+CLEARANCE
+- junk clearance Dubai
+- house clearance Dubai
+- villa clearance Dubai
+- apartment clearance Dubai
+- office clearance Dubai
+
+DISPOSAL
+- junk disposal Dubai
+- waste disposal Dubai
+- furniture disposal Dubai
+
+FURNITURE
+- furniture removal Dubai
+- furniture pickup Dubai
+- furniture clearance Dubai
+- old furniture removal Dubai
+
+COMMERCIAL
+- commercial junk removal Dubai
+- office junk removal Dubai
+- commercial waste removal Dubai
+
+CONSTRUCTION
+- construction waste removal Dubai
+- construction junk removal Dubai
+
+
+============================================================
+9. TOPICAL SEO ARCHITECTURE
+============================================================
+
+                         JUNK REMOVAL DUBAI
+                                |
+        ------------------------------------------------
+        |                      |                       |
+     SERVICES                AREAS                  CONTENT
+        |                      |                       |
+   Junk Removal           Dubai Areas              Guides
+   Junk Pickup            Local Areas              FAQs
+   Junk Clearance         Qualified Areas          Projects
+   Junk Collection                                 Case Studies
+   Junk Disposal
+   Furniture Removal
+   Furniture Disposal
+   House Clearance
+   Villa Clearance
+   Apartment Clearance
+   Office Clearance
+   Commercial Removal
+   Construction Waste
+
+
+============================================================
+10. WEBSITE URL ARCHITECTURE
+============================================================
+
+ENGLISH:
+
+/en/
+/en/about-us/
+/en/contact-us/
+/en/services/
+/en/areas/
+/en/projects/
+/en/reviews/
+/en/faqs/
+/en/blog/
+
+SERVICES:
+
+/en/junk-removal-dubai/
+/en/junk-pickup-dubai/
+/en/junk-clearance-dubai/
+/en/junk-collection-dubai/
+/en/junk-disposal-dubai/
+/en/furniture-removal-dubai/
+/en/furniture-disposal-dubai/
+/en/house-clearance-dubai/
+/en/villa-clearance-dubai/
+/en/apartment-clearance-dubai/
+/en/office-clearance-dubai/
+/en/commercial-junk-removal/
+/en/construction-waste-removal/
+
+AREAS:
+
+/en/areas/al-quoz/
+/en/areas/jumeirah/
+/en/areas/downtown-dubai/
+/en/areas/dubai-marina/
+/en/areas/business-bay/
+/en/areas/al-barsha/
+
+Additional area pages must only be created after SEO research and
+service-area verification.
+
+
+ARABIC:
+
+/ar/
+/ar/about-us/
+/ar/contact-us/
+/ar/services/
+/ar/areas/
+/ar/projects/
+/ar/reviews/
+/ar/faqs/
+/ar/blog/
+
+Equivalent Arabic service and area pages should be created with
+proper Arabic content, metadata, RTL styling and hreflang.
+
+
+============================================================
+11. HOMEPAGE
+============================================================
+
+Primary target:
+Junk Removal Dubai
+
+Recommended H1:
+Professional Junk Removal in Dubai
+
+Homepage structure:
+
+1. Header
+2. Hero
+3. Primary CTA
+4. Service overview
+5. Why choose us
+6. How it works
+7. What we remove
+8. Residential services
+9. Commercial services
+10. Areas served
+11. Projects
+12. Reviews
+13. FAQs
+14. Final CTA
+15. Footer
+
+Hero CTA:
+Get a Free Quote
+
+Secondary:
+Call 0567021884
+
+Also provide WhatsApp access.
+
+
+============================================================
+12. SERVICE PAGES
+============================================================
+
+Each major service must have a dedicated page.
+
+Each service page should contain:
+
+- Service-specific hero
+- Clear service explanation
+- What the service includes
+- Items handled
+- Customer types
+- Service process
+- Important service information
+- Relevant areas
+- Relevant real projects
+- Relevant genuine reviews
+- Service-specific FAQs
+- CTA
+
+Every page must be unique and useful.
+
+Do not simply replace the service name in a template.
+
+
+============================================================
+13. PRIMARY SERVICE PAGES
+============================================================
+
+1. Junk Removal Dubai
+2. Junk Pickup Dubai
+3. Junk Clearance Dubai
+4. Junk Collection Dubai
+5. Junk Disposal Dubai
+6. Furniture Removal Dubai
+7. Furniture Disposal Dubai
+8. House Clearance Dubai
+9. Villa Clearance Dubai
+10. Apartment Clearance Dubai
+11. Office Clearance Dubai
+12. Commercial Junk Removal
+13. Construction Waste Removal
+
+
+============================================================
+14. FURNITURE REMOVAL
+============================================================
+
+Potential items:
+
+- Sofas
+- Beds
+- Wardrobes
+- Tables
+- Chairs
+- Cabinets
+- Mattresses
+- Office furniture
+
+Only list items that the actual business accepts.
+
+Potential supporting content:
+- Furniture removal process
+- Furniture pickup
+- Furniture disposal
+- Home furniture clearance
+- Office furniture removal
+
+
+============================================================
+15. HOUSE / VILLA / APARTMENT CLEARANCE
+============================================================
+
+Create separate pages only when the business genuinely provides these
+services.
+
+Potential content:
+- Move-out clearance
+- Unwanted household items
+- Furniture removal
+- Garage clearance
+- Storage clearance
+- Property preparation
+
+Do not make unsupported claims.
+
+
+============================================================
+16. OFFICE / COMMERCIAL SERVICES
+============================================================
+
+Potential services:
+
+- Office clearance
+- Office furniture removal
+- Commercial junk removal
+- Commercial waste removal
+- Business property clearance
+
+Potential content:
+- Desks
+- Chairs
+- Cabinets
+- Furniture
+- General unwanted items
+
+Only include items that the company actually handles.
+
+
+============================================================
+17. CONSTRUCTION WASTE
+============================================================
+
+Potential target:
+Construction waste removal Dubai
+
+Content must accurately describe the business's actual capability.
+
+Do not make claims about licensed waste transport, disposal facilities,
+recycling facilities, permits, or government approvals unless verified.
+
+
+============================================================
+18. AREAS STRATEGY
+============================================================
+
+Primary target:
+Dubai
+
+Potential areas for research:
+
+- Al Quoz
+- Jumeirah
+- Downtown Dubai
+- Dubai Marina
+- Business Bay
+- Al Barsha
+- Deira
+- Bur Dubai
+- Dubai Hills Estate
+- Arabian Ranches
+- JVC
+- Palm Jumeirah
+- Mirdif
+- International City
+- Al Nahda
+- Dubai Silicon Oasis
+
+Do not automatically create indexable pages for all areas.
+
+An area page must pass these checks:
+
+1. Business genuinely serves the area.
+2. There is meaningful search/user intent.
+3. Unique useful information can be provided.
+4. Genuine local context exists.
+5. Relevant services can be explained.
+6. Real projects can be added where available.
+7. Page is substantially different from other areas.
+
+If these requirements are not met:
+Do not create or index the page.
+
+
+============================================================
+19. AREA PAGE STRUCTURE
+============================================================
+
+Example:
+Junk Removal in Al Quoz, Dubai
+
+Recommended sections:
+
+- Area-specific hero
+- Local service introduction
+- Relevant property/business types
+- Services available
+- Common junk-removal situations
+- Practical local considerations where genuinely useful
+- Nearby areas
+- Real projects if available
+- FAQs
+- CTA
+
+Never create pages that are merely:
+"Junk removal in X. We provide junk removal in X."
+
+
+============================================================
+20. PROJECTS SYSTEM
+============================================================
+
+Projects must be real.
+
+Database-driven project fields:
+
+- id
+- title
+- slug
+- location
+- service_id
+- project_date
+- summary
+- challenge
+- solution
+- result
+- featured_image
+- status
+- created_at
+- updated_at
+
+Project translations:
+
+- project_id
+- language
+- title
+- summary
+- challenge
+- solution
+- result
+
+Potential project page structure:
+
+- Project title
+- Location
+- Service
+- Date
+- Customer situation
+- Challenge
+- Work completed
+- Result
+- Before images
+- After images
+- CTA
+
+
+============================================================
+21. REVIEWS SYSTEM
+============================================================
+
+Only genuine customer reviews.
+
+Database:
+
+reviews
+review_translations
+
+Potential fields:
+
+- id
+- customer_name
+- rating
+- review_text
+- source
+- review_date
+- location
+- service_id
+- featured
+- status
+
+If a review comes from Google, accurately identify the source.
+
+Never fabricate reviews or ratings.
+
+
+============================================================
+22. FAQ SYSTEM
+============================================================
+
+FAQs should answer real customer questions.
+
+Possible categories:
+
+- Junk removal
+- Furniture removal
+- Pricing
+- Booking
+- Areas
+- Items accepted
+- Process
+- Timing
+- Residential
+- Commercial
+
+Pricing answers must not contain invented prices.
+
+Use FAQ schema only where appropriate and where the FAQ content is
+actually visible on the page.
+
+
+============================================================
+23. BLOG / CONTENT SYSTEM
+============================================================
+
+Blog should support commercial SEO.
+
+Potential topics:
+
+JUNK REMOVAL:
+- What Is Junk Removal?
+- How Junk Removal Works in Dubai
+- How to Prepare for Junk Pickup
+
+FURNITURE:
+- What to Do With Old Furniture in Dubai
+- Furniture Removal vs Furniture Disposal
+
+PROPERTY CLEARANCE:
+- House Clearance Checklist
+- Villa Clearance Guide
+- Apartment Move-Out Clearance
+
+COMMERCIAL:
+- Office Clearance Checklist
+- Commercial Junk Removal Guide
+
+Content must provide genuine value.
+
+Do not publish large quantities of low-value AI content simply for SEO.
+
+
+============================================================
+24. BILINGUAL SEO
+============================================================
+
+English:
+lang="en"
+dir="ltr"
+
+Arabic:
+lang="ar"
+dir="rtl"
+
+Each language version must have:
+
+- Unique localized content
+- Unique localized title
+- Unique localized meta description
+- Canonical
+- Hreflang
+- Proper language attribute
+- Proper RTL styling
+- Correct internal links
+
+Example:
+
+<link rel="alternate"
+      hreflang="en"
+      href="https://junkremovalteamdubai.com/en/junk-removal-dubai/">
+
+<link rel="alternate"
+      hreflang="ar"
+      href="https://junkremovalteamdubai.com/ar/junk-removal-dubai/">
+
+<link rel="alternate"
+      hreflang="x-default"
+      href="https://junkremovalteamdubai.com/en/junk-removal-dubai/">
+
+
+============================================================
+25. MYSQL DATABASE DESIGN
+============================================================
+
+Use MySQL 8.x.
+
+Core tables:
+
+users
+admins
+services
+service_translations
+areas
+area_translations
+projects
+project_translations
+reviews
+review_translations
+faqs
+faq_translations
+pages
+page_translations
+blog_posts
+blog_post_translations
+leads
+lead_notes
+lead_status_history
+quote_requests
+contact_messages
+media
+settings
+seo_meta
+redirects
+conversion_events
+
+
+============================================================
+26. SERVICES TABLE
+============================================================
+
+services:
+
+- id
+- slug
+- status
+- sort_order
+- created_at
+- updated_at
+
+service_translations:
+
+- id
+- service_id
+- language
+- name
+- short_description
+- description
+- h1
+- content
+- meta_title
+- meta_description
+
+
+============================================================
+27. AREAS TABLE
+============================================================
+
+areas:
+
+- id
+- slug
+- status
+- sort_order
+- indexable
+- created_at
+- updated_at
+
+area_translations:
+
+- id
+- area_id
+- language
+- name
+- short_description
+- description
+- h1
+- content
+- meta_title
+- meta_description
+
+
+============================================================
+28. PAGES TABLE
+============================================================
+
+pages:
+
+- id
+- slug
+- page_type
+- status
+- indexable
+- canonical_url
+- created_at
+- updated_at
+
+page_translations:
+
+- id
+- page_id
+- language
+- title
+- h1
+- content
+- meta_title
+- meta_description
+
+
+============================================================
+29. SEO META SYSTEM
+============================================================
+
+SEO fields should be manageable through MySQL/admin:
+
+- meta_title
+- meta_description
+- canonical_url
+- robots
+- og_title
+- og_description
+- og_image
+- schema_type
+
+Do not allow duplicate titles/descriptions accidentally.
+
+
+============================================================
+30. LEAD MANAGEMENT SYSTEM
+============================================================
+
+Leads table should include:
+
+- id
+- name
+- phone
+- email
+- service_id
+- area_id
+- message
+- preferred_date
+- preferred_time
+- source
+- landing_page
+- utm_source
+- utm_medium
+- utm_campaign
+- utm_term
+- gclid
+- status
+- created_at
+- updated_at
+
+Lead statuses:
+
+- New
+- Contacted
+- Quoted
+- Booked
+- Completed
+- Lost
+- Spam
+
+
+============================================================
+31. LEAD NOTES
+============================================================
+
+lead_notes:
+
+- id
+- lead_id
+- user_id
+- note
+- created_at
+
+lead_status_history:
+
+- id
+- lead_id
+- old_status
+- new_status
+- changed_by
+- created_at
+
+
+============================================================
+32. CONVERSION TRACKING
+============================================================
+
+Track:
+
+- phone_click
+- whatsapp_click
+- quote_start
+- quote_submit
+- contact_submit
+- email_click
+- booking_submit
+
+Store campaign attribution:
+
+- utm_source
+- utm_medium
+- utm_campaign
+- utm_term
+- gclid
+- landing_page
+- referrer
+
+
+============================================================
+33. QUOTE FORM
+============================================================
+
+Recommended fields:
+
+- Name
+- Phone
+- Email
+- Area
+- Service
+- Description
+- Preferred Date
+- Preferred Time
+- Photos
+
+Photo uploads are useful for junk-removal quote requests.
+
+Upload security is mandatory.
+
+
+============================================================
+34. ADMIN DASHBOARD
+============================================================
+
+Admin dashboard:
+
+Dashboard
+|
+|-- Leads
+|-- Quote Requests
+|-- Services
+|-- Areas
+|-- Projects
+|-- Reviews
+|-- FAQs
+|-- Blog
+|-- Pages
+|-- Media
+|-- SEO
+|-- Redirects
+|-- Users
+|-- Settings
+
+
+============================================================
+35. BUSINESS INFORMATION MANAGEMENT
+============================================================
+
+Centralize business data.
+
+Settings should contain:
+
+business_name
+website
+phone
+email
+address
+city
+country
+business_hours
+whatsapp_number
+social_profiles
+
+Do not hardcode the same business information in dozens of files.
+
+Use centralized configuration/database values.
+
+Before launch, verify the exact official address, legal business name,
+phone, operating hours and other factual business information.
+
+
+============================================================
+36. HEADER
+============================================================
+
+Recommended navigation:
+
+Home
+Services
+Areas
+Projects
+Reviews
+About
+FAQs
+Contact
+Get a Quote
+Arabic/English switcher
+
+Header should remain simple.
+
+Primary desktop CTA:
+Get a Quote
+
+Mobile:
+Call
+Menu
+
+
+============================================================
+37. MOBILE NAVIGATION
+============================================================
+
+Mobile must prioritize conversions.
+
+Potential fixed bottom bar:
+
+Call
+WhatsApp
+Get Quote
+
+Do not let the bar cover important page content.
+
+Test on common mobile screen sizes.
+
+
+============================================================
+38. FOOTER
+============================================================
+
+Footer should contain:
+
+Junk Removal Team Dubai
+
+Short business description
+
+Services:
+- Junk Removal
+- Junk Pickup
+- Junk Clearance
+- Furniture Removal
+- House Clearance
+- Villa Clearance
+- Office Clearance
+- Commercial Junk Removal
+
+Areas:
+- Dubai
+- Al Quoz
+- Jumeirah
+- Downtown Dubai
+- Dubai Marina
+- Business Bay
+- Other genuinely served areas
+
+Company:
+- About
+- Projects
+- Reviews
+- FAQs
+- Contact
+
+Legal:
+- Privacy Policy
+- Terms & Conditions
+- Cookie Policy
+- Disclaimer
+
+Contact:
+- Phone
+- WhatsApp
+- Email
+- Address
+
+
+============================================================
+39. CONTACT PAGE
+============================================================
+
+Must clearly display:
+
+Business Name:
+Junk Removal Team Dubai
+
+Address:
+Al Qouz 3 Industrial Areas, Dubai, UAE
+
+Phone:
+0567021884
+
+Email:
+contact.junkremovalteam@gmail.com
+
+Include:
+
+- Contact form
+- Quote CTA
+- Call CTA
+- WhatsApp CTA
+- Map/location information where appropriate
+
+Do not display a fake map location.
+
+
+============================================================
+40. LEGAL PAGES
+============================================================
+
+Minimum:
+
+- Privacy Policy
+- Terms & Conditions
+- Cookie Policy
+- Disclaimer
+
+Potential additional pages if applicable:
+
+- Cancellation Policy
+- Refund Policy
+- Service Terms
+
+Legal content must reflect the actual business model and should not be
+copied blindly from competitors.
+
+
+============================================================
+41. GOOGLE ADS ARCHITECTURE
+============================================================
+
+Do not send every ad to the homepage.
+
+Use relevant landing pages.
+
+Example:
+
+Campaign:
+Junk Removal Dubai
+
+Landing:
+ /en/junk-removal-dubai/
+
+Campaign:
+Furniture Removal Dubai
+
+Landing:
+ /en/furniture-removal-dubai/
+
+Campaign:
+House Clearance Dubai
+
+Landing:
+ /en/house-clearance-dubai/
+
+Campaign:
+Office Clearance Dubai
+
+Landing:
+ /en/office-clearance-dubai/
+
+Goal:
+
+Keyword
+   |
+   v
+Ad
+   |
+   v
+Relevant Landing Page
+   |
+   v
+Conversion
+
+
+============================================================
+42. GOOGLE ADS LANDING PAGE REQUIREMENTS
+============================================================
+
+Landing pages must:
+
+- Load correctly
+- Work on mobile
+- Clearly identify the business
+- Clearly describe the advertised service
+- Show contact information
+- Have a working phone number
+- Have a working form
+- Provide useful original content
+- Be crawlable
+- Be accessible
+- Not redirect to unrelated destinations
+- Match the advertised service
+- Not use deceptive claims
+
+Never create a landing page solely to manipulate Ads Quality Score.
+
+
+============================================================
+43. GOOGLE ADS CLAIMS POLICY
+============================================================
+
+Never make unsupported claims.
+
+Avoid unless verified:
+
+- Best junk removal company
+- #1 junk removal company
+- Cheapest junk removal
+- No.1 service
+- Guaranteed lowest price
+- Government approved
+- Licensed
+- Certified
+- Fully insured
+- 24/7
+- Same-day guaranteed
+- 100% guaranteed
+
+Only use factual claims that the company can substantiate.
+
+
+============================================================
+44. GOOGLE ADS CONVERSION TRACKING
+============================================================
+
+Prepare for:
+
+- Google Analytics 4
+- Google Tag Manager
+- Google Ads
+- Google Search Console
+
+Events:
+
+phone_click
+whatsapp_click
+quote_start
+quote_submit
+contact_submit
+email_click
+booking_submit
+
+The backend should also preserve attribution data in MySQL.
+
+
+============================================================
+45. TECHNICAL SEO
+============================================================
+
+Implement:
+
+- HTTPS
+- Clean URLs
+- Canonical tags
+- XML sitemap
+- robots.txt
+- 301 redirects
+- 404 page
+- Proper HTTP status codes
+- No duplicate URL variants
+- Breadcrumbs
+- Hreflang
+- Open Graph
+- Social metadata
+- Image alt text
+- Structured data
+
+Admin/private pages must not be publicly indexable.
+
+
+============================================================
+46. XML SITEMAP
+============================================================
+
+Preferred architecture:
+
+/sitemap.xml
+
+or sitemap index:
+
+/sitemap_index.xml
+
+Potential sub-sitemaps:
+
+/sitemap-pages.xml
+/sitemap-services.xml
+/sitemap-areas.xml
+/sitemap-projects.xml
+/sitemap-blog.xml
+
+Only include canonical, indexable, published URLs.
+
+
+============================================================
+47. ROBOTS.TXT
+============================================================
+
+robots.txt should:
+
+- Allow important public pages
+- Allow search engines to crawl Ads landing pages
+- Block private/admin areas
+- Reference sitemap
+
+Do not accidentally block CSS, JS or critical resources.
+
+
+============================================================
+48. CANONICALIZATION
+============================================================
+
+Every indexable page should have a self-referencing canonical unless
+there is a deliberate canonical relationship.
+
+Canonical URLs must:
+- Use HTTPS
+- Use preferred hostname
+- Use preferred URL format
+- Avoid tracking parameters
+
+
+============================================================
+49. HREFLANG
+============================================================
+
+Every bilingual equivalent page should reference:
+
+English
+Arabic
+x-default
+
+Do not create broken hreflang relationships.
+
+English pages must point to Arabic equivalents where available.
+
+Arabic pages must point to English equivalents where available.
+
+
+============================================================
+50. STRUCTURED DATA
+============================================================
+
+Potential schema:
+
+LocalBusiness
+Organization
+Service
+BreadcrumbList
+WebSite
+WebPage
+FAQPage where appropriate
+
+Rules:
+- Must match visible content.
+- Must contain accurate information.
+- No fake reviews.
+- No fake ratings.
+- No invented prices.
+- No invented certifications.
+
+
+============================================================
+51. LOCAL BUSINESS SCHEMA
+============================================================
+
+Example base structure:
+
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Junk Removal Team Dubai",
+  "telephone": "+971567021884",
+  "email": "contact.junkremovalteam@gmail.com",
+  "url": "https://junkremovalteamdubai.com/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Al Qouz 3 Industrial Areas",
+    "addressLocality": "Dubai",
+    "addressCountry": "AE"
+  }
+}
+
+Before production:
+Verify exact official business information.
+
+
+============================================================
+52. INTERNAL LINKING
+============================================================
+
+Internal links should connect:
+
+Homepage
+    |
+    +-- Junk Removal
+    +-- Junk Pickup
+    +-- Furniture Removal
+    +-- House Clearance
+    +-- Villa Clearance
+    +-- Office Clearance
+    +-- Commercial Services
+    |
+    +-- Areas
+    |
+    +-- Projects
+    |
+    +-- Reviews
+    |
+    +-- FAQs
+    |
+    +-- Contact
+
+Use natural anchor text.
+
+Do not over-optimize exact-match anchors.
+
+
+============================================================
+53. SEO METADATA
+============================================================
+
+Every indexable page needs:
+
+- Unique title
+- Unique meta description
+- One H1
+- Logical H2/H3 structure
+- Canonical
+- Robots directive
+- Open Graph title
+- Open Graph description
+- Open Graph image
+- Relevant schema
+- Internal links
+
+Never create metadata programmatically by simply adding a location name
+to the same template without review.
+
+
+============================================================
+54. CONTENT QUALITY
+============================================================
+
+Every page must answer:
+
+"Why would a real Dubai customer find this page useful?"
+
+If the only answer is:
+"Because we want to rank for this keyword."
+
+Then the page should not be published.
+
+Content must be:
+- Original
+- Helpful
+- Accurate
+- Relevant
+- Naturally written
+- Conversion-aware
+
+
+============================================================
+55. AI CONTENT POLICY
+============================================================
+
+Claude may assist with content production.
+
+However:
+
+- No mass publishing of thin AI pages
+- No repetitive paragraphs
+- No keyword stuffing
+- No fake experience
+- No invented case studies
+- No invented reviews
+- No fabricated local details
+- No competitor copying
+
+Human/business verification is required for factual claims.
+
+
+============================================================
+56. PERFORMANCE
+============================================================
+
+Targets:
+
+LCP < 2.5 seconds
+INP < 200ms
+CLS < 0.1
+
+Use:
+
+- WebP
+- AVIF where suitable
+- Responsive images
+- Lazy loading
+- Image dimensions
+- Minimal JavaScript
+- Critical CSS where useful
+- Browser caching
+- Server caching
+- Compression
+- PHP OPcache
+- Optimized MySQL queries
+
+Avoid:
+
+- Huge videos
+- Autoplay backgrounds
+- Unnecessary sliders
+- Heavy JS libraries
+- Excessive third-party scripts
+
+
+============================================================
+57. ACCESSIBILITY
+============================================================
+
+Follow strong WCAG principles.
+
+Implement:
+
+- Semantic HTML
+- Proper heading hierarchy
+- Labels for forms
+- Keyboard navigation
+- Visible focus
+- Accessible buttons
+- Alt text
+- Good contrast
+- Logical tab order
+- Accessible error messages
+- RTL accessibility
+
+Test English and Arabic separately.
+
+
+============================================================
+58. SECURITY
+============================================================
+
+PHP:
+
+- Prepared statements
+- CSRF protection
+- Input validation
+- Output escaping
+- Secure sessions
+- Authentication
+- Authorization
+- Rate limiting
+
+MySQL:
+
+- PDO
+- Prepared statements
+- Least-privilege database user
+- Indexed queries
+- Constraints
+
+Uploads:
+
+- File-size limits
+- MIME validation
+- Extension validation
+- Random filenames
+- Secure storage
+- Image processing
+- Prevent executable uploads
+
+Secrets:
+
+- Use .env
+- Never commit .env
+- Never expose passwords
+- Never expose API keys
+
+
+============================================================
+59. ADMIN SECURITY
+============================================================
+
+Admin area:
+
+/admin/
+
+Requirements:
+
+- Strong password hashing
+- Session security
+- CSRF
+- Login throttling
+- Authorization checks
+- Secure logout
+- Audit trail where useful
+
+Only authorized users may access admin functions.
+
+
+============================================================
+60. DATABASE BACKUP
+============================================================
+
+Production database must have a backup strategy.
+
+Back up:
+
+- MySQL database
+- uploaded media
+- configuration where appropriate
+
+Test restoration periodically.
+
+Do not assume a backup exists simply because the server provider says
+the server is backed up.
+
+
+============================================================
+61. GIT
+============================================================
+
+Recommended branches:
+
+main
+develop
+feature/*
+
+Never commit:
+
+.env
+database credentials
+API keys
+SMTP credentials
+private uploads
+production secrets
+
+Use database migrations.
+
+Never modify production directly without version control.
+
+
+============================================================
+62. DEVELOPMENT ENVIRONMENTS
+============================================================
+
+Use:
+
+Development
+Staging
+Production
+
+Development:
+Local Claude Code development.
+
+Staging:
+Final testing.
+
+Production:
+Live website.
+
+Do not develop directly on production.
+
+
+============================================================
+63. ADMIN CONTENT MANAGEMENT
+============================================================
+
+Admin should eventually manage:
+
+- Pages
+- Services
+- Areas
+- Projects
+- Reviews
+- FAQs
+- Blog
+- Media
+- SEO metadata
+- Redirects
+- Leads
+- Settings
+
+Content should be database-driven where practical.
+
+
+============================================================
+64. MEDIA SYSTEM
+============================================================
+
+Media system should store:
+
+- filename
+- path
+- alt text
+- title
+- MIME type
+- width
+- height
+- file size
+- upload date
+
+Images should be optimized before publication.
+
+Alt text should describe the actual image, not contain keywords
+artificially.
+
+
+============================================================
+65. PROJECT IMAGE SYSTEM
+============================================================
+
+Project galleries should support:
+
+- Before image
+- After image
+- Gallery images
+- Alt text
+- Captions
+
+Only genuine project images.
+
+Do not use stock images as fake project evidence.
+
+
+============================================================
+66. REVIEWS + PROJECTS + AREAS RELATIONSHIPS
+============================================================
+
+Where genuine data exists, connect:
+
+Project
+  -> Service
+  -> Area
+
+Review
+  -> Service
+  -> Area
+
+This allows relevant content to appear on service and area pages.
+
+Example:
+
+Furniture Removal
+  -> Dubai Marina
+  -> Project A
+  -> Genuine Review A
+
+
+============================================================
+67. HOMEPAGE CONVERSION STRATEGY
+============================================================
+
+Primary CTA:
+Get a Free Quote
+
+Secondary:
+Call Now
+
+Third:
+WhatsApp
+
+CTA placement:
+
+- Hero
+- After services
+- After process
+- After trust section
+- Before FAQ
+- Footer
+
+Do not overuse intrusive popups.
+
+
+============================================================
+68. CONTACT / QUOTE UX
+============================================================
+
+The user should be able to contact the business within seconds.
+
+Desktop:
+- Call
+- WhatsApp
+- Quote
+
+Mobile:
+- Call
+- WhatsApp
+- Quote fixed access
+
+Forms must:
+- Validate
+- Show useful errors
+- Preserve input after validation errors where safe
+- Confirm successful submission
+- Prevent spam
+- Send notification
+
+
+============================================================
+69. EMAIL SYSTEM
+============================================================
+
+Lead notifications should be sent to:
+
+contact.junkremovalteam@gmail.com
+
+Potential notification:
+
+New Website Lead
+Name
+Phone
+Email
+Service
+Area
+Message
+Preferred Date
+Preferred Time
+Landing Page
+Source
+Campaign
+
+Email credentials must never be stored directly in public code.
+
+
+============================================================
+70. ERROR HANDLING
+============================================================
+
+Create:
+
+- 404 page
+- 403 page where needed
+- 500 page
+- Form validation errors
+- Database error handling
+- Logging
+
+Never expose raw PHP/MySQL errors to users in production.
+
+
+============================================================
+71. LOGGING
+============================================================
+
+Log:
+
+- PHP errors
+- authentication failures
+- important admin actions
+- form errors
+- critical application exceptions
+
+Do not log sensitive information unnecessarily.
+
+
+============================================================
+72. GOOGLE SEARCH CONSOLE READINESS
+============================================================
+
+Prepare for:
+
+- Domain verification
+- XML sitemap submission
+- Indexing inspection
+- Core Web Vitals
+- Search performance
+- Coverage monitoring
+
+Track:
+- impressions
+- clicks
+- CTR
+- rankings
+- indexed pages
+
+
+============================================================
+73. GOOGLE ANALYTICS READINESS
+============================================================
+
+Prepare GA4 integration.
+
+Track:
+
+- page_view
+- phone_click
+- whatsapp_click
+- quote_start
+- quote_submit
+- contact_submit
+- email_click
+- booking_submit
+
+Do not collect unnecessary personal information in analytics.
+
+
+============================================================
+74. GOOGLE ADS LANDING PAGE DESIGN
+============================================================
+
+Ads landing pages should include:
+
+- Clear H1 matching search intent
+- Short value proposition
+- Service details
+- Trust information
+- Relevant images
+- Process
+- Service area
+- FAQs
+- Contact options
+- Quote form
+- Phone
+- WhatsApp
+- Footer/business identity
+
+Do not hide navigation or business identity simply to increase conversion.
+
+
+============================================================
+75. SERVICE-TO-ADS MAPPING
+============================================================
+
+Primary:
+
+"junk removal Dubai"
+    ->
+/en/junk-removal-dubai/
+
+"junk pickup Dubai"
+    ->
+/en/junk-pickup-dubai/
+
+"furniture removal Dubai"
+    ->
+/en/furniture-removal-dubai/
+
+"house clearance Dubai"
+    ->
+/en/house-clearance-dubai/
+
+"villa clearance Dubai"
+    ->
+/en/villa-clearance-dubai/
+
+"office clearance Dubai"
+    ->
+/en/office-clearance-dubai/
+
+"commercial junk removal Dubai"
+    ->
+/en/commercial-junk-removal/
+
+
+============================================================
+76. PAGE INDEXATION STRATEGY
+============================================================
+
+Index:
+
+- Core pages
+- Valuable service pages
+- Valuable area pages
+- Genuine project pages
+- Valuable blog content
+
+Do not index:
+
+- Admin
+- Search results
+- Filter URLs
+- Tracking parameter URLs
+- Duplicate pages
+- Thin area pages
+- Empty category pages
+- Draft content
+- Internal utility pages
+
+
+============================================================
+77. URL RULES
+============================================================
+
+URLs must be:
+
+- lowercase
+- readable
+- short where practical
+- keyword-relevant
+- hyphen separated
+- permanent
+
+Avoid:
+- query-string URLs for core pages
+- random IDs
+- dates in permanent service URLs
+- unnecessary folders
+
+
+============================================================
+78. 301 REDIRECT SYSTEM
+============================================================
+
+Create a redirects table:
+
+redirects:
+
+- id
+- source_url
+- destination_url
+- status_code
+- active
+- created_at
+
+Use 301 for permanent URL changes.
+
+Avoid redirect chains.
+
+
+============================================================
+79. 404 STRATEGY
+============================================================
+
+404 page should:
+
+- Explain page not found
+- Link to homepage
+- Link to services
+- Link to areas
+- Link to contact
+- Provide search/navigation where useful
+
+Do not automatically redirect every 404 to homepage.
+
+
+============================================================
+80. DESIGN SYSTEM
+============================================================
+
+Create centralized:
+
+- colors
+- typography
+- spacing
+- radius
+- shadows
+- buttons
+- cards
+- forms
+- alerts
+- badges
+- navigation
+- footer
+
+Use CSS variables.
+
+Example:
+
+--color-primary
+--color-secondary
+--color-accent
+--color-text
+--color-background
+--space-1
+--space-2
+--space-3
+etc.
+
+Final colors must be selected after competitor/UI research.
+
+
+============================================================
+81. IMAGE STRATEGY
+============================================================
+
+Prioritize:
+
+1. Genuine company images
+2. Genuine team images
+3. Genuine trucks/equipment
+4. Genuine completed work
+5. Genuine before/after images
+6. High-quality supporting imagery
+
+Do not use stock photography as evidence of actual company work.
+
+
+============================================================
+82. TRUST ELEMENTS
+============================================================
+
+Potential trust elements:
+
+- Clear company identity
+- Local Dubai location
+- Phone number
+- Email
+- Real projects
+- Genuine reviews
+- Service explanation
+- Clear process
+- Clear contact options
+
+Only use additional trust badges/certifications if genuine.
+
+
+============================================================
+83. NAVIGATION ARCHITECTURE
+============================================================
+
+Desktop:
+
+Home
+Services
+Areas
+Projects
+Reviews
+About
+FAQs
+Contact
+Get a Quote
+AR
+
+Services dropdown:
+- Junk Removal
+- Junk Pickup
+- Junk Clearance
+- Junk Collection
+- Junk Disposal
+- Furniture Removal
+- Furniture Disposal
+- House Clearance
+- Villa Clearance
+- Apartment Clearance
+- Office Clearance
+- Commercial Junk Removal
+- Construction Waste Removal
+
+
+============================================================
+84. FOOTER SEO
+============================================================
+
+Footer should support navigation but must not become a keyword dump.
+
+Use natural service and area links.
+
+Do not create a massive block of exact-match keyword links.
+
+
+============================================================
+85. CONTENT CLUSTERS
+============================================================
+
+CLUSTER 1:
+Junk Removal
+
+CLUSTER 2:
+Junk Pickup
+
+CLUSTER 3:
+Junk Clearance
+
+CLUSTER 4:
+Junk Disposal
+
+CLUSTER 5:
+Furniture Removal
+
+CLUSTER 6:
+Property Clearance
+
+CLUSTER 7:
+Commercial Removal
+
+CLUSTER 8:
+Construction Waste
+
+CLUSTER 9:
+Dubai Service Areas
+
+
+============================================================
+86. CONTENT BRIEF STANDARD
+============================================================
+
+Every page brief must specify:
+
+- Primary keyword
+- Secondary keywords
+- Search intent
+- Target audience
+- URL
+- H1
+- Title
+- Meta description
+- H2 structure
+- Content requirements
+- Internal links
+- External references if needed
+- Schema
+- CTA
+- Conversion goal
+- FAQ
+- Image requirements
+
+
+============================================================
+87. SEO KEYWORD MAPPING
+============================================================
+
+Never map the same primary keyword to many competing pages without
+a clear search-intent reason.
+
+Example:
+
+Homepage:
+Junk Removal Dubai
+
+Service:
+Junk Pickup Dubai
+
+Service:
+Furniture Removal Dubai
+
+Service:
+House Clearance Dubai
+
+This avoids internal keyword cannibalization.
+
+
+============================================================
+88. LOCAL SEO NAP
+============================================================
+
+Maintain consistency for:
+
+Business name:
+Junk Removal Team Dubai
+
+Address:
+Al Qouz 3 Industrial Areas, Dubai, UAE
+
+Phone:
+0567021884
+
+Email:
+contact.junkremovalteam@gmail.com
+
+Website:
+https://junkremovalteamdubai.com/
+
+Verify the final official formatting before publishing.
+
+
+============================================================
+89. GOOGLE BUSINESS PROFILE ALIGNMENT
+============================================================
+
+Website information should align with the company's Google Business
+Profile:
+
+- Business name
+- Phone
+- Address
+- Website
+- Services
+- Business description
+- Photos
+- Service areas where applicable
+
+Never create inconsistent business information.
+
+
+============================================================
+90. LEGAL / COMPLIANCE PRINCIPLE
+============================================================
+
+The website must not make claims that create regulatory or advertising
+risk.
+
+If the business provides regulated waste services, Claude must not
+invent compliance credentials.
+
+Any statement about:
+- licensing
+- permits
+- recycling
+- disposal facilities
+- government approval
+- insurance
+- certifications
+
+must be verified first.
+
+
+============================================================
+91. DATABASE RELATIONSHIPS
+============================================================
+
+Recommended relationships:
+
+services
+  |
+  +-- service_translations
+  |
+  +-- projects
+  |
+  +-- reviews
+  |
+  +-- FAQs where applicable
+
+areas
+  |
+  +-- area_translations
+  |
+  +-- projects
+  |
+  +-- reviews
+  |
+  +-- leads
+
+projects
+  |
+  +-- project_translations
+  +-- media
+
+reviews
+  |
+  +-- review_translations
+
+pages
+  |
+  +-- page_translations
+  +-- seo_meta
+
+leads
+  |
+  +-- lead_notes
+  +-- lead_status_history
+
+
+============================================================
+92. MYSQL INDEXING
+============================================================
+
+Important indexes should exist on:
+
+- slug
+- status
+- language
+- service_id
+- area_id
+- created_at
+- email where appropriate
+- phone where appropriate
+- gclid where appropriate
+- UTM campaign fields where useful
+
+Use composite indexes where query patterns justify them.
+
+Do not add indexes blindly.
+
+
+============================================================
+93. MYSQL DATA INTEGRITY
+============================================================
+
+Use:
+
+- Foreign keys where appropriate
+- NOT NULL where appropriate
+- UNIQUE constraints
+- ENUM or controlled status values where appropriate
+- Transactions for multi-table operations
+- Timestamps
+
+Do not allow orphaned translations or relationships.
+
+
+============================================================
+94. ADMIN SEO CONTROLS
+============================================================
+
+Admin should be able to control:
+
+- Meta title
+- Meta description
+- Canonical
+- Robots
+- Index/noindex
+- Open Graph
+- Featured image
+- Schema type
+- Redirects
+
+But critical technical SEO rules should not be easily broken by casual
+admin edits.
+
+
+============================================================
+95. FORM SECURITY
+============================================================
+
+All forms must have:
+
+- CSRF token
+- Server-side validation
+- Rate limiting
+- Spam protection
+- Input length limits
+- Output escaping
+- Safe database insertion
+
+Client-side validation is not enough.
+
+
+============================================================
+96. PHOTO UPLOAD SECURITY
+============================================================
+
+If quote forms accept images:
+
+- Limit file size
+- Validate MIME type
+- Validate actual image content
+- Rename files
+- Do not trust original filename
+- Prevent PHP/script execution
+- Store safely
+- Generate optimized versions
+- Reject unsupported file types
+
+
+============================================================
+97. TESTING STRATEGY
+============================================================
+
+Functional tests:
+
+- Navigation
+- Forms
+- Login
+- Admin
+- CRUD
+- Email
+- Uploads
+- Language switching
+
+SEO tests:
+
+- Titles
+- Meta descriptions
+- H1
+- Canonicals
+- Hreflang
+- Sitemap
+- Robots
+- Schema
+- Internal links
+- 404
+- redirects
+
+Performance tests:
+
+- Page speed
+- image sizes
+- JS
+- CSS
+- database queries
+
+Security tests:
+
+- SQL injection
+- XSS
+- CSRF
+- authentication
+- authorization
+- uploads
+- session security
+
+
+============================================================
+98. RESPONSIVE TESTING
+============================================================
+
+Test at minimum:
+
+- Mobile portrait
+- Mobile landscape
+- Tablet
+- Laptop
+- Desktop
+- Large desktop
+
+Test both:
+
+English LTR
+Arabic RTL
+
+
+============================================================
+99. BROWSER TESTING
+============================================================
+
+Test:
+
+- Chrome
+- Edge
+- Firefox
+- Safari where available
+- Mobile browsers
+
+
+============================================================
+100. FINAL QA REPORT
+============================================================
+
+Before production:
+
+SEO: PASS / FAIL
+Local SEO: PASS / FAIL
+Google Ads: PASS / FAIL
+UI/UX: PASS / FAIL
+Accessibility: PASS / FAIL
+Performance: PASS / FAIL
+Security: PASS / FAIL
+PHP: PASS / FAIL
+MySQL: PASS / FAIL
+English: PASS / FAIL
+Arabic: PASS / FAIL
+Mobile: PASS / FAIL
+Schema: PASS / FAIL
+Forms: PASS / FAIL
+Tracking: PASS / FAIL
+Legal: PASS / FAIL
+
+Critical failures must be fixed before production.
+
+
+============================================================
+101. INITIAL PRODUCTION PAGE SET
+============================================================
+
+CORE:
+
+1. Homepage
+2. About
+3. Contact
+4. Reviews
+5. Projects
+6. FAQs
+
+SERVICES:
+
+7. Junk Removal Dubai
+8. Junk Pickup Dubai
+9. Junk Clearance Dubai
+10. Junk Collection Dubai
+11. Junk Disposal Dubai
+12. Furniture Removal Dubai
+13. Furniture Disposal Dubai
+14. House Clearance Dubai
+15. Villa Clearance Dubai
+16. Apartment Clearance Dubai
+17. Office Clearance Dubai
+18. Commercial Junk Removal
+19. Construction Waste Removal
+
+AREAS:
+Only qualified/researched areas.
+
+LEGAL:
+
+20. Privacy Policy
+21. Terms & Conditions
+22. Cookie Policy
+23. Disclaimer
+
+
+============================================================
+102. SEO EXPANSION PRINCIPLE
+============================================================
+
+Do not launch hundreds of pages just because PHP/MySQL makes it easy.
+
+Expand based on:
+
+- Search demand
+- Business capability
+- Search intent
+- Genuine content opportunities
+- Real projects
+- Real reviews
+- Local relevance
+- Conversion value
+
+Quality over page count.
+
+
+============================================================
+103. LONG-TERM SEO STRATEGY
+============================================================
+
+The website should grow in this order:
+
+Core commercial pages
+        |
+        v
+Service authority
+        |
+        v
+Qualified local pages
+        |
+        v
+Real projects
+        |
+        v
+Real reviews
+        |
+        v
+Helpful supporting content
+        |
+        v
+Internal linking
+        |
+        v
+Local authority
+        |
+        v
+Organic rankings
+        |
+        v
+Google Ads optimization
+
+
+============================================================
+104. GOOGLE ADS + SEO RELATIONSHIP
+============================================================
+
+SEO and Ads should share the same intent architecture.
+
+SEO:
+Search query
+   |
+   v
+Organic landing page
+
+Ads:
+Search query
+   |
+   v
+Ad
+   |
+   v
+Relevant landing page
+
+The same well-built commercial pages can often serve both organic and
+paid traffic, provided they meet the relevant landing-page requirements.
+
+
+============================================================
+105. RECOMMENDED HOMEPAGE CONTENT FLOW
+============================================================
+
+HEADER
+  |
+HERO
+  |
+PRIMARY CTA
+  |
+TRUST / BUSINESS INTRO
+  |
+SERVICES
+  |
+HOW IT WORKS
+  |
+WHAT WE REMOVE
+  |
+RESIDENTIAL
+  |
+COMMERCIAL
+  |
+WHY CHOOSE US
+  |
+AREAS
+  |
+PROJECTS
+  |
+REVIEWS
+  |
+FAQ
+  |
+FINAL CTA
+  |
+FOOTER
+
+
+============================================================
+106. BRAND POSITIONING
+============================================================
+
+Brand:
+Junk Removal Team Dubai
+
+Desired perception:
+
+Professional
+Reliable
+Local
+Straightforward
+Responsive
+Clean
+Modern
+Trustworthy
+
+The website should feel like a legitimate Dubai service company,
+not a keyword-generated website.
+
+
+============================================================
+107. COPYWRITING PRINCIPLES
+============================================================
+
+Write for the customer first.
+
+Focus on:
+- Problem
+- Solution
+- Service
+- Process
+- Trust
+- Convenience
+- Contact
+
+Avoid:
+- Excessive marketing language
+- Fake urgency
+- Fake scarcity
+- Unsupported superlatives
+- Keyword stuffing
+- Repetitive copy
+
+
+============================================================
+108. CTA COPY
+============================================================
+
+Primary:
+Get a Free Quote
+
+Secondary:
+Call Now
+
+WhatsApp:
+WhatsApp Us
+
+Other possible CTA:
+Request Junk Removal
+
+CTA wording should remain truthful and consistent with the actual
+business process.
+
+
+============================================================
+109. CONTACT INFORMATION
+============================================================
+
+Business:
+Junk Removal Team Dubai
+
+Address:
+Al Qouz 3 Industrial Areas, Dubai, UAE
+
+Phone:
+0567021884
+
+Email:
+contact.junkremovalteam@gmail.com
+
+Website:
+https://junkremovalteamdubai.com/
+
+
+============================================================
+110. FINAL PROJECT STANDARD
+============================================================
+
+The final website must be:
+
+FAST
+SEO-FOCUSED
+BILINGUAL
+MOBILE-FIRST
+ACCESSIBLE
+SECURE
+GOOGLE-ADS-READY
+LOCAL-SEO-READY
+DATABASE-DRIVEN
+CONVERSION-FOCUSED
+EASY TO MANAGE
+SCALABLE
+
+Most importantly:
+
+The website must provide real value to Dubai customers.
+
+Do not build pages simply because a keyword exists.
+
+Do not invent business facts.
+
+Do not create fake reviews or projects.
+
+Do not mass-produce thin AI pages.
+
+Do not sacrifice technical quality for page quantity.
+
+Do not sacrifice conversion for unnecessary design.
+
+Do not sacrifice SEO for visual effects.
+
+
+============================================================
+111. MASTER ARCHITECTURE SUMMARY
+============================================================
+
+Claude Code
+     |
+     v
+CLAUDE.md
+     |
+     +----------------------------+
+     |                            |
+     v                            v
+Specialized Agents          Project Skills
+     |
+     +-- Research
+     +-- SEO
+     +-- Technical SEO
+     +-- Local SEO
+     +-- Content
+     +-- Arabic SEO
+     +-- UI/UX
+     +-- Frontend
+     +-- PHP
+     +-- MySQL
+     +-- Schema
+     +-- Google Ads
+     +-- Performance
+     +-- Security
+     +-- QA
+     |
+     v
+PHP + HTML + CSS + JS
+     |
+     v
+MySQL 8.x
+     |
+     +-- Services
+     +-- Areas
+     +-- Projects
+     +-- Reviews
+     +-- FAQs
+     +-- Pages
+     +-- Blog
+     +-- Leads
+     +-- Quotes
+     +-- Media
+     +-- SEO
+     +-- Tracking
+     |
+     v
+English + Arabic
+     |
+     v
+SEO + Google Ads
+     |
+     v
+Calls + WhatsApp + Quote Leads
+     |
+     v
+Dubai Customers
+
+
+============================================================
+112. IMPORTANT IMPLEMENTATION RULE
+============================================================
+
+Before Claude starts writing production PHP/HTML:
+
+Claude must first create and review:
+
+1. Research documentation
+2. Competitor analysis
+3. Keyword map
+4. Search-intent map
+5. Service architecture
+6. Area architecture
+7. URL architecture
+8. Internal-linking architecture
+9. Database ERD/schema
+10. Content briefs
+11. UI/UX design system
+12. Google Ads landing-page strategy
+13. Technical SEO specification
+14. Bilingual architecture
+15. Security specification
+16. Performance specification
+17. Testing specification
+18. Final CLAUDE.md
+
+Only then should implementation begin.
+
+The purpose is to prevent rebuilding the project later because SEO,
+database, Arabic, Ads, URL, or content architecture was decided after
+development.
+
+
+============================================================
+END OF BLUEPRINT
+============================================================
