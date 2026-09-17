@@ -12,7 +12,7 @@
 <!-- ?v= is a cache buster: the server sends Cache-Control max-age=604800 (7 days),
      so bump this number whenever site.css or site.js changes, otherwise repeat
      visitors keep the old stylesheet and the layout breaks. -->
-<link rel="stylesheet" href="assets/css/site.css?v=6">
+<link rel="stylesheet" href="assets/css/site.css?v=7">
 </head>
 <body>
 
@@ -54,12 +54,11 @@
 <!-- ===== Top bar ===== -->
 <div class="topbar">
   <div class="container">
-    <span class="tb-item address"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Al Qouz 3 Industrial Areas - Dubai, UAE</span>
-    <a class="tb-item email" href="mailto:contact.junkremovalteam@gmail.com" data-track="email_click"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>contact.junkremovalteam@gmail.com</a>
-    <!-- Phone screens show these instead of the address and email -->
     <span class="tb-social">
-      <a class="fb" href="#" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-fb"/></svg></a>
-      <a class="ig" href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-fb"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-li"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#i-yt"/></svg></a>
     </span>
     <span class="tb-right lang">
       <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
@@ -85,8 +84,6 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#why">About Us</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#quote">Contact</a></li>
       </ul>
     </nav>
 
@@ -535,18 +532,30 @@
         <a class="brand" href="index.html" aria-label="Junk Removal Team Dubai — home">
           <img class="brand-logo" src="assets/images/logo-footer.png" alt="Junk Removal Team Dubai" width="420" height="140" loading="lazy">
         </a>
+        <p class="footer-about">We clear unwanted furniture, appliances and household or office junk from apartments, villas, offices and shops across Dubai — we do the lifting, loading and taking away.</p>
       </div>
       <div>
         <h3>Quick Links</h3>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#why">About Us</a></li>
-          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#why">About Us</a></li>
+          <li><a href="#quote">Contact</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#areas">Areas We Serve</a></li>
-          <li><a href="#quote">Contact</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">Junk Removal</a></li>
+          <li><a href="#services">Furniture Removal</a></li>
+          <li><a href="#services">House Clearance</a></li>
+          <li><a href="#services">Office Clearance</a></li>
+          <li><a href="#services">Construction Waste</a></li>
+          <li><a href="#services">E-Waste Disposal</a></li>
         </ul>
       </div>
       <div>
@@ -556,15 +565,6 @@
           <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:contact.junkremovalteam@gmail.com" data-track="email_click">contact.junkremovalteam@gmail.com</a></li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><a class="ltr" href="tel:+971567021884" data-track="phone_click">056 702 1884</a></li>
         </ul>
-      </div>
-      <div>
-        <h3>Follow Us</h3>
-        <div class="socials">
-          <a class="fb" href="#" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-fb"/></svg></a>
-          <a class="ig" href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-ig"/></svg></a>
-          <a class="li" href="#" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-li"/></svg></a>
-          <a class="yt" href="#" aria-label="YouTube"><svg class="icon" aria-hidden="true"><use href="#i-yt"/></svg></a>
-        </div>
       </div>
       <div class="footer-skyline">
         <svg viewBox="0 0 220 70" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
@@ -585,7 +585,7 @@
         <a href="#">Terms &amp; Conditions</a>
         <a href="#">Cookie Policy</a>
       </nav>
-      <span class="tagline">Designed for a Cleaner, Greener Dubai <svg class="icon" aria-hidden="true" style="display:inline-block;vertical-align:-3px"><use href="#i-leaf"/></svg></span>
+      <span class="tagline">Designed By <a href="https://imwebee.com" target="_blank" rel="noopener">Webee</a></span>
     </div>
   </div>
 </footer>
@@ -594,7 +594,6 @@
 <nav class="mobile-bar" aria-label="Quick contact">
   <a href="tel:+971567021884" data-track="phone_click"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
   <a class="m-wa" href="https://wa.me/971567021884" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
-  <a class="m-quote" href="#quote" data-track="quote_start"><svg class="icon" aria-hidden="true"><use href="#i-quote-doc"/></svg>Get Quote</a>
 </nav>
 
 <script src="assets/js/site.js?v=2"></script>

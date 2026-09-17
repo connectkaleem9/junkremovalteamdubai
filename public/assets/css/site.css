@@ -106,18 +106,17 @@ ul { margin: 0; padding: 0; list-style: none; }
 .topbar .tb-right { margin-inline-start: auto; display: inline-flex; align-items: center; gap: .5rem; }
 .topbar .lang a.is-active { color: #fff; font-weight: 600; }
 .topbar .sep { opacity: .45; }
-.topbar .tb-social { display: none; gap: .5rem; }
-.topbar .tb-social a { inline-size: 30px; block-size: 30px; border-radius: 6px; display: grid; place-items: center; color: #fff; }
-.topbar .tb-social .fb { background: #1877F2; }
-.topbar .tb-social .ig { background: linear-gradient(45deg, #F9CE34, #EE2A7B, #6228D7); }
-.topbar .tb-social .icon { inline-size: 1rem; block-size: 1rem; fill: currentColor; stroke: none; }
-@media (max-width: 767px) {
-  /* Phone-sized top bar: just social icons and the language switch */
-  .topbar .tb-item.address,
-  .topbar .tb-item.email { display: none; }
-  .topbar .tb-social { display: inline-flex; }
-  .topbar .container { min-block-size: 46px; gap: .75rem; }
+/* Top bar carries social icons + language switch only, on every screen */
+.topbar .tb-social { display: inline-flex; gap: .4rem; }
+.topbar .tb-social a {
+  inline-size: 30px; block-size: 30px; border-radius: 50%;
+  display: grid; place-items: center; color: var(--on-dark-muted);
+  border: 1px solid rgb(255 255 255 / .22); background: transparent;
+  transition: background-color .15s, color .15s, border-color .15s;
 }
+.topbar .tb-social a:hover { background: rgb(255 255 255 / .12); color: #fff; border-color: rgb(255 255 255 / .45); }
+.topbar .tb-social .icon { inline-size: .95rem; block-size: .95rem; fill: currentColor; stroke: none; }
+@media (max-width: 767px) { .topbar .container { min-block-size: 46px; gap: .75rem; } }
 
 /* ---------- Header ---------- */
 .site-header { position: sticky; inset-block-start: 0; z-index: 100; background: #fff; border-block-end: 1px solid var(--border); }
@@ -379,6 +378,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-links li a { display: inline-block; padding-block: .2rem; }
 .footer-contact li { display: flex; gap: .6rem; margin-block-end: .6rem; align-items: flex-start; }
 .footer-contact .icon { inline-size: 1.05rem; block-size: 1.05rem; margin-block-start: .25rem; color: #7FD3C4; }
+.footer-about { margin-block-start: var(--space-4); max-inline-size: 22rem; line-height: 1.7; }
 .socials { display: flex; gap: .55rem; }
 .socials a { inline-size: 36px; block-size: 36px; border-radius: 8px; display: grid; place-items: center; color: #fff; }
 .socials .fb { background: #1877F2; } .socials .ig { background: linear-gradient(45deg, #F9CE34, #EE2A7B, #6228D7); }
@@ -392,7 +392,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-bottom .tagline { color: #7FD3C4; }
 
 /* ---------- Mobile sticky actions ---------- */
-.mobile-bar { position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 90; display: none; grid-template-columns: repeat(3, 1fr); background: #fff; border-block-start: 1px solid var(--border); box-shadow: 0 -4px 14px rgb(6 42 68 / .1); padding-block-end: env(safe-area-inset-bottom); }
+.mobile-bar { position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 90; display: none; grid-template-columns: repeat(2, 1fr); background: #fff; border-block-start: 1px solid var(--border); box-shadow: 0 -4px 14px rgb(6 42 68 / .1); padding-block-end: env(safe-area-inset-bottom); }
 .mobile-bar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; min-block-size: 62px; font-size: .78rem; font-weight: 600; color: var(--navy-800); }
 .mobile-bar .m-wa { color: var(--whatsapp); }
 .mobile-bar .m-quote { background: var(--teal); color: #fff; }
@@ -429,6 +429,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   /* No overlap on small screens: the bar was clipping the rating row */
   .feature-bar { margin-block-start: 1rem; }
   .hero-inner { padding-block-end: var(--space-5); }
+
+  /* Final CTA reads better centred on a phone */
+  .cta-inner { flex-direction: column; text-align: center; align-items: center; }
+  .cta-inner .btn-group { flex-direction: column; align-items: stretch; inline-size: 100%; max-inline-size: 320px; }
 
   /* Feature bar becomes a continuous slider (right to left) */
   .feature-bar .container { padding-inline: 0; }
