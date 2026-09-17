@@ -11,7 +11,7 @@ declare(strict_types=1);
 final class View
 {
     /** Bump together with ?v= in public/index.html and public/ar/index.html. */
-    public const ASSET_VERSION = '11';
+    public const ASSET_VERSION = '12';
 
     public const SITE          = 'https://junkremovalteamdubai.com';
     public const PHONE_TEL     = '+971567021884';
@@ -446,6 +446,9 @@ final class View
 <link rel="alternate" hreflang="en" href="<?= self::e($enUrl) ?>">
 <link rel="alternate" hreflang="ar" href="<?= self::e($arUrl) ?>">
 <link rel="alternate" hreflang="x-default" href="<?= self::e($enUrl) ?>">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?<?= $fonts ?>&display=swap" rel="stylesheet">

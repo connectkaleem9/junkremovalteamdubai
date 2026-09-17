@@ -138,7 +138,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .brand-text span { display: block; color: var(--green); }
 .brand-text small { display: block; font-size: .5rem; font-weight: 500; letter-spacing: .12em; color: var(--text-muted); margin-block-start: .25rem; }
 
-.main-nav ul { display: flex; align-items: center; gap: .25rem; }
+.main-nav > ul { display: flex; align-items: center; gap: .25rem; }
 .main-nav a { display: inline-flex; align-items: center; gap: .3rem; padding: .55rem .7rem; color: var(--navy-800); font-weight: 500; font-size: .94rem; border-radius: var(--radius-sm); white-space: nowrap; }
 @media (min-width: 1024px) and (max-width: 1279px) {
   .main-nav a { padding: .5rem .45rem; font-size: .86rem; }
@@ -156,7 +156,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .nav-toggle { display: inline-flex; }
   .main-nav { position: absolute; inset-inline: 0; inset-block-start: 100%; background: #fff; border-block: 1px solid var(--border); box-shadow: var(--shadow); padding: .75rem var(--gutter) 1.25rem; display: none; }
   .main-nav[data-open="true"] { display: block; }
-  .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+  .main-nav > ul { flex-direction: column; align-items: stretch; gap: 0; }
   .main-nav a { min-block-size: 50px; font-size: 1rem; }
   .main-nav a.is-active::after { inset-inline: .7rem auto; inline-size: 22px; }
   /* Design shows the full green call button on mobile, not just an icon.
@@ -586,8 +586,14 @@ html[lang="ar"] .page-hero .eyebrow { letter-spacing: 0; text-transform: none; f
 
 /* ---------- Areas band (homepage) ----------
    Brand gradient plus a faint skyline outline, rather than a photo. */
-.areas-band { position: relative; overflow: hidden; text-align: center; padding-block: clamp(2.75rem, 6vw, 4rem); background: linear-gradient(180deg, #F3F8FB 0%, #E9F1F6 100%); }
-.areas-band .skyline-bg { position: absolute; inset-inline: 0; inset-block-end: 0; inline-size: 100%; block-size: auto; color: #0A2C46; opacity: .07; pointer-events: none; }
+.areas-band {
+  position: relative; overflow: hidden; text-align: center; padding-block: clamp(2.75rem, 6vw, 4rem);
+  /* Supplied photo, with a light wash over it so the text stays readable */
+  background:
+    linear-gradient(180deg, rgb(243 248 251 / .90) 0%, rgb(233 241 246 / .84) 55%, rgb(233 241 246 / .90) 100%),
+    url("/assets/images/areas-bg.jpg") center / cover no-repeat;
+}
+.areas-band .skyline-bg { display: none; }
 .areas-band .container { position: relative; z-index: 1; }
 .areas-eyebrow { display: inline-block; background: #E8F5EF; color: var(--green); font-family: var(--font-head); font-weight: 600; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; padding: .4rem .95rem; border-radius: 999px; }
 html[lang="ar"] .areas-eyebrow { letter-spacing: 0; text-transform: none; font-size: .9rem; }
