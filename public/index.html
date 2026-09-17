@@ -12,7 +12,7 @@
 <!-- ?v= is a cache buster: the server sends Cache-Control max-age=604800 (7 days),
      so bump this number whenever site.css or site.js changes, otherwise repeat
      visitors keep the old stylesheet and the layout breaks. -->
-<link rel="stylesheet" href="assets/css/site.css?v=5">
+<link rel="stylesheet" href="assets/css/site.css?v=6">
 </head>
 <body>
 
@@ -55,7 +55,12 @@
 <div class="topbar">
   <div class="container">
     <span class="tb-item address"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Al Qouz 3 Industrial Areas - Dubai, UAE</span>
-    <a class="tb-item" href="mailto:contact.junkremovalteam@gmail.com" data-track="email_click"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>contact.junkremovalteam@gmail.com</a>
+    <a class="tb-item email" href="mailto:contact.junkremovalteam@gmail.com" data-track="email_click"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>contact.junkremovalteam@gmail.com</a>
+    <!-- Phone screens show these instead of the address and email -->
+    <span class="tb-social">
+      <a class="fb" href="#" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-fb"/></svg></a>
+      <a class="ig" href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-ig"/></svg></a>
+    </span>
     <span class="tb-right lang">
       <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg>
       <a href="index.html" class="is-active" hreflang="en">English</a>

@@ -106,7 +106,18 @@ ul { margin: 0; padding: 0; list-style: none; }
 .topbar .tb-right { margin-inline-start: auto; display: inline-flex; align-items: center; gap: .5rem; }
 .topbar .lang a.is-active { color: #fff; font-weight: 600; }
 .topbar .sep { opacity: .45; }
-@media (max-width: 767px) { .topbar .tb-item.address { display: none; } }
+.topbar .tb-social { display: none; gap: .5rem; }
+.topbar .tb-social a { inline-size: 30px; block-size: 30px; border-radius: 6px; display: grid; place-items: center; color: #fff; }
+.topbar .tb-social .fb { background: #1877F2; }
+.topbar .tb-social .ig { background: linear-gradient(45deg, #F9CE34, #EE2A7B, #6228D7); }
+.topbar .tb-social .icon { inline-size: 1rem; block-size: 1rem; fill: currentColor; stroke: none; }
+@media (max-width: 767px) {
+  /* Phone-sized top bar: just social icons and the language switch */
+  .topbar .tb-item.address,
+  .topbar .tb-item.email { display: none; }
+  .topbar .tb-social { display: inline-flex; }
+  .topbar .container { min-block-size: 46px; gap: .75rem; }
+}
 
 /* ---------- Header ---------- */
 .site-header { position: sticky; inset-block-start: 0; z-index: 100; background: #fff; border-block-end: 1px solid var(--border); }
@@ -438,6 +449,15 @@ ul { margin: 0; padding: 0; list-style: none; }
   .section-navy .section-head .head-actions { display: none; }
 }
 @keyframes marquee-rtl { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* The duplicate sets exist only so the mobile marquee can loop seamlessly.
+   On desktop there is no marquee, so they must not render twice. */
+.feature-item[aria-hidden="true"],
+.review-card[aria-hidden="true"] { display: none; }
+@media (max-width: 767px) {
+  .feature-item[aria-hidden="true"] { display: flex; }
+  .review-card[aria-hidden="true"] { display: block; }
+}
 
 /* Phone numbers, emails and Latin text inside Arabic copy stay left-to-right */
 .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
