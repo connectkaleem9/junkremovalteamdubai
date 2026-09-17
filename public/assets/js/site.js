@@ -36,7 +36,20 @@
       setNav(toggle.getAttribute('aria-expanded') !== 'true');
     });
     nav.addEventListener('click', function (e) {
-      if (e.target.closest('a') && window.matchMedia('(max-width: 1023px)').matches) setNav(false);
+      var link = e.target.closest('a');
+      if (!link || !window.matchMedia('(max-width: 1023px)').matches) return;
+
+      // First tap on a parent item opens its submenu; a second tap follows the link
+      var parent = link.parentNode;
+      if (parent && parent.classList.contains('has-sub')) {
+        var sub = parent.querySelector('.submenu');
+        if (sub && sub.dataset.open !== 'true') {
+          e.preventDefault();
+          sub.dataset.open = 'true';
+          return;
+        }
+      }
+      setNav(false);
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { setNav(false); toggle.focus(); }

@@ -51,9 +51,14 @@ function render_services_page(string $lang): void
 <?php if (!empty($s['note'])): ?>
           <p class="svc-note"><?= View::e($s['note']) ?></p>
 <?php endif; ?>
-          <a class="btn btn-teal" href="<?= View::e(View::whatsappLink($s['wa_text'])) ?>" data-track="whatsapp_click">
-            <svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><?= View::e($s['ask']) ?>
-          </a>
+          <div class="btn-group">
+            <a class="btn btn-teal" href="<?= View::base($lang) ?>services/<?= View::e($s['slug']) ?>/">
+              <?= $ar ? 'تفاصيل الخدمة' : 'See full details' ?> <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn-outline" href="<?= View::e(View::whatsappLink($s['wa_text'])) ?>" data-track="whatsapp_click">
+              <svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><?= View::e($s['ask']) ?>
+            </a>
+          </div>
         </div>
       </article>
 <?php endforeach; ?>
@@ -81,6 +86,153 @@ function render_services_page(string $lang): void
         <p><?= $ar
             ? 'أرسل لنا بعض التفاصيل وسنعاود التواصل معك بالسعر. يمكنك أيضًا إرسال الصور عبر واتساب.'
             : 'Send us a few details and we’ll come back to you with a price. You can also send photos on WhatsApp.' ?></p>
+        <ul class="tick-list">
+<?php foreach (View::fasterQuote($lang) as $item): ?>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><?= View::e($item) ?></li>
+<?php endforeach; ?>
+        </ul>
+      </div>
+<?php View::quoteForm($lang); ?>
+    </div>
+  </section>
+<?php
+    View::ctaBand($lang, '#quote');
+    View::foot($lang);
+}
+
+function render_service_detail_page(string $lang, string $slug): void
+{
+    $ar = $lang === 'ar';
+    $s = View::serviceDetail($lang, $slug);
+
+    if ($s === null) {
+        http_response_code(404);
+        echo 'Service not found';
+        return;
+    }
+
+    $b = View::base($lang);
+    $t = View::t($lang);
+    $inDubai = $ar ? $s['title'] . ' في دبي' : $s['title'] . ' in Dubai';
+
+    View::head([
+        'lang' => $lang,
+        'path' => 'services/' . $slug . '/',
+        'active' => 'services',
+        'title' => $inDubai . ' | Junk Removal Team Dubai',
+        'description' => mb_strimwidth($s['text'], 0, 155, '…'),
+    ]);
+
+    View::pageHero($lang, [
+        'crumb' => $s['title'],
+        'parents' => [$t['nav']['services'] => $b . 'services/'],
+        'eyebrow' => $t['nav']['services'],
+        'title' => $inDubai,
+        'lead' => $s['text'],
+    ]);
+    ?>
+  <section class="section">
+    <div class="container split center">
+      <div class="section-intro">
+        <h2><?= $ar ? 'ما الذي تشمله الخدمة' : 'What the service covers' ?></h2>
+<?php foreach ($s['intro'] as $paragraph): ?>
+        <p><?= View::e($paragraph) ?></p>
+<?php endforeach; ?>
+        <ul class="tick-list">
+<?php foreach ($s['includes'] as $item): ?>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><?= View::e($item) ?></li>
+<?php endforeach; ?>
+        </ul>
+<?php if (!empty($s['note'])): ?>
+        <p class="svc-note"><?= View::e($s['note']) ?></p>
+<?php endif; ?>
+      </div>
+      <div class="svc-media">
+        <img src="/assets/images/<?= View::e($s['image']) ?>" alt="<?= View::e($s['alt']) ?>" width="760" height="475" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-intro">
+        <h2><?= $ar ? 'ما الذي نأخذه' : 'What we take' ?></h2>
+        <!-- VERIFY D1: only items the business genuinely accepts -->
+      </div>
+      <ul class="items-grid">
+<?php foreach ($s['list'] as $item): ?>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><?= View::e($item) ?></li>
+<?php endforeach; ?>
+      </ul>
+      <div class="section-intro" style="margin-block-start:2.25rem">
+        <h2><?= $ar ? 'لمن هذه الخدمة' : 'Who it’s for' ?></h2>
+      </div>
+      <ul class="chip-list">
+<?php foreach ($s['good_for'] as $who): ?>
+        <li class="chip"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><?= View::e($who) ?></li>
+<?php endforeach; ?>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h2><?= $ar ? 'طريقة العمل' : 'How it works' ?></h2>
+      </div>
+      <ol class="steps">
+<?php foreach (View::steps($lang) as [$title, $text]): ?>
+        <li class="step"><h3><?= View::e($title) ?></h3><p><?= View::e($text) ?></p></li>
+<?php endforeach; ?>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-intro">
+        <h2><?= $ar ? 'أسئلة شائعة' : 'Common questions' ?></h2>
+      </div>
+      <div class="faq-list">
+<?php foreach ($s['faqs'] as [$question, $answer]): ?>
+        <details class="faq">
+          <summary><?= View::e($question) ?></summary>
+          <div class="faq-body"><p><?= View::e($answer) ?></p></div>
+        </details>
+<?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h2><?= $ar ? 'خدمات ذات صلة' : 'Related services' ?></h2>
+      </div>
+      <div class="card-grid">
+<?php foreach ($s['related'] as $relatedSlug):
+        $r = View::serviceDetail($lang, $relatedSlug);
+        if ($r === null) { continue; } ?>
+        <a class="card-service" href="<?= $b ?>services/<?= View::e($r['slug']) ?>/">
+          <div class="thumb"><img src="/assets/images/<?= View::e($r['image']) ?>" alt="" width="760" height="475" loading="lazy" decoding="async"></div>
+          <div class="body">
+            <div class="title-row"><svg class="icon" aria-hidden="true"><use href="#<?= View::e($r['icon']) ?>"/></svg><h3><?= View::e($r['title']) ?></h3></div>
+            <p><?= View::e(mb_strimwidth($r['text'], 0, 90, '…')) ?></p>
+            <span class="card-go"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </div>
+        </a>
+<?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container split center">
+      <div class="section-intro">
+        <h2><?= $ar ? 'احصل على سعر لهذه الخدمة' : 'Get a price for this job' ?></h2>
+        <p><?= $ar
+            ? 'أرسل لنا التفاصيل وسنعاود التواصل معك بالسعر. يمكنك أيضًا إرسال الصور عبر واتساب.'
+            : 'Send us the details and we’ll come back to you with a price. You can also send photos on WhatsApp.' ?></p>
         <ul class="tick-list">
 <?php foreach (View::fasterQuote($lang) as $item): ?>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><?= View::e($item) ?></li>

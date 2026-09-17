@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <!-- ?v= cache buster — bump whenever site.css or site.js changes -->
-<link rel="stylesheet" href="../assets/css/site.css?v=10">
+<link rel="stylesheet" href="../assets/css/site.css?v=11">
 </head>
 <body>
 
@@ -81,8 +81,18 @@
     <nav class="main-nav" id="primary-nav" aria-label="القائمة الرئيسية">
       <ul>
         <li><a href="index.html" class="is-active" aria-current="page">الرئيسية</a></li>
-        <li><a href="/ar/services/">الخدمات <svg class="icon caret" aria-hidden="true"><use href="#i-caret"/></svg></a></li>
-        <li><a href="/ar/#areas">المناطق <svg class="icon caret" aria-hidden="true"><use href="#i-caret"/></svg></a></li>
+        <li class="has-sub">
+          <a href="/ar/services/">الخدمات <svg class="icon caret" aria-hidden="true"><use href="#i-caret"/></svg></a>
+          <ul class="submenu">
+            <li><a href="/ar/services/junk-removal/">إزالة المخلفات</a></li>
+            <li><a href="/ar/services/furniture-removal/">نقل الأثاث</a></li>
+            <li><a href="/ar/services/house-clearance/">إخلاء المنازل</a></li>
+            <li><a href="/ar/services/office-clearance/">إخلاء المكاتب</a></li>
+            <li><a href="/ar/services/construction-waste/">مخلفات البناء</a></li>
+            <li><a href="/ar/services/e-waste-disposal/">النفايات الإلكترونية</a></li>
+          </ul>
+        </li>
+        <li><a href="/ar/#areas">المناطق</a></li>
         <li><a href="/ar/#projects">المشاريع</a></li>
         <li><a href="/ar/#reviews">آراء العملاء</a></li>
         <li><a href="/ar/about-us/">من نحن</a></li>
@@ -217,7 +227,7 @@
             <div class="body">
               <div class="title-row"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg><h3>إزالة المخلفات</h3></div>
               <p>منازل ومكاتب والمزيد</p>
-              <a class="card-go" href="/ar/services/" aria-label="إزالة المخلفات — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="card-go" href="/ar/services/junk-removal/" aria-label="إزالة المخلفات — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
           <article class="service-card">
@@ -225,7 +235,7 @@
             <div class="body">
               <div class="title-row"><svg class="icon" aria-hidden="true"><use href="#i-sofa"/></svg><h3>نقل الأثاث</h3></div>
               <p>كنب، أسرّة، خزائن</p>
-              <a class="card-go" href="/ar/services/" aria-label="نقل الأثاث — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="card-go" href="/ar/services/furniture-removal/" aria-label="نقل الأثاث — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
           <article class="service-card">
@@ -233,7 +243,7 @@
             <div class="body">
               <div class="title-row"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg><h3>إخلاء المنازل</h3></div>
               <p>إخلاء كامل للعقار</p>
-              <a class="card-go" href="/ar/services/" aria-label="إخلاء المنازل — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="card-go" href="/ar/services/house-clearance/" aria-label="إخلاء المنازل — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
           <article class="service-card">
@@ -241,7 +251,7 @@
             <div class="body">
               <div class="title-row"><svg class="icon" aria-hidden="true"><use href="#i-building"/></svg><h3>إخلاء المكاتب</h3></div>
               <p>مكاتب ومنشآت تجارية</p>
-              <a class="card-go" href="/ar/services/" aria-label="إخلاء المكاتب — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="card-go" href="/ar/services/office-clearance/" aria-label="إخلاء المكاتب — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
           <article class="service-card">
@@ -250,7 +260,7 @@
               <div class="title-row"><svg class="icon" aria-hidden="true"><use href="#i-brick"/></svg><h3>مخلفات البناء</h3></div>
               <!-- VERIFY E14: يتطلب ترخيص بلدية دبي -->
               <p>إزالة آمنة للمخلفات</p>
-              <a class="card-go" href="/ar/services/" aria-label="مخلفات البناء — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="card-go" href="/ar/services/construction-waste/" aria-label="مخلفات البناء — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
           <article class="service-card">
@@ -259,7 +269,7 @@
               <div class="title-row"><svg class="icon" aria-hidden="true"><use href="#i-monitor"/></svg><h3>النفايات الإلكترونية</h3></div>
               <!-- VERIFY E4: ادعاء إعادة التدوير -->
               <p>إعادة تدوير الإلكترونيات</p>
-              <a class="card-go" href="/ar/services/" aria-label="النفايات الإلكترونية — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="card-go" href="/ar/services/e-waste-disposal/" aria-label="النفايات الإلكترونية — التفاصيل"><svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </article>
         </div>
@@ -574,12 +584,12 @@
       <div>
         <h3>الخدمات</h3>
         <ul>
-          <li><a href="/ar/services/">إزالة المخلفات</a></li>
-          <li><a href="/ar/services/">نقل الأثاث</a></li>
-          <li><a href="/ar/services/">إخلاء المنازل</a></li>
-          <li><a href="/ar/services/">إخلاء المكاتب</a></li>
-          <li><a href="/ar/services/">مخلفات البناء</a></li>
-          <li><a href="/ar/services/">النفايات الإلكترونية</a></li>
+          <li><a href="/ar/services/junk-removal/">إزالة المخلفات</a></li>
+          <li><a href="/ar/services/furniture-removal/">نقل الأثاث</a></li>
+          <li><a href="/ar/services/house-clearance/">إخلاء المنازل</a></li>
+          <li><a href="/ar/services/office-clearance/">إخلاء المكاتب</a></li>
+          <li><a href="/ar/services/construction-waste/">مخلفات البناء</a></li>
+          <li><a href="/ar/services/e-waste-disposal/">النفايات الإلكترونية</a></li>
         </ul>
       </div>
       <div>
@@ -620,6 +630,6 @@
   <a class="m-wa" href="https://wa.me/971567021884" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>واتساب</a>
 </nav>
 
-<script src="../assets/js/site.js?v=10"></script>
+<script src="../assets/js/site.js?v=11"></script>
 </body>
 </html>

@@ -556,6 +556,34 @@ html[lang="ar"] .page-hero .eyebrow { letter-spacing: 0; text-transform: none; f
 .area-ask { margin-block-start: 1.25rem; }
 .area-ask a { display: inline-flex; align-items: center; gap: .4rem; font-weight: 600; }
 
+/* ---------- Header dropdown ---------- */
+.has-sub { position: relative; }
+.submenu { list-style: none; margin: 0; padding: .4rem; display: none; position: absolute; inset-block-start: 100%; inset-inline-start: 0; min-inline-size: 15.5rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); z-index: 60; }
+.has-sub:hover > .submenu, .has-sub:focus-within > .submenu, .submenu[data-open="true"] { display: block; }
+.submenu a { display: block; padding: .55rem .75rem; border-radius: var(--radius-sm); font-size: .92rem; font-weight: 500; white-space: nowrap; color: var(--navy-800); }
+.submenu a:hover { background: var(--bg-light); color: var(--teal); }
+@media (max-width: 1023px) {
+  .submenu { position: static; box-shadow: none; border: 0; padding: 0 0 .35rem .6rem; min-inline-size: 0; }
+  .has-sub:hover > .submenu, .has-sub:focus-within > .submenu { display: none; }
+  .submenu[data-open="true"] { display: block; }
+  .submenu a { min-block-size: 44px; display: flex; align-items: center; }
+}
+
+/* ---------- FAQs and item lists (service pages) ---------- */
+.faq-list { max-inline-size: 52rem; }
+.faq { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); margin-block-end: .75rem; }
+.faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-block-size: 56px; padding: .85rem 1.25rem; font-family: var(--font-head); font-weight: 600; color: var(--navy-800); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 1.5rem; line-height: 1; color: var(--teal); flex: none; }
+.faq[open] summary::after { content: "−"; }
+.faq-body { padding: 0 1.25rem 1.15rem; color: var(--text-muted); }
+.faq-body p { margin: 0; }
+.items-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+.items-grid li { display: flex; align-items: center; gap: .6rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: .8rem 1rem; font-weight: 500; color: var(--navy-800); }
+.items-grid .icon { flex: none; inline-size: 1.05rem; block-size: 1.05rem; color: var(--green); stroke-width: 2.5; }
+.btn-outline { border-color: var(--teal); color: var(--teal); background: transparent; }
+.btn-outline:hover { background: #E8F1F3; color: var(--teal-dark); }
+
 /* ---------- Areas band (homepage) ----------
    Brand gradient plus a faint skyline outline, rather than a photo. */
 .areas-band { position: relative; overflow: hidden; text-align: center; padding-block: clamp(2.75rem, 6vw, 4rem); background: linear-gradient(180deg, #F3F8FB 0%, #E9F1F6 100%); }
