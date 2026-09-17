@@ -73,13 +73,13 @@ step "3/5  Pull on the server"
 if [ "$DRY_RUN" = "1" ]; then
   warn "dry run: not touching the server"
 else
-  ssh_run"cd $REMOTE_REPO && git fetch -q origin && git reset -q --hard origin/main && git rev-parse --short HEAD" \
+  ssh_run "cd $REMOTE_REPO && git fetch -q origin && git reset -q --hard origin/main && git rev-parse --short HEAD" \
     | sed 's/^/     server now at /'
   ok "server repo updated"
 
   # Lint every PHP file on the server's own PHP before anything goes live.
   # The web root has not been touched yet, so stopping here is safe.
-  lint=$(ssh_run"cd $REMOTE_REPO && find app public -name '*.php' -print0 | xargs -0 -n1 php -l 2>&1 | grep -v '^No syntax errors'" || true)
+  lint=$(ssh_run "cd $REMOTE_REPO && find app public -name '*.php' -print0 | xargs -0 -n1 php -l 2>&1 | grep -v '^No syntax errors'" || true)
   if [ -n "$lint" ]; then
     printf '%s\n' "$lint"
     die "PHP syntax errors - nothing was published"
@@ -90,12 +90,12 @@ fi
 # ---------------------------------------------------------------- 4. publish
 step "4/5  Publish"
 if [ "$DRY_RUN" = "1" ]; then
-  ssh_run"rsync -a --delete --itemize-changes --dry-run $REMOTE_REPO/public/ $REMOTE_WEB/" | sed 's/^/     web  /'
-  ssh_run"rsync -a --delete --itemize-changes --dry-run $REMOTE_REPO/app/ $REMOTE_APP/" | sed 's/^/     app  /'
+  ssh_run "rsync -a --delete --itemize-changes --dry-run $REMOTE_REPO/public/ $REMOTE_WEB/" | sed 's/^/     web  /'
+  ssh_run "rsync -a --delete --itemize-changes --dry-run $REMOTE_REPO/app/ $REMOTE_APP/" | sed 's/^/     app  /'
   warn "dry run: nothing was published"
 else
-  ssh_run"rsync -a --delete --itemize-changes $REMOTE_REPO/public/ $REMOTE_WEB/" | sed 's/^/     web  /'
-  ssh_run"mkdir -p $REMOTE_APP && rsync -a --delete --itemize-changes $REMOTE_REPO/app/ $REMOTE_APP/ && chmod 750 $REMOTE_APP" | sed 's/^/     app  /'
+  ssh_run "rsync -a --delete --itemize-changes $REMOTE_REPO/public/ $REMOTE_WEB/" | sed 's/^/     web  /'
+  ssh_run "mkdir -p $REMOTE_APP && rsync -a --delete --itemize-changes $REMOTE_REPO/app/ $REMOTE_APP/ && chmod 750 $REMOTE_APP" | sed 's/^/     app  /'
   ok "published"
 fi
 
@@ -104,7 +104,7 @@ step "5/5  Check the live site"
 if [ "$DRY_RUN" = "1" ]; then
   warn "dry run: skipped"
 else
-  for path in "/" "/ar/"; do
+  for path in "/" "/services/" "/about-us/" "/contact-us/" "/ar/" "/ar/services/" "/ar/about-us/" "/ar/contact-us/"; do
     code=$(curl -sS -o /dev/null -w '%{http_code}' -L --max-time 30 "$SITE$path" || echo "000")
     if [ "$code" = "200" ]; then ok "$SITE$path -> $code"; else warn "$SITE$path -> $code"; fi
   done
