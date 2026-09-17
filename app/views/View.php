@@ -290,7 +290,7 @@ final class View
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= self::e($p['title']) ?></title>
 <meta name="description" content="<?= self::e($p['description']) ?>">
-<meta name="robots" content="noindex, nofollow"><!-- TODO: remove before launch, together with the homepages -->
+<meta name="robots" content="index, follow">
 <link rel="canonical" href="<?= self::e($lang === 'ar' ? $arUrl : $enUrl) ?>">
 <link rel="alternate" hreflang="en" href="<?= self::e($enUrl) ?>">
 <link rel="alternate" hreflang="ar" href="<?= self::e($arUrl) ?>">
