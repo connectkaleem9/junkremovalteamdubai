@@ -143,8 +143,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; }
   .main-nav a { min-block-size: 50px; font-size: 1rem; }
   .main-nav a.is-active::after { inset-inline: .7rem auto; inline-size: 22px; }
-  .header-cta .btn-phone { display: none; }
+  /* Design shows the full green call button on mobile, not just an icon */
+  .header-cta .btn-phone.header-desktop-only { display: inline-flex; min-block-size: 44px; padding-inline: .9rem; font-size: .88rem; }
+  .header-actions a.icon-btn.header-mobile-only { display: none; }
   .site-header .container { position: relative; }
+}
+@media (max-width: 420px) {
+  .header-cta .btn-phone.header-desktop-only { padding-inline: .65rem; font-size: .78rem; gap: .35rem; }
 }
 
 /* ---------- Hero ---------- */
@@ -196,10 +201,18 @@ ul { margin: 0; padding: 0; list-style: none; }
 .feature-item span { font-size: .85rem; color: var(--text-muted); }
 @media (max-width: 1100px) { .feature-list { grid-template-columns: repeat(3, 1fr); gap: 1.1rem; } }
 @media (max-width: 720px) { .feature-list { grid-template-columns: repeat(2, 1fr); padding: 1.1rem; } .feature-bar { margin-block-start: -2rem; } }
-@media (max-width: 460px) { .feature-list { grid-template-columns: 1fr; } .feature-bar { margin-block-start: -1.25rem; } }
+@media (max-width: 460px) {
+  .feature-list { grid-template-columns: repeat(2, 1fr); gap: .85rem; padding: .95rem; }
+  .feature-bar { margin-block-start: -1.25rem; }
+  .feature-icon { inline-size: 34px; block-size: 34px; }
+  .feature-icon .icon { inline-size: 1.05rem; block-size: 1.05rem; }
+  .feature-item strong { font-size: .82rem; }
+  .feature-item span { font-size: .72rem; }
+}
 .hero-script { position: absolute; inset-block-start: 2.2rem; inset-inline-end: 3rem; font-family: var(--font-script); font-size: 2rem; line-height: 1.1; color: #fff; text-align: center; text-shadow: 0 2px 10px rgb(0 0 0 / .35); }
 .hero-script::after { content: ""; display: block; block-size: 4px; border-radius: 3px; background: #2BA84A; margin-block-start: .35rem; }
-@media (max-width: 1100px) { .hero-script { display: none; } }
+@media (max-width: 1100px) { .hero-script { font-size: 1.2rem; inset-block-start: 1.1rem; inset-inline-end: 1rem; } }
+@media (max-width: 480px) { .hero-script { font-size: .95rem; inset-block-start: .9rem; inset-inline-end: .7rem; } }
 
 /* ---------- Service cards strip ---------- */
 .services { background: var(--bg-light); padding-block: clamp(2.25rem, 4.5vw, 3.25rem); }
@@ -369,8 +382,35 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 767px) {
   .mobile-bar { display: grid; }
   body { padding-block-end: calc(62px + env(safe-area-inset-bottom)); }
-  .hero::after { background: linear-gradient(180deg, rgb(6 42 68 / .82) 0%, rgb(6 42 68 / .92) 55%, rgb(6 42 68 / .97) 100%); }
-  .hero-media img { object-position: 60% 50%; }
+
+  /* Angled gradient keeps the truck visible instead of washing the hero dark */
+  .hero::after {
+    background:
+      linear-gradient(100deg, rgb(6 42 68 / .97) 0%, rgb(6 42 68 / .93) 42%, rgb(6 42 68 / .62) 68%, rgb(6 42 68 / .3) 100%),
+      linear-gradient(180deg, rgb(6 42 68 / .35) 0%, transparent 28%);
+  }
+  .hero-media img { object-position: 74% 50%; }
+  .hero-inner { padding-block: var(--space-5) var(--space-6); }
+  .hero h1 { max-inline-size: 13ch; }
+  .hero p.lead { font-size: .95rem; max-inline-size: 30ch; }
+
+  /* Call sits in the header and the fixed bottom bar, so the hero buttons
+     would be a third copy of the same actions */
+  .hero .btn-group { display: none; }
+
+  /* Rating and Google card share one row */
+  .hero-proof-row { display: flex; align-items: center; gap: .55rem; }
+  .hero-proof { margin-block-start: 1.1rem; gap: .5rem; flex: 1 1 auto; min-inline-size: 0; }
+  .hero-proof img { block-size: 34px; }
+  .hero-proof strong { font-size: .8rem; }
+  .hero-proof .stars-inline .icon { inline-size: .8rem; block-size: .8rem; }
+  .hero-proof .rating { font-size: .72rem; }
+  .hero-google { position: static; inline-size: 148px; flex: none; margin-block-start: 1.1rem; }
+  .hero-google img { filter: none; }
+
+  /* No overlap on small screens: the bar was clipping the rating row */
+  .feature-bar { margin-block-start: 1rem; }
+  .hero-inner { padding-block-end: var(--space-5); }
 }
 
 /* Phone numbers, emails and Latin text inside Arabic copy stay left-to-right */

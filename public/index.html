@@ -12,7 +12,7 @@
 <!-- ?v= is a cache buster: the server sends Cache-Control max-age=604800 (7 days),
      so bump this number whenever site.css or site.js changes, otherwise repeat
      visitors keep the old stylesheet and the layout breaks. -->
-<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="assets/css/site.css?v=4">
 </head>
 <body>
 
@@ -117,25 +117,29 @@
           <a class="btn btn-ghost" href="tel:+971567021884" data-track="phone_click"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call <span class="ltr">056 702 1884</span></a>
         </div>
 
-        <!-- VERIFY: customer count and average rating need evidence (Google Business
-             Profile export or booking records) before this goes live. -->
-        <div class="hero-proof">
-          <img src="assets/images/customers-avatars.png" alt="" width="460" height="182">
-          <div>
-            <strong>1,200+ Happy Customers</strong>
-            <span class="rating-row">
-              <span class="stars-inline" role="img" aria-label="4.9 out of 5">
-                <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+        <!-- Wrapper lets the rating and the Google card share one row on mobile,
+             while the card stays absolutely positioned on desktop. -->
+        <div class="hero-proof-row">
+          <!-- VERIFY: customer count and average rating need evidence (Google Business
+               Profile export or booking records) before this goes live. -->
+          <div class="hero-proof">
+            <img src="assets/images/customers-avatars.png" alt="" width="460" height="182">
+            <div>
+              <strong>1,200+ Happy Customers</strong>
+              <span class="rating-row">
+                <span class="stars-inline" role="img" aria-label="4.9 out of 5">
+                  <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+                </span>
+                <span class="rating">(4.9 Rating)</span>
               </span>
-              <span class="rating">(4.9 Rating)</span>
-            </span>
+            </div>
           </div>
-        </div>
 
-        <!-- VERIFY G3: the Google rating and review count must match the live
-             Google Business Profile before this goes live. -->
-        <div class="hero-google">
-          <img src="assets/images/google-review.png" alt="Google rating: 5.0 out of 5, based on 800+ reviews" width="560" height="221" loading="lazy" decoding="async">
+          <!-- VERIFY G3: the Google rating and review count must match the live
+               Google Business Profile before this goes live. -->
+          <div class="hero-google">
+            <img src="assets/images/google-review.png" alt="Google rating: 5.0 out of 5, based on 800+ reviews" width="560" height="221" loading="lazy" decoding="async">
+          </div>
         </div>
       </div>
     </div>
