@@ -7,6 +7,231 @@ declare(strict_types=1);
  */
 
 require_once __DIR__ . '/View.php';
+require_once __DIR__ . '/../bootstrap.php';
+
+function render_reviews_page(string $lang): void
+{
+    $ar = $lang === 'ar';
+    $reviews = Store::published('reviews');
+    $average = Review::averageRating($reviews);
+
+    View::head([
+        'lang' => $lang,
+        'path' => 'reviews/',
+        'active' => 'reviews',
+        'title' => $ar ? 'آراء العملاء | Junk Removal Team Dubai' : 'Customer Reviews | Junk Removal Team Dubai',
+        'description' => $ar
+            ? 'اقرأ آراء عملائنا في دبي عن خدمات إزالة المخلفات والإخلاء، وشاركنا تجربتك أنت أيضًا.'
+            : 'Read what customers in Dubai say about our junk removal and clearance work — and share your own experience.',
+    ]);
+
+    View::pageHero($lang, [
+        'crumb' => $ar ? 'آراء العملاء' : 'Reviews',
+        'eyebrow' => $ar ? 'آراء العملاء' : 'Reviews',
+        'title' => $ar ? 'ماذا يقول عملاؤنا' : 'What our customers say',
+        'lead' => $ar
+            ? 'مراجعات كتبها عملاء بعد انتهاء العمل. إذا تعاملت معنا، يسعدنا أن تشاركنا رأيك.'
+            : 'Reviews written by customers after the job was done. If we have worked for you, we’d be glad to hear how it went.',
+    ]);
+    ?>
+  <section class="section">
+    <div class="container">
+<?php if ($reviews !== []): ?>
+      <div class="review-summary">
+        <div class="stars" role="img" aria-label="<?= View::e(($average ?? 0) . ($ar ? ' من 5' : ' out of 5')) ?>">
+<?php for ($i = 1; $i <= 5; $i++): ?>
+          <svg class="icon<?= $i <= round((float) $average) ? '' : ' is-empty' ?>" aria-hidden="true"><use href="#i-star"/></svg>
+<?php endfor; ?>
+        </div>
+        <p><strong><span class="ltr"><?= View::e((string) $average) ?></span></strong>
+          <?= $ar ? 'من 5 — بناءً على' : 'out of 5 — based on' ?>
+          <span class="ltr"><?= count($reviews) ?></span>
+          <?= $ar ? 'مراجعة على هذا الموقع' : ('review' . (count($reviews) === 1 ? '' : 's') . ' left on this site') ?></p>
+      </div>
+
+      <div class="review-grid">
+<?php foreach ($reviews as $r):
+        $rating = (int) ($r['rating'] ?? 5); ?>
+        <article class="review-card"<?= ($r['lang'] ?? 'en') !== $lang ? ' lang="' . View::e((string) $r['lang']) . '" dir="' . (($r['lang'] ?? '') === 'ar' ? 'rtl' : 'ltr') . '"' : '' ?>>
+          <div class="stars" role="img" aria-label="<?= $rating ?><?= $ar ? ' من 5' : ' out of 5' ?>">
+<?php for ($i = 1; $i <= 5; $i++): ?>
+            <svg class="icon<?= $i <= $rating ? '' : ' is-empty' ?>" aria-hidden="true"><use href="#i-star"/></svg>
+<?php endfor; ?>
+          </div>
+          <blockquote><?= View::e((string) $r['text']) ?></blockquote>
+          <div class="reviewer">
+            <span class="avatar" aria-hidden="true"><?= View::e(Review::initials((string) $r['name'])) ?></span>
+            <div>
+              <strong><?= View::e((string) $r['name']) ?></strong>
+              <span><?= View::e(trim(((string) ($r['area'] ?? '')) . (($r['area'] ?? '') && ($r['service'] ?? '') ? ' · ' : '') . ((string) ($r['service'] ?? '')))) ?></span>
+            </div>
+          </div>
+          <p class="review-source"><?= View::e(date('j M Y', strtotime((string) ($r['created_at'] ?? 'now')))) ?></p>
+        </article>
+<?php endforeach; ?>
+      </div>
+<?php else: ?>
+      <div class="empty-state">
+        <p><?= $ar
+            ? 'لا توجد مراجعات على الموقع بعد. إذا تعاملت معنا، كن أول من يشاركنا رأيه.'
+            : 'No reviews on the site yet. If we have worked for you, be the first to leave one.' ?></p>
+      </div>
+<?php endif; ?>
+    </div>
+  </section>
+
+  <section class="section section-light" id="review-form">
+    <div class="container split">
+      <div class="section-intro">
+        <h2><?= $ar ? 'شاركنا تجربتك' : 'Leave a review' ?></h2>
+        <p><?= $ar
+            ? 'رأيك يساعد غيرك على اتخاذ القرار. تُنشر المراجعة على هذه الصفحة فور إرسالها.'
+            : 'Your experience helps the next person decide. Reviews appear on this page as soon as you send them.' ?></p>
+        <ul class="tick-list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><?= $ar ? 'اكتب عن الخدمة التي تلقيتها فعلًا' : 'Please write about work we actually did for you' ?></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><?= $ar ? 'يظهر اسمك كما تكتبه' : 'Your name appears exactly as you type it' ?></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><?= $ar ? 'لا تُنشر بيانات الاتصال' : 'No contact details are published' ?></li>
+        </ul>
+      </div>
+
+      <div class="quote-card">
+        <h2><?= $ar ? 'اكتب مراجعتك' : 'Write your review' ?></h2>
+        <p class="sub"><?= $ar ? 'تستغرق أقل من دقيقة.' : 'It takes less than a minute.' ?></p>
+        <form data-review-form action="/review-submit.php" method="post" novalidate>
+          <input type="hidden" name="language" value="<?= $lang ?>">
+          <div class="hp" aria-hidden="true"><label for="r-website">Website</label><input id="r-website" name="website" tabindex="-1" autocomplete="off"></div>
+
+          <div class="form-row">
+            <div>
+              <label class="field-label" for="r-name"><?= $ar ? 'الاسم' : 'Your name' ?></label>
+              <input class="input" id="r-name" name="name" placeholder="<?= $ar ? 'الاسم *' : 'Your name *' ?>" autocomplete="name" required>
+            </div>
+          </div>
+
+          <fieldset class="rating-input">
+            <legend><?= $ar ? 'تقييمك' : 'Your rating' ?></legend>
+<?php for ($i = 1; $i <= 5; $i++): ?>
+            <input type="radio" id="r-star-<?= $i ?>" name="rating" value="<?= $i ?>"<?= $i === 5 ? ' checked' : '' ?>>
+            <label for="r-star-<?= $i ?>"><span class="ltr"><?= $i ?></span> <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></label>
+<?php endfor; ?>
+          </fieldset>
+
+          <div class="form-row two">
+            <div>
+              <label class="field-label" for="r-service"><?= $ar ? 'الخدمة' : 'Service' ?></label>
+              <select class="select" id="r-service" name="service">
+                <option value=""><?= $ar ? 'الخدمة (اختياري)' : 'Service (optional)' ?></option>
+<?php foreach (View::services($lang) as $s): ?>
+                <option value="<?= View::e($s['value']) ?>"><?= View::e($s['title']) ?></option>
+<?php endforeach; ?>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" for="r-area"><?= $ar ? 'المنطقة' : 'Area' ?></label>
+              <select class="select" id="r-area" name="area">
+                <option value=""><?= $ar ? 'المنطقة (اختياري)' : 'Area (optional)' ?></option>
+<?php foreach (View::areas($lang) as $value => $label): ?>
+                <option value="<?= View::e($value) ?>"><?= View::e($label) ?></option>
+<?php endforeach; ?>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label class="field-label" for="r-text"><?= $ar ? 'مراجعتك' : 'Your review' ?></label>
+              <textarea class="textarea" id="r-text" name="text" rows="5" placeholder="<?= $ar ? 'كيف كانت تجربتك معنا؟' : 'How did the job go?' ?>" required></textarea>
+            </div>
+          </div>
+
+          <button class="btn btn-green btn-block" type="submit"><?= $ar ? 'انشر المراجعة' : 'Post review' ?> <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <div class="form-success" data-form-success hidden><?= $ar ? 'شكرًا لك! تم نشر مراجعتك.' : 'Thank you! Your review is now on the page.' ?></div>
+        </form>
+      </div>
+    </div>
+  </section>
+<?php
+    View::ctaBand($lang, View::base($lang) . 'contact-us/#quote');
+    View::foot($lang);
+}
+
+function render_projects_page(string $lang): void
+{
+    $ar = $lang === 'ar';
+    $projects = Store::published('projects');
+
+    View::head([
+        'lang' => $lang,
+        'path' => 'projects/',
+        'active' => 'projects',
+        'title' => $ar ? 'مشاريعنا | Junk Removal Team Dubai' : 'Our Projects | Junk Removal Team Dubai',
+        'description' => $ar
+            ? 'صور قبل وبعد من أعمال إزالة المخلفات والإخلاء التي نفذناها في دبي.'
+            : 'Before and after photos from junk removal and clearance jobs we have completed across Dubai.',
+    ]);
+
+    View::pageHero($lang, [
+        'crumb' => $ar ? 'المشاريع' : 'Projects',
+        'eyebrow' => $ar ? 'المشاريع' : 'Projects',
+        'title' => $ar ? 'أعمالنا الأخيرة' : 'Our recent work',
+        'lead' => $ar
+            ? 'صور من مهام نفذناها فعليًا في دبي — قبل وبعد.'
+            : 'Photos from jobs we have actually carried out in Dubai — before and after.',
+    ]);
+    ?>
+  <section class="section">
+    <div class="container">
+<?php if ($projects !== []): ?>
+      <div class="project-list">
+<?php foreach ($projects as $p):
+        $title = $ar ? ($p['title_ar'] ?? $p['title_en'] ?? '') : ($p['title_en'] ?? $p['title_ar'] ?? '');
+        $summary = $ar ? ($p['summary_ar'] ?? '') : ($p['summary_en'] ?? '');
+        $meta = array_filter([
+            (string) ($p['area'] ?? ''),
+            (string) ($p['service'] ?? ''),
+            !empty($p['date']) ? date('F Y', strtotime((string) $p['date'])) : '',
+        ]); ?>
+        <article class="project-item">
+          <div class="ba-pair">
+<?php if (!empty($p['before'])): ?>
+            <figure>
+              <img src="<?= View::e(Uploads::url((string) $p['before'])) ?>" alt="<?= View::e($title) ?> — <?= $ar ? 'قبل' : 'before' ?>" loading="lazy" decoding="async">
+              <figcaption><?= $ar ? 'قبل' : 'Before' ?></figcaption>
+            </figure>
+<?php endif; ?>
+<?php if (!empty($p['after'])): ?>
+            <figure>
+              <img src="<?= View::e(Uploads::url((string) $p['after'])) ?>" alt="<?= View::e($title) ?> — <?= $ar ? 'بعد' : 'after' ?>" loading="lazy" decoding="async">
+              <figcaption class="is-after"><?= $ar ? 'بعد' : 'After' ?></figcaption>
+            </figure>
+<?php endif; ?>
+          </div>
+          <div class="project-body">
+            <h2><?= View::e($title) ?></h2>
+<?php if ($meta !== []): ?>
+            <p class="project-meta"><?= View::e(implode(' · ', $meta)) ?></p>
+<?php endif; ?>
+<?php if ($summary !== ''): ?>
+            <p><?= View::e($summary) ?></p>
+<?php endif; ?>
+          </div>
+        </article>
+<?php endforeach; ?>
+      </div>
+<?php else: ?>
+      <div class="empty-state">
+        <p><?= $ar
+            ? 'لم نضف صور المشاريع بعد. تواصل معنا وسنخبرك بأعمال مشابهة لما تحتاجه.'
+            : 'We haven’t added project photos yet. Get in touch and we’ll tell you about similar jobs we’ve done.' ?></p>
+        <a class="btn btn-teal" href="<?= View::base($lang) ?>contact-us/#quote"><?= $ar ? 'تواصل معنا' : 'Contact us' ?> <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+<?php endif; ?>
+    </div>
+  </section>
+<?php
+    View::ctaBand($lang, View::base($lang) . 'contact-us/#quote');
+    View::foot($lang);
+}
 
 function render_services_page(string $lang): void
 {

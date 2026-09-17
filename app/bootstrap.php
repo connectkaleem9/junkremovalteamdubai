@@ -15,6 +15,10 @@ require_once __DIR__ . '/Security.php';
 require_once __DIR__ . '/Db.php';
 require_once __DIR__ . '/Lead.php';
 require_once __DIR__ . '/Mailer.php';
+require_once __DIR__ . '/Store.php';
+require_once __DIR__ . '/Review.php';
+require_once __DIR__ . '/Uploads.php';
+require_once __DIR__ . '/Admin.php';
 
 Config::load();
 

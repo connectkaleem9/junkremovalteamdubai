@@ -605,6 +605,42 @@ html[lang="ar"] .areas-eyebrow { letter-spacing: 0; text-transform: none; font-s
 .areas-chips li::before { content: ""; inline-size: .55rem; block-size: .55rem; border-radius: 50%; background: var(--green); flex: none; }
 @media (max-width: 520px) { .areas-chips li { font-size: .86rem; padding: .5rem .8rem; } .areas-chips { gap: .5rem; } }
 
+/* ---------- Reviews page ---------- */
+.review-summary { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; margin-block-end: 1.75rem; }
+.review-summary p { margin: 0; color: var(--text-muted); }
+.review-summary strong { color: var(--navy-800); font-size: 1.15rem; }
+.stars .icon.is-empty { color: #D8DEE4; }
+.review-card blockquote { white-space: pre-line; }
+.empty-state { background: var(--bg-light); border: 1px dashed var(--border-input); border-radius: var(--radius-lg); padding: 2rem; text-align: center; color: var(--text-muted); }
+.empty-state p { margin-block-end: 1rem; }
+
+/* Star picker */
+.rating-input { border: 0; padding: 0; margin: 0 0 1rem; }
+.rating-input legend { font-weight: 600; font-size: .88rem; margin-block-end: .4rem; color: #fff; }
+.rating-input input { position: absolute; opacity: 0; pointer-events: none; }
+.rating-input label {
+  display: inline-flex; align-items: center; gap: .25rem; cursor: pointer;
+  padding: .4rem .7rem; margin-inline-end: .4rem; border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / .35); color: #fff; font-weight: 600; font-size: .9rem;
+}
+.rating-input label .icon { inline-size: .95rem; block-size: .95rem; fill: currentColor; stroke: none; }
+.rating-input input:checked + label { background: var(--star); border-color: var(--star); color: var(--navy-800); }
+.rating-input input:focus-visible + label { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* ---------- Projects page ---------- */
+.project-list { display: grid; gap: clamp(1.5rem, 4vw, 2.5rem); }
+.project-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+.ba-pair { display: grid; grid-template-columns: 1fr; gap: 2px; background: var(--border); }
+@media (min-width: 640px) { .ba-pair { grid-template-columns: 1fr 1fr; } }
+.ba-pair figure { position: relative; margin: 0; aspect-ratio: 4 / 3; background: var(--bg-light); }
+.ba-pair img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+.ba-pair figcaption { position: absolute; inset-block-end: .6rem; inset-inline-start: .6rem; background: #14212B; color: #fff; font-size: .75rem; font-weight: 600; padding: .25rem .65rem; border-radius: 4px; }
+.ba-pair figcaption.is-after { background: var(--green); }
+.project-body { padding: 1.25rem 1.4rem 1.5rem; }
+.project-body h2 { font-size: 1.2rem; color: var(--navy-800); margin-block-end: .35rem; }
+.project-meta { color: var(--text-muted); font-size: .88rem; margin-block-end: .6rem; }
+.project-body p { color: var(--text-muted); margin: 0; }
+
 /* ---------- Form states ---------- */
 .hp { position: absolute !important; inset-inline-start: -10000px; inline-size: 1px; block-size: 1px; overflow: hidden; }
 .field-error { display: block; color: #FFB4A8; font-size: .8rem; margin-block-start: .3rem; }

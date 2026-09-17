@@ -11,7 +11,7 @@ declare(strict_types=1);
 final class View
 {
     /** Bump together with ?v= in public/index.html and public/ar/index.html. */
-    public const ASSET_VERSION = '12';
+    public const ASSET_VERSION = '13';
 
     public const SITE          = 'https://junkremovalteamdubai.com';
     public const PHONE_TEL     = '+971567021884';
@@ -428,8 +428,8 @@ final class View
             'home'     => $b,
             'services' => $b . 'services/',
             'areas'    => $b . '#areas',
-            'projects' => $b . '#projects',
-            'reviews'  => $b . '#reviews',
+            'projects' => $b . 'projects/',
+            'reviews'  => $b . 'reviews/',
             'about'    => $b . 'about-us/',
         ];
         $serviceLinks = self::services($lang);
@@ -654,10 +654,10 @@ final class View
           <li><a href="<?= $b ?>services/"><?= self::e($t['nav']['services']) ?></a></li>
           <li><a href="<?= $b ?>about-us/"><?= self::e($t['nav']['about']) ?></a></li>
           <li><a href="<?= $b ?>contact-us/"><?= self::e($t['contact']) ?></a></li>
-          <li><a href="<?= $b ?>#reviews"><?= self::e($t['nav']['reviews']) ?></a></li>
+          <li><a href="<?= $b ?>reviews/"><?= self::e($t['nav']['reviews']) ?></a></li>
           <li><a href="#"><?= self::e($t['blog']) ?></a></li>
           <li><a href="<?= $b ?>#areas"><?= self::e($t['nav']['areas']) ?></a></li>
-          <li><a href="<?= $b ?>#projects"><?= self::e($t['nav']['projects']) ?></a></li>
+          <li><a href="<?= $b ?>projects/"><?= self::e($t['nav']['projects']) ?></a></li>
         </ul>
       </div>
       <div>

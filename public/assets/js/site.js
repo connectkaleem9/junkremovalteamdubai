@@ -101,7 +101,7 @@
   var attribution = loadAttribution();
 
   /* ---------- Quote forms ---------- */
-  document.querySelectorAll('[data-quote-form]').forEach(function (form) {
+  document.querySelectorAll('[data-quote-form], [data-review-form]').forEach(function (form) {
     function setHidden(name, value) {
       var input = form.querySelector('input[type="hidden"][name="' + name + '"]');
       if (!input) {
@@ -221,10 +221,11 @@
     });
   });
 
-  /* Plain (no-JS) submissions come back with ?sent=1 */
-  if (new URLSearchParams(window.location.search).get('sent') === '1') {
+  /* Plain (no-JS) submissions come back with ?sent=1 or ?posted=1 */
+  var query = new URLSearchParams(window.location.search);
+  if (query.get('sent') === '1' || query.get('posted') === '1') {
     var box = document.querySelector('[data-form-success]');
-    if (box) { box.textContent = TEXT.sent; box.hidden = false; }
+    if (box) { box.hidden = false; }
   }
 
   /* ---------- Conversion events (GA4 / GTM ready) ---------- */
