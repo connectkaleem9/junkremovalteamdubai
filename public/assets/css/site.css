@@ -123,6 +123,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .site-header.is-stuck { box-shadow: var(--shadow-sm); }
 .header-inner { display: flex; align-items: center; gap: 1rem; min-block-size: var(--header-h); }
 .brand { display: inline-flex; align-items: center; gap: .6rem; margin-inline-end: auto; color: var(--navy-800); }
+/* Desktop: equal side columns put the nav in the true centre */
+@media (min-width: 1024px) {
+  .brand { flex: 1 1 0; margin-inline-end: 0; }
+  .main-nav { flex: 0 0 auto; }
+  .header-cta { flex: 1 1 0; justify-content: flex-end; }
+}
 .brand-mark { inline-size: 46px; block-size: 46px; flex: none; }
 .brand-logo { block-size: 60px; inline-size: auto; max-inline-size: 290px; object-fit: contain; }
 .site-footer .brand-logo { block-size: 68px; max-inline-size: 320px; }
@@ -374,8 +380,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .site-footer a:hover { color: #fff; }
 .site-footer .brand-text, .site-footer .brand { color: #fff; }
 .site-footer .brand-text small { color: var(--on-dark-muted); }
-.footer-links { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem 1rem; }
-.footer-links li a { display: inline-block; padding-block: .2rem; }
+/* Single column so every link stays on one line */
+.footer-links { display: grid; grid-template-columns: 1fr; gap: 0; }
+.footer-links li a { display: inline-block; padding-block: .15rem; white-space: nowrap; }
+.site-footer ul { gap: 0; }
+.site-footer a { min-block-size: 30px; }
 .footer-contact li { display: flex; gap: .6rem; margin-block-end: .6rem; align-items: flex-start; }
 .footer-contact .icon { inline-size: 1.05rem; block-size: 1.05rem; margin-block-start: .25rem; color: #7FD3C4; }
 .footer-about { margin-block-start: var(--space-4); max-inline-size: 22rem; line-height: 1.7; }
