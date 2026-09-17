@@ -12,7 +12,7 @@
 <!-- ?v= is a cache buster: the server sends Cache-Control max-age=604800 (7 days),
      so bump this number whenever site.css or site.js changes, otherwise repeat
      visitors keep the old stylesheet and the layout breaks. -->
-<link rel="stylesheet" href="assets/css/site.css?v=4">
+<link rel="stylesheet" href="assets/css/site.css?v=5">
 </head>
 <body>
 
@@ -151,6 +151,7 @@
        must be able to keep and evidence. -->
   <div class="feature-bar">
     <div class="container">
+     <div class="marquee">
       <ul class="feature-list">
         <li class="feature-item">
           <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
@@ -172,7 +173,29 @@
           <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
           <div><strong><span class="ltr">24/7</span></strong><span>Availability</span></div>
         </li>
+        <!-- Duplicate set: only used by the mobile slider, hidden from assistive tech -->
+        <li class="feature-item" aria-hidden="true">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <div><strong>Same Day</strong><span>Service</span></div>
+        </li>
+        <li class="feature-item" aria-hidden="true">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+          <div><strong>Eco-Friendly</strong><span>Disposal</span></div>
+        </li>
+        <li class="feature-item" aria-hidden="true">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-truck-fast"/></svg></span>
+          <div><strong>We Arrive In</strong><span>30 Minutes</span></div>
+        </li>
+        <li class="feature-item" aria-hidden="true">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <div><strong>All Areas</strong><span>In Dubai</span></div>
+        </li>
+        <li class="feature-item" aria-hidden="true">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <div><strong><span class="ltr">24/7</span></strong><span>Availability</span></div>
+        </li>
       </ul>
+     </div>
     </div>
   </div>
 
@@ -431,6 +454,7 @@
       </div>
       <!-- VERIFY G3: these three reviews must be genuine, with source and permission recorded,
            otherwise they cannot be published. Text below is from the supplied design. -->
+      <div class="review-marquee">
       <div class="review-grid">
         <article class="review-card">
           <div class="stars" role="img" aria-label="5 out of 5 stars">
@@ -453,6 +477,23 @@
           <blockquote>“Best junk removal service in Dubai. On time, friendly staff and affordable prices. Highly recommended!”</blockquote>
           <div class="reviewer"><span class="avatar" aria-hidden="true">KA</span><div><strong>Khalid A.</strong><span>Downtown Dubai</span></div></div>
         </article>
+        <!-- Duplicate set: only used by the mobile slider, hidden from assistive tech -->
+        <article class="review-card" aria-hidden="true">
+          <div class="stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div>
+          <blockquote>“Excellent service! The team was professional, fast and very helpful. Highly recommended for any junk removal in Dubai.”</blockquote>
+          <div class="reviewer"><span class="avatar" aria-hidden="true">AR</span><div><strong>Ahmed R.</strong><span>Jumeirah, Dubai</span></div></div>
+        </article>
+        <article class="review-card" aria-hidden="true">
+          <div class="stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div>
+          <blockquote>“They cleared our villa quickly and left everything clean. Great communication and very reliable team. Will definitely use them again.”</blockquote>
+          <div class="reviewer"><span class="avatar" aria-hidden="true">SM</span><div><strong>Sarah M.</strong><span>Arabian Ranches</span></div></div>
+        </article>
+        <article class="review-card" aria-hidden="true">
+          <div class="stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div>
+          <blockquote>“Best junk removal service in Dubai. On time, friendly staff and affordable prices. Highly recommended!”</blockquote>
+          <div class="reviewer"><span class="avatar" aria-hidden="true">KA</span><div><strong>Khalid A.</strong><span>Downtown Dubai</span></div></div>
+        </article>
+      </div>
       </div>
     </div>
   </section>

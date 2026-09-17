@@ -143,13 +143,20 @@ ul { margin: 0; padding: 0; list-style: none; }
   .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; }
   .main-nav a { min-block-size: 50px; font-size: 1rem; }
   .main-nav a.is-active::after { inset-inline: .7rem auto; inline-size: 22px; }
-  /* Design shows the full green call button on mobile, not just an icon */
-  .header-cta .btn-phone.header-desktop-only { display: inline-flex; min-block-size: 44px; padding-inline: .9rem; font-size: .88rem; }
+  /* Design shows the full green call button on mobile, not just an icon.
+     min-inline-size:0 lets it shrink instead of pushing the page wider. */
+  .header-cta { min-inline-size: 0; flex: 1 1 auto; justify-content: flex-end; }
+  .header-cta .btn-phone.header-desktop-only {
+    display: inline-flex; min-block-size: 44px; padding-inline: .8rem; font-size: .88rem;
+    min-inline-size: 0; flex: 0 1 auto; overflow: hidden;
+  }
   .header-actions a.icon-btn.header-mobile-only { display: none; }
+  .brand { margin-inline-end: .5rem; min-inline-size: 0; flex: 0 1 auto; }
   .site-header .container { position: relative; }
 }
 @media (max-width: 420px) {
-  .header-cta .btn-phone.header-desktop-only { padding-inline: .65rem; font-size: .78rem; gap: .35rem; }
+  .header-cta .btn-phone.header-desktop-only { padding-inline: .6rem; font-size: .76rem; gap: .3rem; }
+  .brand-logo { block-size: 38px; max-inline-size: 150px; }
 }
 
 /* ---------- Hero ---------- */
@@ -411,7 +418,26 @@ ul { margin: 0; padding: 0; list-style: none; }
   /* No overlap on small screens: the bar was clipping the rating row */
   .feature-bar { margin-block-start: 1rem; }
   .hero-inner { padding-block-end: var(--space-5); }
+
+  /* Feature bar becomes a continuous slider (right to left) */
+  .feature-bar .container { padding-inline: 0; }
+  .feature-list {
+    display: flex; inline-size: max-content; gap: 1.6rem; padding: 1.1rem 1.6rem;
+    border-radius: 0; animation: marquee-rtl 26s linear infinite;
+  }
+  .feature-list .feature-item { flex: none; }
+  .feature-bar .marquee:hover .feature-list,
+  .feature-bar .marquee:focus-within .feature-list { animation-play-state: paused; }
+
+  /* Reviews become a continuous slider (left to right) */
+  .review-grid { display: flex; inline-size: max-content; gap: 1rem; animation: marquee-ltr 40s linear infinite; }
+  .review-grid .review-card { flex: none; inline-size: 280px; }
+  .review-marquee { overflow: hidden; }
+  .review-marquee:hover .review-grid,
+  .review-marquee:focus-within .review-grid { animation-play-state: paused; }
+  .section-navy .section-head .head-actions { display: none; }
 }
+@keyframes marquee-rtl { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* Phone numbers, emails and Latin text inside Arabic copy stay left-to-right */
 .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }

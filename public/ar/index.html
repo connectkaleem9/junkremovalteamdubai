@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <!-- ?v= cache buster — bump whenever site.css or site.js changes -->
-<link rel="stylesheet" href="../assets/css/site.css?v=4">
+<link rel="stylesheet" href="../assets/css/site.css?v=5">
 </head>
 <body>
 
@@ -146,6 +146,7 @@
   <!-- VERIFY E3 / E4 / F1: جميع هذه الوعود تحتاج إلى تأكيد من الشركة -->
   <div class="feature-bar">
     <div class="container">
+     <div class="marquee">
       <ul class="feature-list">
         <li class="feature-item">
           <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
@@ -167,7 +168,29 @@
           <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
           <div><strong><span class="ltr">24/7</span></strong><span>متاحون دائمًا</span></div>
         </li>
+        <!-- نسخة مكررة لشريط الجوال المتحرك — مخفية عن قارئات الشاشة -->
+        <li class="feature-item" aria-hidden="true">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <div><strong>في نفس اليوم</strong><span>خدمة سريعة</span></div>
+        </li>
+        <li class="feature-item" aria-hidden="true">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></span>
+          <div><strong>صديق للبيئة</strong><span>طرق التخلص</span></div>
+        </li>
+        <li class="feature-item" aria-hidden="true">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-truck-fast"/></svg></span>
+          <div><strong>نصل خلال</strong><span><span class="ltr">30</span> دقيقة</span></div>
+        </li>
+        <li class="feature-item" aria-hidden="true">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <div><strong>جميع المناطق</strong><span>في دبي</span></div>
+        </li>
+        <li class="feature-item" aria-hidden="true">
+          <span class="feature-icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+          <div><strong><span class="ltr">24/7</span></strong><span>متاحون دائمًا</span></div>
+        </li>
       </ul>
+     </div>
     </div>
   </div>
 
@@ -425,6 +448,7 @@
       </div>
       <!-- VERIFY G3: يجب أن تكون الآراء حقيقية مع تسجيل المصدر والإذن.
            النصوص أدناه مترجمة عن النسخة الإنجليزية في التصميم — عند النشر يجب الإشارة إلى أنها مترجمة. -->
+      <div class="review-marquee">
       <div class="review-grid">
         <article class="review-card">
           <div class="stars" role="img" aria-label="5 من 5 نجوم">
@@ -447,6 +471,23 @@
           <blockquote>«أفضل خدمة إزالة مخلفات في دبي. في الوقت المحدد، وطاقم ودود، وأسعار مناسبة. أنصح بهم بشدة!»</blockquote>
           <div class="reviewer"><span class="avatar" aria-hidden="true">خ</span><div><strong>خالد أ.</strong><span>وسط مدينة دبي</span></div></div>
         </article>
+        <!-- نسخة مكررة للشريط المتحرك — مخفية عن قارئات الشاشة -->
+        <article class="review-card" aria-hidden="true">
+          <div class="stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div>
+          <blockquote>«خدمة ممتازة! الفريق محترف وسريع ومتعاون جدًا. أنصح بهم بشدة لأي عملية إزالة مخلفات في دبي.»</blockquote>
+          <div class="reviewer"><span class="avatar" aria-hidden="true">أ</span><div><strong>أحمد ر.</strong><span>جميرا، دبي</span></div></div>
+        </article>
+        <article class="review-card" aria-hidden="true">
+          <div class="stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div>
+          <blockquote>«أخلوا الفيلا بسرعة وتركوا كل شيء نظيفًا. تواصل ممتاز وفريق موثوق. سنتعامل معهم مرة أخرى بالتأكيد.»</blockquote>
+          <div class="reviewer"><span class="avatar" aria-hidden="true">س</span><div><strong>سارة م.</strong><span>المرابع العربية</span></div></div>
+        </article>
+        <article class="review-card" aria-hidden="true">
+          <div class="stars"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div>
+          <blockquote>«أفضل خدمة إزالة مخلفات في دبي. في الوقت المحدد، وطاقم ودود، وأسعار مناسبة. أنصح بهم بشدة!»</blockquote>
+          <div class="reviewer"><span class="avatar" aria-hidden="true">خ</span><div><strong>خالد أ.</strong><span>وسط مدينة دبي</span></div></div>
+        </article>
+      </div>
       </div>
     </div>
   </section>
