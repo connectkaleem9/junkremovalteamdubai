@@ -16,7 +16,7 @@
 <!-- ?v= is a cache buster: the server sends Cache-Control max-age=604800 (7 days),
      so bump this number whenever site.css or site.js changes, otherwise repeat
      visitors keep the old stylesheet and the layout breaks. -->
-<link rel="stylesheet" href="assets/css/site.css?v=9">
+<link rel="stylesheet" href="assets/css/site.css?v=10">
 </head>
 <body>
 
@@ -84,9 +84,9 @@
       <ul>
         <li><a href="index.html" class="is-active" aria-current="page">Home</a></li>
         <li><a href="/services/">Services <svg class="icon caret" aria-hidden="true"><use href="#i-caret"/></svg></a></li>
-        <li><a href="#areas">Areas We Serve <svg class="icon caret" aria-hidden="true"><use href="#i-caret"/></svg></a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="/#areas">Areas We Serve <svg class="icon caret" aria-hidden="true"><use href="#i-caret"/></svg></a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#reviews">Reviews</a></li>
         <li><a href="/about-us/">About Us</a></li>
       </ul>
     </nav>
@@ -413,6 +413,32 @@
     </div>
   </section>
 
+  <!-- ===== Areas we serve ===== -->
+  <!-- VERIFY F1: only list areas the business genuinely covers -->
+  <section class="areas-band" id="areas" aria-labelledby="areas-title">
+    <svg class="skyline-bg" viewBox="0 0 220 70" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" preserveAspectRatio="xMidYMax meet">
+      <path d="M2 68h216"/>
+      <path d="M14 68V44h16v24M34 68V52h12v16M50 68V38h14v30"/>
+      <path d="M104 68V20l4-16 4 16v48"/>
+      <path d="M80 68V34h14v34M120 68V30h16v38M140 68V44h12v24M156 68V36h14v32M174 68V50h14v18M196 68V42h10v26"/>
+    </svg>
+    <div class="container">
+      <span class="areas-eyebrow">Service Areas</span>
+      <h2 id="areas-title">Proudly Serving All Areas in <span class="accent">Dubai</span></h2>
+      <p class="areas-sub">No matter where you are, we are just a call away.</p>
+      <ul class="areas-chips">
+        <li>Al Quoz</li>
+        <li>Al Barsha</li>
+        <li>Jumeirah</li>
+        <li>Dubai Marina</li>
+        <li>Business Bay</li>
+        <li>Downtown Dubai</li>
+        <li>JVC</li>
+      </ul>
+      <a class="btn btn-green" href="/about-us/#where-we-work">View All Areas <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </section>
+
   <!-- ===== Projects ===== -->
   <section class="section" id="projects">
     <div class="container">
@@ -507,7 +533,7 @@
   </section>
 
   <!-- ===== Final CTA ===== -->
-  <section class="cta-band" id="areas">
+  <section class="cta-band">
     <svg class="cta-leaf cta-leaf-start" viewBox="0 0 200 170" aria-hidden="true" fill="currentColor">
       <path d="M8 168C4 96 44 34 130 6c14 78-34 140-122 162z"/>
       <path d="M96 40c34-14 62-18 92-16-30 22-58 34-92 44z" opacity=".7"/>
@@ -547,10 +573,10 @@
           <li><a href="/services/">Services</a></li>
           <li><a href="/about-us/">About Us</a></li>
           <li><a href="/contact-us/">Contact</a></li>
-          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="/#reviews">Reviews</a></li>
           <li><a href="#">Blog</a></li>
-          <li><a href="#areas">Areas We Serve</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="/#areas">Areas We Serve</a></li>
+          <li><a href="/#projects">Projects</a></li>
         </ul>
       </div>
       <div>
@@ -602,6 +628,6 @@
   <a class="m-wa" href="https://wa.me/971567021884" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
 </nav>
 
-<script src="assets/js/site.js?v=9"></script>
+<script src="assets/js/site.js?v=10"></script>
 </body>
 </html>

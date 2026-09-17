@@ -556,6 +556,21 @@ html[lang="ar"] .page-hero .eyebrow { letter-spacing: 0; text-transform: none; f
 .area-ask { margin-block-start: 1.25rem; }
 .area-ask a { display: inline-flex; align-items: center; gap: .4rem; font-weight: 600; }
 
+/* ---------- Areas band (homepage) ----------
+   Brand gradient plus a faint skyline outline, rather than a photo. */
+.areas-band { position: relative; overflow: hidden; text-align: center; padding-block: clamp(2.75rem, 6vw, 4rem); background: linear-gradient(180deg, #F3F8FB 0%, #E9F1F6 100%); }
+.areas-band .skyline-bg { position: absolute; inset-inline: 0; inset-block-end: 0; inline-size: 100%; block-size: auto; color: #0A2C46; opacity: .07; pointer-events: none; }
+.areas-band .container { position: relative; z-index: 1; }
+.areas-eyebrow { display: inline-block; background: #E8F5EF; color: var(--green); font-family: var(--font-head); font-weight: 600; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; padding: .4rem .95rem; border-radius: 999px; }
+html[lang="ar"] .areas-eyebrow { letter-spacing: 0; text-transform: none; font-size: .9rem; }
+.areas-band h2 { margin-block: 1rem .5rem; font-size: clamp(1.7rem, 1.2rem + 2vw, 2.6rem); color: var(--navy-800); }
+.areas-band h2 .accent { color: var(--green); }
+.areas-sub { color: var(--text-muted); margin-block-end: 1.75rem; }
+.areas-chips { list-style: none; margin: 0 auto 1.75rem; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; max-inline-size: 62rem; }
+.areas-chips li { display: inline-flex; align-items: center; gap: .5rem; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: .6rem 1.1rem; font-family: var(--font-head); font-weight: 600; font-size: .95rem; color: var(--navy-800); box-shadow: var(--shadow-sm); }
+.areas-chips li::before { content: ""; inline-size: .55rem; block-size: .55rem; border-radius: 50%; background: var(--green); flex: none; }
+@media (max-width: 520px) { .areas-chips li { font-size: .86rem; padding: .5rem .8rem; } .areas-chips { gap: .5rem; } }
+
 /* ---------- Form states ---------- */
 .hp { position: absolute !important; inset-inline-start: -10000px; inline-size: 1px; block-size: 1px; overflow: hidden; }
 .field-error { display: block; color: #FFB4A8; font-size: .8rem; margin-block-start: .3rem; }

@@ -179,7 +179,7 @@ function render_about_page(string $lang): void
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="where-we-work">
     <div class="container">
       <div class="section-intro">
         <h2><?= $ar ? 'المناطق التي نعمل بها' : 'Where we work' ?></h2>
