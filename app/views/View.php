@@ -11,13 +11,22 @@ declare(strict_types=1);
 final class View
 {
     /** Bump together with ?v= in public/index.html and public/ar/index.html. */
-    public const ASSET_VERSION = '18';
+    public const ASSET_VERSION = '19';
 
     public const SITE          = 'https://junkremovalteamdubai.com';
     public const PHONE_TEL     = '+971567021884';
     public const PHONE_DISPLAY = '056 702 1884';
     public const WHATSAPP      = 'https://wa.me/971567021884';
     public const EMAIL         = 'contact.junkremovalteam@gmail.com';
+
+    /* Google properties. Both IDs are public by design — they are visible in the
+       page source of any site that uses them — so they live here rather than in
+       .env. The verification tag must stay in place for as long as the property
+       is verified in Search Console; removing it un-verifies the site.
+       The same two snippets are repeated in public/index.html and
+       public/ar/index.html, which are static and do not run this file. */
+    public const GSC_VERIFICATION = 'quEENNACJsrUu2zj7EnajEKJJbNnpaB7wCXFgVjgJkk';
+    public const GA_MEASUREMENT_ID = 'G-CJLZ08FE0N';
 
     public static function e(?string $value): string
     {
@@ -899,6 +908,7 @@ final class View
 <title><?= self::e($p['title']) ?></title>
 <meta name="description" content="<?= self::e($p['description']) ?>">
 <meta name="robots" content="<?= self::e($robots) ?>">
+<meta name="google-site-verification" content="<?= self::GSC_VERIFICATION ?>">
 <?php if ($indexable): ?>
 <link rel="canonical" href="<?= self::e($lang === 'ar' ? $arUrl : $enUrl) ?>">
 <link rel="alternate" hreflang="en" href="<?= self::e($enUrl) ?>">
@@ -912,6 +922,15 @@ final class View
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?<?= $fonts ?>&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/site.css?v=<?= $v ?>">
+<?php if ($indexable): /* no analytics on /admin/ — it would count staff as visitors */ ?>
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?= self::GA_MEASUREMENT_ID ?>"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '<?= self::GA_MEASUREMENT_ID ?>');
+</script>
+<?php endif; ?>
 </head>
 <body>
 

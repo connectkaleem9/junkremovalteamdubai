@@ -16,9 +16,16 @@
     }
   }[lang];
 
-  function track(name) {
+  /* Conversion events go to both places: the dataLayer push is what Google Tag
+     Manager would listen for, and the gtag call is what GA4 actually records.
+     A dataLayer push on its own does NOT become a GA4 event. */
+  function track(name, params) {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: name });
+    var payload = params || {};
+    var pushed = { event: name };
+    Object.keys(payload).forEach(function (key) { pushed[key] = payload[key]; });
+    window.dataLayer.push(pushed);
+    if (typeof window.gtag === 'function') { window.gtag('event', name, payload); }
   }
 
   /* ---------- Mobile navigation ---------- */
