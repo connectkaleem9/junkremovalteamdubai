@@ -11,7 +11,7 @@ declare(strict_types=1);
 final class View
 {
     /** Bump together with ?v= in public/index.html and public/ar/index.html. */
-    public const ASSET_VERSION = '20';
+    public const ASSET_VERSION = '21';
 
     public const SITE          = 'https://junkremovalteamdubai.com';
     public const PHONE_TEL     = '+971567021884';
@@ -38,9 +38,21 @@ final class View
         return $lang === 'ar' ? '/ar/' : '/';
     }
 
-    public static function whatsappLink(string $text = ''): string
+    /**
+     * WhatsApp chat link with the message already typed for the customer.
+     *
+     * Passing no text gives the general enquiry wording; the service pages pass
+     * their own so the chat opens naming the service the visitor was reading.
+     */
+    public static function whatsappLink(string $text = '', string $lang = 'en'): string
     {
-        return self::WHATSAPP . ($text !== '' ? '?text=' . rawurlencode($text) : '');
+        if ($text === '') {
+            $text = $lang === 'ar'
+                ? 'مرحبًا Junk Removal Team Dubai، أرغب في الحصول على عرض سعر لخدمة إزالة المخلفات في دبي. هل يمكنكم تزويدي بمزيد من المعلومات عن الخدمة؟ شكرًا لكم.'
+                : 'Hello Junk Removal Team Dubai, I would like to get a quote for junk removal in Dubai. Could you please provide more information about your service? Thank you.';
+        }
+
+        return self::WHATSAPP . '?text=' . rawurlencode($text);
     }
 
     /* ------------------------------------------------------------------ strings */
@@ -1143,7 +1155,7 @@ gtag('config', '<?= self::GA_MEASUREMENT_ID ?>');
       <h1><?= $h['title_html'] ?? self::e($h['title'] ?? '') ?></h1>
       <p class="lead"><?= self::e($h['lead']) ?></p>
       <div class="btn-group">
-        <a class="btn btn-wa" href="<?= self::WHATSAPP ?>" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><?= self::e($t['whatsapp_us']) ?></a>
+        <a class="btn btn-wa" href="<?= self::e(self::whatsappLink('', $lang)) ?>" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><?= self::e($t['whatsapp_us']) ?></a>
         <a class="btn btn-ghost" href="tel:<?= self::PHONE_TEL ?>" data-track="phone_click"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="ltr"><?= self::PHONE_DISPLAY ?></span></a>
       </div>
     </div>
@@ -1227,7 +1239,7 @@ gtag('config', '<?= self::GA_MEASUREMENT_ID ?>');
       </div>
       <div class="btn-group">
         <a class="btn btn-teal" href="tel:<?= self::PHONE_TEL ?>" data-track="phone_click"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="ltr"><?= self::PHONE_DISPLAY ?></span></a>
-        <a class="btn btn-wa" href="<?= self::WHATSAPP ?>" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><?= self::e($t['whatsapp_us']) ?></a>
+        <a class="btn btn-wa" href="<?= self::e(self::whatsappLink('', $lang)) ?>" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><?= self::e($t['whatsapp_us']) ?></a>
         <a class="btn btn-call" href="<?= self::e($quoteHref) ?>"><?= self::e($t['get_quote']) ?> <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
@@ -1306,8 +1318,8 @@ gtag('config', '<?= self::GA_MEASUREMENT_ID ?>');
 </footer>
 
 <nav class="mobile-bar" aria-label="<?= self::e($t['quick_contact']) ?>">
-  <a href="tel:<?= self::PHONE_TEL ?>" data-track="phone_click"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><?= self::e($t['call']) ?></a>
-  <a class="m-wa" href="<?= self::WHATSAPP ?>" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><?= self::e($t['whatsapp']) ?></a>
+  <a class="m-call" href="tel:<?= self::PHONE_TEL ?>" data-track="phone_click"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><?= self::e($t['call']) ?></a>
+  <a class="m-wa" href="<?= self::e(self::whatsappLink('', $lang)) ?>" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><?= self::e($t['whatsapp']) ?></a>
 </nav>
 
 <script src="/assets/js/site.js?v=<?= $v ?>"></script>

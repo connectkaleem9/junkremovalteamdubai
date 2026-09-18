@@ -399,14 +399,29 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-bottom .tagline { color: #7FD3C4; }
 
 /* ---------- Mobile sticky actions ---------- */
-.mobile-bar { position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 90; display: none; grid-template-columns: repeat(2, 1fr); background: #fff; border-block-start: 1px solid var(--border); box-shadow: 0 -4px 14px rgb(6 42 68 / .1); padding-block-end: env(safe-area-inset-bottom); }
-.mobile-bar a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; min-block-size: 62px; font-size: .78rem; font-weight: 600; color: var(--navy-800); }
-.mobile-bar .m-wa { color: var(--whatsapp); }
-.mobile-bar .m-quote { background: var(--teal); color: #fff; }
-.mobile-bar .icon { inline-size: 1.25rem; block-size: 1.25rem; }
+/* Two solid buttons rather than two pale text links — this bar is the main way
+   a phone visitor gets in touch, so it should read as something to press. */
+.mobile-bar {
+  position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 90; display: none;
+  grid-template-columns: repeat(2, 1fr); gap: .5rem;
+  background: #fff; border-block-start: 1px solid var(--border);
+  box-shadow: 0 -6px 18px rgb(6 42 68 / .12);
+  padding: .5rem .6rem calc(.5rem + env(safe-area-inset-bottom));
+}
+.mobile-bar a {
+  display: flex; align-items: center; justify-content: center; gap: .5rem;
+  min-block-size: 50px; border-radius: var(--radius);
+  font-family: var(--font-head); font-size: .95rem; font-weight: 600;
+  color: #fff; letter-spacing: .01em;
+}
+.mobile-bar a:active { transform: scale(.98); }
+.mobile-bar .m-call { background: var(--green-dark); }
+.mobile-bar .m-wa { background: var(--whatsapp); }
+.mobile-bar .m-quote { background: var(--teal); }
+.mobile-bar .icon { inline-size: 1.15rem; block-size: 1.15rem; stroke-width: 2; }
 @media (max-width: 767px) {
   .mobile-bar { display: grid; }
-  body { padding-block-end: calc(62px + env(safe-area-inset-bottom)); }
+  body { padding-block-end: calc(66px + env(safe-area-inset-bottom)); }
 
   /* Angled gradient keeps the truck visible instead of washing the hero dark */
   .hero::after {
@@ -631,7 +646,18 @@ html[lang="ar"] .areas-eyebrow { letter-spacing: 0; text-transform: none; font-s
 .areas-chips a:hover { border-color: var(--green); color: var(--navy-800); transform: translateY(-1px); }
 .areas-chips .icon { inline-size: 1rem; block-size: 1rem; color: var(--green); flex: none; }
 .areas-band .areas-sub { color: #3F5566; }
-@media (max-width: 520px) { .areas-chips li { font-size: .86rem; padding: .5rem .8rem; } .areas-chips { gap: .5rem; } }
+/* On a phone the centred flex rows come out ragged — each row a different
+   width, chips half-hanging off both edges. A two-column grid lines them up
+   instead, and the chip fills its cell so every row is the same shape. */
+@media (max-width: 640px) {
+  .areas-chips { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; margin-inline: 0; }
+  .areas-chips li { display: block; }
+  .areas-chips a, .areas-chips span {
+    inline-size: 100%; justify-content: center; text-align: center;
+    padding: .6rem .5rem; font-size: .84rem; line-height: 1.25; min-block-size: 46px;
+  }
+  .areas-chips .icon { inline-size: .9rem; block-size: .9rem; }
+}
 
 /* ---------- Area cards ---------- */
 .area-card { display: flex; flex-direction: column; text-decoration: none; color: var(--text); transition: box-shadow .2s, border-color .2s, transform .2s; }
@@ -685,6 +711,16 @@ html[lang="ar"] .areas-eyebrow { letter-spacing: 0; text-transform: none; font-s
 .project-body p { color: var(--text-muted); font-size: .92rem; margin: 0; }
 
 /* ---------- Admin sign-in (uses the public header and footer) ---------- */
+/* The sign-in page holds one small card, so on a tall phone the document ended
+   above the bottom of the screen and the browser painted a band of white under
+   the footer. Pushing the footer down with `margin-block-start: auto` fills the
+   screen. Scoped with :has() so no other page's layout changes. */
+body:has(.admin-login) { display: flex; flex-direction: column; min-block-size: 100svh; }
+body:has(.admin-login) .site-footer { margin-block-start: auto; }
+@media (max-width: 767px) {
+  /* Give the card some breathing room instead of the full desktop section padding */
+  body:has(.admin-login) main > .section { padding-block: 2rem; }
+}
 .admin-login { max-inline-size: 30rem; margin-inline: auto; }
 .admin-login .quote-card h2 { font-size: 1.5rem; }
 .admin-login .form-note { text-align: center; }

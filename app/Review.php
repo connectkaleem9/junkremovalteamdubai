@@ -11,7 +11,14 @@ declare(strict_types=1);
  */
 final class Review
 {
-    public const MAX_PER_DAY = 3;
+    /**
+     * Owner's decision (18 Sep 2026): there is no daily cap — one person may
+     * post as many reviews as they like. What is left is a burst guard: no more
+     * than this many in a single minute. A human typing a review cannot reach
+     * it; a script posting in a loop hits it immediately. Set MAX_PER_MINUTE to
+     * 0 to turn even that off.
+     */
+    public const MAX_PER_MINUTE = 10;
 
     /** @return array{0: array<string,mixed>, 1: array<string,string>} [clean, errors] */
     public static function validate(array $input, string $lang): array

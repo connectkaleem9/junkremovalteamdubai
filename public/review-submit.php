@@ -45,10 +45,12 @@ if (Security::honeypotTripped($_POST) || Security::submittedTooFast($_POST, 5)) 
     review_respond(true, $ar ? 'شكرًا لك.' : 'Thank you.', [], $back);
 }
 
-if (Security::rateLimited('review', Review::MAX_PER_DAY, 86400)) {
+// No daily cap — the same person may leave as many reviews as they want.
+// Only an automated burst is stopped (see Review::MAX_PER_MINUTE).
+if (Review::MAX_PER_MINUTE > 0 && Security::rateLimited('review', Review::MAX_PER_MINUTE, 60)) {
     review_respond(false, $ar
-        ? 'لقد أرسلت عدة مراجعات اليوم. شكرًا لك!'
-        : 'You have already posted a few reviews today. Thank you!', [], $back);
+        ? 'وصلتنا مراجعات كثيرة دفعة واحدة. يرجى المحاولة بعد دقيقة.'
+        : 'That was a lot of reviews at once. Please try again in a minute.', [], $back);
 }
 
 [$clean, $errors] = Review::validate($_POST, $lang);

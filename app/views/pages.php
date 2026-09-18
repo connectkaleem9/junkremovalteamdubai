@@ -477,7 +477,7 @@ function render_services_page(string $lang): void
             <a class="btn btn-teal" href="<?= View::base($lang) ?>services/<?= View::e($s['slug']) ?>/">
               <?= $ar ? 'تفاصيل الخدمة' : 'See full details' ?> <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg>
             </a>
-            <a class="btn btn-outline" href="<?= View::e(View::whatsappLink($s['wa_text'])) ?>" data-track="whatsapp_click">
+            <a class="btn btn-outline" href="<?= View::e(View::whatsappLink($s['wa_text'], $lang)) ?>" data-track="whatsapp_click">
               <svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><?= View::e($s['ask']) ?>
             </a>
           </div>
@@ -824,7 +824,7 @@ function render_contact_page(string $lang): void
             <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg></span>
             <div>
               <h3><?= $ar ? 'واتساب' : 'WhatsApp' ?></h3>
-              <a href="<?= View::WHATSAPP ?>" data-track="whatsapp_click"><?= $ar ? 'ابدأ محادثة على واتساب' : 'Start a chat on WhatsApp' ?></a>
+              <a href="<?= View::e(View::whatsappLink('', $lang)) ?>" data-track="whatsapp_click"><?= $ar ? 'ابدأ محادثة على واتساب' : 'Start a chat on WhatsApp' ?></a>
             </div>
           </div>
           <div class="contact-item">
