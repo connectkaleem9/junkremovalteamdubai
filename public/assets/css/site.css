@@ -258,8 +258,6 @@ ul { margin: 0; padding: 0; list-style: none; }
 .marquee:hover .marquee-track,
 .marquee:focus-within .marquee-track { animation-play-state: paused; }
 @keyframes marquee-ltr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-/* Arabic reads right-to-left, so the cards travel the other way */
-[dir="rtl"] .marquee-track { animation-direction: reverse; }
 @media (max-width: 640px) {
   .marquee .service-card { inline-size: 215px; }
   .marquee-track { animation-duration: 32s; }
@@ -462,6 +460,19 @@ ul { margin: 0; padding: 0; list-style: none; }
   .section-navy .section-head .head-actions { display: none; }
 }
 @keyframes marquee-rtl { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* RTL mirrors of the two loops.
+   In an RTL page the flex track is anchored to the RIGHT edge and extends left,
+   so a NEGATIVE translate slides the cards off the right of the screen and leaves
+   a growing empty strip there. The Arabic marquees therefore need the positive
+   halves of the same loop — the motion is mirrored, the seam still lands exactly
+   one group along. Keep these after every rule that sets `animation:` shorthand,
+   otherwise the shorthand resets animation-name back to the LTR keyframes. */
+@keyframes marquee-ltr-flip { from { transform: translateX(50%); } to { transform: translateX(0); } }
+@keyframes marquee-rtl-flip { from { transform: translateX(0); } to { transform: translateX(50%); } }
+[dir="rtl"] .marquee-track { animation-name: marquee-ltr-flip; animation-direction: normal; }
+[dir="rtl"] .feature-list { animation-name: marquee-rtl-flip; }
+[dir="rtl"] .review-grid { animation-name: marquee-ltr-flip; }
 
 /* The duplicate sets exist only so the mobile marquee can loop seamlessly.
    On desktop there is no marquee, so they must not render twice. */
@@ -709,12 +720,20 @@ html[lang="ar"] .avatar { font-size: 1rem; }
     linear-gradient(270deg, rgb(6 42 68 / .97) 0%, rgb(6 42 68 / .92) 32%, rgb(6 42 68 / .55) 58%, rgb(6 42 68 / .15) 100%),
     linear-gradient(180deg, rgb(6 42 68 / .35) 0%, transparent 35%);
 }
-[dir="rtl"] .hero-media img { object-position: 30% 50%; }
+/* The hero photo is wider than it is tall, so on a desktop screen `cover` scales it
+   to the full width and object-position has nothing left to crop horizontally — the
+   truck stays where the photographer put it, at about 65% across. In Arabic the
+   headline sits on the right, so the truck is slid physically to the left instead;
+   the strip it leaves behind on the right is the hero's own navy, which the mirrored
+   gradient above already fades into. Flipping the photo is not an option: the truck
+   carries the company name and it would read backwards. */
+[dir="rtl"] .hero-media img { object-position: 30% 50%; transform: translateX(-26%); }
 [dir="rtl"] .flip { transform: scaleX(-1); }
 [dir="rtl"] .input[dir="ltr"] { text-align: right; }
 [dir="rtl"] .topbar .lang { direction: rtl; }
 
 @media (max-width: 767px) {
   [dir="rtl"] .hero::after { background: linear-gradient(180deg, rgb(6 42 68 / .82) 0%, rgb(6 42 68 / .92) 55%, rgb(6 42 68 / .97) 100%); }
-  [dir="rtl"] .hero-media img { object-position: 40% 50%; }
+  /* On a phone the mobile crop is already tall and centred — no shift there */
+  [dir="rtl"] .hero-media img { object-position: 40% 50%; transform: none; }
 }
