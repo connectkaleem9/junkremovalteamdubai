@@ -637,8 +637,11 @@ html[lang="ar"] .areas-eyebrow { letter-spacing: 0; text-transform: none; font-s
 .area-card { display: flex; flex-direction: column; text-decoration: none; color: var(--text); transition: box-shadow .2s, border-color .2s, transform .2s; }
 .area-card:hover { border-color: var(--teal); box-shadow: var(--shadow); transform: translateY(-2px); color: var(--text); }
 .area-card .more { margin-block-start: auto; padding-block-start: .85rem; display: inline-flex; align-items: center; gap: .35rem; color: var(--teal); font-weight: 600; font-size: .9rem; }
-.project-photo-single { line-height: 0; background: var(--bg-light); }
-.project-photo-single img { inline-size: 100%; block-size: auto; }
+/* Uploaded photos have no width/height attributes (the size is only known at
+   upload time), so the box reserves its own space — without this the page
+   reflows as each photo arrives, which is exactly what CLS measures. */
+.project-photo-single { line-height: 0; background: var(--bg-light); aspect-ratio: 16 / 10; }
+.project-photo-single img { inline-size: 100%; block-size: 100%; object-fit: cover; }
 
 /* ---------- Reviews page ---------- */
 .review-summary { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; margin-block-end: 1.75rem; }
@@ -742,3 +745,10 @@ html[lang="ar"] .avatar { font-size: 1rem; }
   /* On a phone the mobile crop is already tall and centred — no shift there */
   [dir="rtl"] .hero-media img { object-position: 40% 50%; transform: none; }
 }
+
+/* ---------- Legal pages (privacy, terms, cookies) ---------- */
+.legal-doc { max-inline-size: 48rem; }
+.legal-doc h2 { font-size: 1.15rem; color: var(--navy-800); margin-block: 1.75rem .6rem; }
+.legal-doc h2:first-child { margin-block-start: 0; }
+.legal-doc p { color: var(--text-muted); margin-block-end: .7rem; }
+.legal-updated { margin-block-start: 2rem; font-size: .88rem; font-style: italic; }

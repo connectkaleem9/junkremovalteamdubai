@@ -11,7 +11,7 @@ declare(strict_types=1);
 final class View
 {
     /** Bump together with ?v= in public/index.html and public/ar/index.html. */
-    public const ASSET_VERSION = '19';
+    public const ASSET_VERSION = '20';
 
     public const SITE          = 'https://junkremovalteamdubai.com';
     public const PHONE_TEL     = '+971567021884';
@@ -870,6 +870,105 @@ final class View
         return $out;
     }
 
+    /* ------------------------------------------------------------------ schema */
+
+    /**
+     * JSON-LD for the page. Everything here must match something a visitor can
+     * actually see on the page — that is what "no fake schema" means.
+     *
+     * Deliberately NOT included, and they must stay out until the owner can
+     * evidence them (CLAUDE.md rules 17 and 18):
+     *   - aggregateRating / reviewCount — we have no verified rating
+     *   - openingHoursSpecification — business hours are unconfirmed
+     *   - priceRange — no price list exists
+     *   - sameAs — the social profile URLs are still placeholders
+     * VERIFY B / E / G in docs/00-business-verification.md.
+     *
+     * @param array $p the same array head() was given
+     * @return array<int,array<string,mixed>>
+     */
+    private static function schemaGraph(array $p, string $pageUrl, string $lang): array
+    {
+        $ar = $lang === 'ar';
+        $orgId = self::SITE . '/#business';
+        $graph = [];
+
+        $graph[] = [
+            '@type' => 'LocalBusiness',
+            '@id' => $orgId,
+            'name' => 'Junk Removal Team Dubai',
+            'url' => self::SITE . ($ar ? '/ar/' : '/'),
+            'image' => self::SITE . '/assets/images/og-image.jpg',
+            'logo' => self::SITE . '/assets/images/logo-header.png',
+            'telephone' => self::PHONE_TEL,
+            'email' => self::EMAIL,
+            'address' => [
+                '@type' => 'PostalAddress',
+                'streetAddress' => $ar ? 'منطقة القوز الصناعية 3' : 'Al Quoz Industrial Area 3',
+                'addressLocality' => $ar ? 'دبي' : 'Dubai',
+                'addressCountry' => 'AE',
+            ],
+            'areaServed' => array_values(array_map(
+                static fn (array $a): array => ['@type' => 'Place', 'name' => $a['name']],
+                self::areaDetail($lang)
+            )),
+        ];
+
+        // Breadcrumbs match the trail printed by pageHero() on every inner page
+        $path = trim((string) ($p['path'] ?? ''), '/');
+        if ($path !== '') {
+            $base = self::SITE . ($ar ? '/ar/' : '/');
+            $items = [['name' => $ar ? 'الرئيسية' : 'Home', 'item' => $base]];
+            $segments = explode('/', $path);
+            $t = self::t($lang);
+            $trail = '';
+            foreach ($segments as $i => $segment) {
+                $trail .= $segment . '/';
+                $isLast = $i === count($segments) - 1;
+                $name = $isLast
+                    ? trim(explode('|', (string) $p['title'])[0])
+                    : ($t['nav'][$p['active'] ?? ''] ?? ucwords(str_replace('-', ' ', $segment)));
+                $items[] = ['name' => $name, 'item' => $base . $trail];
+            }
+            $graph[] = [
+                '@type' => 'BreadcrumbList',
+                'itemListElement' => array_map(
+                    static fn (int $i, array $it): array => [
+                        '@type' => 'ListItem', 'position' => $i + 1, 'name' => $it['name'], 'item' => $it['item'],
+                    ],
+                    array_keys($items),
+                    $items
+                ),
+            ];
+        }
+
+        // Service pages describe one service; the FAQ block is on the page too
+        if (!empty($p['service'])) {
+            $s = $p['service'];
+            $graph[] = array_filter([
+                '@type' => 'Service',
+                'name' => $s['title'],
+                'description' => $s['text'] ?? '',
+                'serviceType' => $s['value'] ?? $s['title'],
+                'url' => $pageUrl,
+                'provider' => ['@id' => $orgId],
+                'areaServed' => ['@type' => 'City', 'name' => $ar ? 'دبي' : 'Dubai'],
+            ]);
+            if (!empty($s['faqs'])) {
+                $graph[] = [
+                    '@type' => 'FAQPage',
+                    'mainEntity' => array_map(static fn (array $f): array => [
+                        '@type' => 'Question',
+                        'name' => $f[0],
+                        'acceptedAnswer' => ['@type' => 'Answer', 'text' => $f[1]],
+                    ], $s['faqs']),
+                ];
+            }
+        }
+
+        return $graph;
+    }
+
     /* ------------------------------------------------------------------ layout */
 
     /**
@@ -899,6 +998,9 @@ final class View
             'about'    => $b . 'about-us/',
         ];
         $serviceLinks = self::services($lang);
+        $pageUrl = $lang === 'ar' ? $arUrl : $enUrl;
+        $ogImage = self::SITE . '/assets/images/og-image.jpg';
+        $schema = $indexable ? self::schemaGraph($p, $pageUrl, $lang) : [];
         ?>
 <!doctype html>
 <html lang="<?= $lang ?>" dir="<?= $dir ?>">
@@ -915,6 +1017,20 @@ final class View
 <link rel="alternate" hreflang="ar" href="<?= self::e($arUrl) ?>">
 <link rel="alternate" hreflang="x-default" href="<?= self::e($enUrl) ?>">
 <?php endif; ?>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Junk Removal Team Dubai">
+<meta property="og:url" content="<?= self::e($pageUrl) ?>">
+<meta property="og:title" content="<?= self::e($p['title']) ?>">
+<meta property="og:description" content="<?= self::e($p['description']) ?>">
+<meta property="og:image" content="<?= self::e($ogImage) ?>">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="<?= $lang === 'ar' ? 'ar_AE' : 'en_AE' ?>">
+<meta property="og:locale:alternate" content="<?= $lang === 'ar' ? 'en_AE' : 'ar_AE' ?>">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= self::e($p['title']) ?>">
+<meta name="twitter:description" content="<?= self::e($p['description']) ?>">
+<meta name="twitter:image" content="<?= self::e($ogImage) ?>">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -930,6 +1046,9 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', '<?= self::GA_MEASUREMENT_ID ?>');
 </script>
+<?php endif; ?>
+<?php if ($schema): ?>
+<script type="application/ld+json"><?= json_encode(['@context' => 'https://schema.org', '@graph' => $schema], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?></script>
 <?php endif; ?>
 </head>
 <body>
@@ -1087,7 +1206,7 @@ gtag('config', '<?= self::GA_MEASUREMENT_ID ?>');
           </div>
           <button class="btn btn-green btn-block" type="submit"><?= self::e($t['f_submit']) ?> <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></button>
           <div class="form-success" data-form-success hidden><?= self::e($t['f_success']) ?></div>
-          <p class="form-note"><?= self::e($t['f_note']) ?> <a href="#"><?= self::e($t['privacy']) ?></a>.</p>
+          <p class="form-note"><?= self::e($t['f_note']) ?> <a href="<?= $b ?>privacy-policy/"><?= self::e($t['privacy']) ?></a>.</p>
         </form>
       </div>
 <?php
@@ -1141,7 +1260,6 @@ gtag('config', '<?= self::GA_MEASUREMENT_ID ?>');
           <li><a href="<?= $b ?>about-us/"><?= self::e($t['nav']['about']) ?></a></li>
           <li><a href="<?= $b ?>contact-us/"><?= self::e($t['contact']) ?></a></li>
           <li><a href="<?= $b ?>reviews/"><?= self::e($t['nav']['reviews']) ?></a></li>
-          <li><a href="#"><?= self::e($t['blog']) ?></a></li>
           <li><a href="<?= $b ?>areas/"><?= self::e($t['nav']['areas']) ?></a></li>
           <li><a href="<?= $b ?>projects/"><?= self::e($t['nav']['projects']) ?></a></li>
         </ul>
@@ -1178,9 +1296,9 @@ gtag('config', '<?= self::GA_MEASUREMENT_ID ?>');
     <div class="container">
       <span><?= $t['rights_html'] ?></span>
       <nav aria-label="<?= self::e($t['legal']) ?>">
-        <a href="#"><?= self::e($t['privacy']) ?></a>
-        <a href="#"><?= $t['terms_html'] ?></a>
-        <a href="#"><?= self::e($t['cookies']) ?></a>
+        <a href="<?= $b ?>privacy-policy/"><?= self::e($t['privacy']) ?></a>
+        <a href="<?= $b ?>terms-and-conditions/"><?= $t['terms_html'] ?></a>
+        <a href="<?= $b ?>cookie-policy/"><?= self::e($t['cookies']) ?></a>
       </nav>
       <span class="tagline"><?= self::e($t['designed_by']) ?> <a href="https://imwebee.com" target="_blank" rel="noopener">Webee</a></span>
     </div>

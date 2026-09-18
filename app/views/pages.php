@@ -221,11 +221,23 @@ function render_area_page(string $lang, string $slug): void
     $name = $area['name'];
     $title = $ar ? 'إزالة المخلفات في ' . $name : 'Junk Removal in ' . $name;
 
+    // A few area names are long enough to push the title past the ~60 characters
+    // Google shows, so those pages use a shorter, well-known form in the <title>
+    // only — the H1 and the page still use the full name.
+    $shortName = [
+        'jvc' => $ar ? 'قرية جميرا الدائرية' : 'JVC',
+        'jumeirah-lake-towers' => $ar ? 'أبراج بحيرات جميرا' : 'JLT',
+        'dubai-silicon-oasis' => $ar ? 'واحة دبي للسيليكون' : 'Silicon Oasis',
+        'dubai-hills-estate' => $ar ? 'دبي هيلز' : 'Dubai Hills',
+    ][$slug] ?? $name;
+    $metaTitle = ($ar ? 'إزالة المخلفات في ' . $shortName : 'Junk Removal in ' . $shortName)
+        . ' | Junk Removal Team Dubai';
+
     View::head([
         'lang' => $lang,
         'path' => 'areas/' . $slug . '/',
         'active' => 'areas',
-        'title' => $title . ' | Junk Removal Team Dubai',
+        'title' => $metaTitle,
         'description' => $ar
             ? 'خدمات إزالة المخلفات وإخلاء المنازل والمكاتب في ' . $name . '، دبي. اتصل بنا أو راسلنا عبر واتساب للحصول على سعر.'
             : 'Junk removal, furniture removal and property clearance in ' . $name . ', Dubai. Call or WhatsApp us for a price.',
@@ -426,8 +438,9 @@ function render_services_page(string $lang): void
         'path' => 'services/',
         'active' => 'services',
         'title' => $ar
-            ? 'خدمات إزالة المخلفات والإخلاء في دبي | Junk Removal Team Dubai'
-            : 'Junk Removal & Clearance Services in Dubai | Junk Removal Team Dubai',
+            // Kept under ~60 characters so Google does not truncate it in results
+            ? 'خدمات إزالة المخلفات في دبي | Junk Removal Team Dubai'
+            : 'Junk Removal Services in Dubai | Junk Removal Team Dubai',
         'description' => $ar
             ? 'إزالة المخلفات ونقل الأثاث وإخلاء المنازل والمكاتب ومخلفات البناء والنفايات الإلكترونية في دبي. تعرّف على كل خدمة واحصل على عرض سعر.'
             : 'Junk removal, furniture removal, house and office clearance, construction waste and e-waste collection across Dubai. See what each service covers and get a quote.',
@@ -522,7 +535,12 @@ function render_service_detail_page(string $lang, string $slug): void
 
     $b = View::base($lang);
     $t = View::t($lang);
-    $inDubai = $ar ? $s['title'] . ' في دبي' : $s['title'] . ' in Dubai';
+    // The homepage already targets "Junk Removal in Dubai" (docs/02-keyword-map D1),
+    // so this one page says "Service" to keep the two from competing for the same
+    // query with the same title and the same H1.
+    $inDubai = $slug === 'junk-removal'
+        ? ($ar ? 'خدمة إزالة المخلفات في دبي' : 'Junk Removal Service in Dubai')
+        : ($ar ? $s['title'] . ' في دبي' : $s['title'] . ' in Dubai');
 
     View::head([
         'lang' => $lang,
@@ -530,6 +548,7 @@ function render_service_detail_page(string $lang, string $slug): void
         'active' => 'services',
         'title' => $inDubai . ' | Junk Removal Team Dubai',
         'description' => mb_strimwidth($s['text'], 0, 155, '…'),
+        'service' => $s, // drives the Service + FAQPage schema in View::head()
     ]);
 
     View::pageHero($lang, [
