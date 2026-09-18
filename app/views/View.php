@@ -11,7 +11,7 @@ declare(strict_types=1);
 final class View
 {
     /** Bump together with ?v= in public/index.html and public/ar/index.html. */
-    public const ASSET_VERSION = '13';
+    public const ASSET_VERSION = '14';
 
     public const SITE          = 'https://junkremovalteamdubai.com';
     public const PHONE_TEL     = '+971567021884';
@@ -370,6 +370,88 @@ final class View
         return null;
     }
 
+    /**
+     * Area pages. The property mix below is general knowledge about each part
+     * of Dubai, not a claim about jobs done there.
+     * VERIFY F1: confirm every area is genuinely served before promoting these.
+     */
+    public static function areaDetail(string $lang, ?string $slug = null): array|null
+    {
+        $ar = $lang === 'ar';
+
+        $areas = [
+            'al-quoz' => [
+                'name' => $ar ? 'القوز' : 'Al Quoz',
+                'blurb' => $ar
+                    ? 'منطقة تجمع بين المستودعات والمكاتب والورش والمناطق السكنية، ومقرنا فيها.'
+                    : 'A mix of warehouses, offices, workshops and homes — and where we are based.',
+                'typical' => $ar
+                    ? ['إخلاء المستودعات والمخازن', 'أثاث المكاتب والورش', 'مخلفات ما بعد التشطيب', 'إخلاء المنازل والشقق']
+                    : ['Warehouse and storeroom clear-outs', 'Office and workshop furniture', 'Leftovers after a fit-out', 'Home and apartment clearances'],
+            ],
+            'al-barsha' => [
+                'name' => $ar ? 'البرشاء' : 'Al Barsha',
+                'blurb' => $ar
+                    ? 'مزيج من الفلل والمباني السكنية والمحلات، مع مواقف قريبة تسهّل التحميل.'
+                    : 'Villas, apartment buildings and shops side by side, usually with parking close to the door.',
+                'typical' => $ar
+                    ? ['إخلاء الفلل والشقق', 'الأثاث القديم والأجهزة', 'إخلاء المحلات الصغيرة', 'غرف التخزين والمرائب']
+                    : ['Villa and apartment clearances', 'Old furniture and appliances', 'Small shop clear-outs', 'Storage rooms and garages'],
+            ],
+            'jumeirah' => [
+                'name' => $ar ? 'جميرا' : 'Jumeirah',
+                'blurb' => $ar
+                    ? 'منطقة فلل في الأغلب، مع حدائق ومساحات خارجية وغرف تخزين.'
+                    : 'Mostly villas, with gardens, outdoor space and storage rooms.',
+                'typical' => $ar
+                    ? ['إخلاء الفلل بالكامل أو جزئيًا', 'أثاث الحدائق والشرفات', 'غرف الخدم والمخازن', 'الأثاث والأجهزة القديمة']
+                    : ['Full or partial villa clearances', 'Garden and balcony furniture', 'Maid’s rooms and storerooms', 'Old furniture and appliances'],
+            ],
+            'dubai-marina' => [
+                'name' => $ar ? 'دبي مارينا' : 'Dubai Marina',
+                'blurb' => $ar
+                    ? 'أبراج سكنية عالية، وغالبًا يتطلب العمل حجز مصعد الخدمة ومنطقة تحميل.'
+                    : 'High-rise apartments, where jobs usually mean booking a service lift and a loading bay.',
+                'typical' => $ar
+                    ? ['إخلاء الشقق عند الانتقال', 'الكنب والأسرّة والمراتب', 'الأجهزة المنزلية', 'أغراض الشرفات']
+                    : ['Move-out apartment clearances', 'Sofas, beds and mattresses', 'Household appliances', 'Balcony items'],
+            ],
+            'business-bay' => [
+                'name' => $ar ? 'الخليج التجاري' : 'Business Bay',
+                'blurb' => $ar
+                    ? 'مكاتب وشقق في أبراج واحدة، لذلك يُرتَّب العمل غالبًا مع إدارة المبنى.'
+                    : 'Offices and apartments in the same towers, so work is usually arranged with building management.',
+                'typical' => $ar
+                    ? ['إخلاء المكاتب عند الانتقال', 'محطات العمل والكراسي والخزائن', 'إخلاء الشقق', 'الأجهزة الإلكترونية القديمة']
+                    : ['Office clearances on relocation', 'Workstations, chairs and cabinets', 'Apartment clearances', 'Old IT equipment'],
+            ],
+            'downtown-dubai' => [
+                'name' => $ar ? 'وسط مدينة دبي' : 'Downtown Dubai',
+                'blurb' => $ar
+                    ? 'أبراج سكنية ومكاتب ومحلات، مع قواعد دخول وتحميل صارمة عادةً.'
+                    : 'Residential towers, offices and retail, usually with strict access and loading rules.',
+                'typical' => $ar
+                    ? ['إخلاء الشقق والاستوديوهات', 'الأثاث والأجهزة', 'إخلاء المكاتب الصغيرة', 'أغراض المحلات']
+                    : ['Apartment and studio clearances', 'Furniture and appliances', 'Small office clearances', 'Retail items'],
+            ],
+            'jvc' => [
+                'name' => $ar ? 'قرية جميرا الدائرية' : 'Jumeirah Village Circle',
+                'blurb' => $ar
+                    ? 'مزيج من الفلل والتاون هاوس والمباني السكنية، مع وصول سهل للشاحنات.'
+                    : 'Villas, townhouses and apartment buildings, with easy truck access on most streets.',
+                'typical' => $ar
+                    ? ['إخلاء الفلل والتاون هاوس', 'إخلاء الشقق عند الانتقال', 'الأثاث والأجهزة القديمة', 'مخلفات ما بعد التجديد']
+                    : ['Villa and townhouse clearances', 'Move-out apartment clearances', 'Old furniture and appliances', 'Post-renovation debris'],
+            ],
+        ];
+
+        if ($slug === null) {
+            return $areas;
+        }
+
+        return $areas[$slug] ?? null;
+    }
+
     /** VERIFY E1–E3: the steps must match how the business actually books jobs. */
     public static function steps(string $lang): array
     {
@@ -427,7 +509,7 @@ final class View
         $nav = [
             'home'     => $b,
             'services' => $b . 'services/',
-            'areas'    => $b . '#areas',
+            'areas'    => $b . 'areas/',
             'projects' => $b . 'projects/',
             'reviews'  => $b . 'reviews/',
             'about'    => $b . 'about-us/',
@@ -487,14 +569,20 @@ final class View
       <ul>
 <?php foreach ($nav as $key => $href):
         $active = $key === $p['active'];
-        $hasSub = $key === 'services';
+        $hasSub = in_array($key, ['services', 'areas'], true);
         ?>
         <li<?= $hasSub ? ' class="has-sub"' : '' ?>>
           <a href="<?= self::e($href) ?>"<?= $active ? ' class="is-active" aria-current="page"' : '' ?>><?= self::e($t['nav'][$key]) ?><?= $hasSub ? ' <svg class="icon caret" aria-hidden="true"><use href="#i-caret"/></svg>' : '' ?></a>
-<?php if ($hasSub): ?>
+<?php if ($key === 'services'): ?>
           <ul class="submenu">
 <?php foreach ($serviceLinks as $s): ?>
             <li><a href="<?= $b ?>services/<?= self::e($s['slug']) ?>/"><?= self::e($s['title']) ?></a></li>
+<?php endforeach; ?>
+          </ul>
+<?php elseif ($key === 'areas'): ?>
+          <ul class="submenu">
+<?php foreach (self::areaDetail($lang) as $areaSlug => $area): ?>
+            <li><a href="<?= $b ?>areas/<?= self::e($areaSlug) ?>/"><?= self::e($area['name']) ?></a></li>
 <?php endforeach; ?>
           </ul>
 <?php endif; ?>

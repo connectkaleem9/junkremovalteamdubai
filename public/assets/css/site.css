@@ -588,10 +588,8 @@ html[lang="ar"] .page-hero .eyebrow { letter-spacing: 0; text-transform: none; f
    Brand gradient plus a faint skyline outline, rather than a photo. */
 .areas-band {
   position: relative; overflow: hidden; text-align: center; padding-block: clamp(2.75rem, 6vw, 4rem);
-  /* Supplied photo, with a light wash over it so the text stays readable */
-  background:
-    linear-gradient(180deg, rgb(243 248 251 / .90) 0%, rgb(233 241 246 / .84) 55%, rgb(233 241 246 / .90) 100%),
-    url("/assets/images/areas-bg.jpg") center / cover no-repeat;
+  /* Photo shown as-is; the headline sits over the bright sky so it stays legible */
+  background: url("/assets/images/areas-bg.jpg") center / cover no-repeat;
 }
 .areas-band .skyline-bg { display: none; }
 .areas-band .container { position: relative; z-index: 1; }
@@ -601,9 +599,23 @@ html[lang="ar"] .areas-eyebrow { letter-spacing: 0; text-transform: none; font-s
 .areas-band h2 .accent { color: var(--green); }
 .areas-sub { color: var(--text-muted); margin-block-end: 1.75rem; }
 .areas-chips { list-style: none; margin: 0 auto 1.75rem; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; max-inline-size: 62rem; }
-.areas-chips li { display: inline-flex; align-items: center; gap: .5rem; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: .6rem 1.1rem; font-family: var(--font-head); font-weight: 600; font-size: .95rem; color: var(--navy-800); box-shadow: var(--shadow-sm); }
-.areas-chips li::before { content: ""; inline-size: .55rem; block-size: .55rem; border-radius: 50%; background: var(--green); flex: none; }
+.areas-chips li { display: inline-flex; }
+.areas-chips a, .areas-chips span {
+  display: inline-flex; align-items: center; gap: .45rem; background: #fff; border: 1px solid var(--border);
+  border-radius: 10px; padding: .6rem 1.1rem; font-family: var(--font-head); font-weight: 600; font-size: .95rem;
+  color: var(--navy-800); box-shadow: var(--shadow-sm); transition: border-color .15s, transform .15s;
+}
+.areas-chips a:hover { border-color: var(--green); color: var(--navy-800); transform: translateY(-1px); }
+.areas-chips .icon { inline-size: 1rem; block-size: 1rem; color: var(--green); flex: none; }
+.areas-band .areas-sub { color: #3F5566; }
 @media (max-width: 520px) { .areas-chips li { font-size: .86rem; padding: .5rem .8rem; } .areas-chips { gap: .5rem; } }
+
+/* ---------- Area cards ---------- */
+.area-card { display: flex; flex-direction: column; text-decoration: none; color: var(--text); transition: box-shadow .2s, border-color .2s, transform .2s; }
+.area-card:hover { border-color: var(--teal); box-shadow: var(--shadow); transform: translateY(-2px); color: var(--text); }
+.area-card .more { margin-block-start: auto; padding-block-start: .85rem; display: inline-flex; align-items: center; gap: .35rem; color: var(--teal); font-weight: 600; font-size: .9rem; }
+.project-photo-single { line-height: 0; background: var(--bg-light); }
+.project-photo-single img { inline-size: 100%; block-size: auto; }
 
 /* ---------- Reviews page ---------- */
 .review-summary { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; margin-block-end: 1.75rem; }

@@ -108,4 +108,17 @@ final class Uploads
     {
         return '/media.php?f=' . rawurlencode($name);
     }
+
+    /**
+     * Images that ship with the site live under /assets/; uploaded ones are
+     * served by media.php. This picks the right URL for either.
+     */
+    public static function publicUrl(string $name): string
+    {
+        if (str_starts_with($name, 'assets/')) {
+            return '/' . $name;
+        }
+
+        return self::url($name);
+    }
 }

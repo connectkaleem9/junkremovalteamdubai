@@ -155,6 +155,183 @@ function render_reviews_page(string $lang): void
     View::foot($lang);
 }
 
+function render_areas_hub_page(string $lang): void
+{
+    $ar = $lang === 'ar';
+    $areas = View::areaDetail($lang);
+    $b = View::base($lang);
+
+    View::head([
+        'lang' => $lang,
+        'path' => 'areas/',
+        'active' => 'areas',
+        'title' => $ar ? 'المناطق التي نخدمها في دبي | Junk Removal Team Dubai' : 'Areas We Serve in Dubai | Junk Removal Team Dubai',
+        'description' => $ar
+            ? 'نقدم خدمات إزالة المخلفات والإخلاء في مختلف مناطق دبي — القوز والبرشاء وجميرا ودبي مارينا والخليج التجاري ووسط المدينة وقرية جميرا الدائرية.'
+            : 'Junk removal and clearance across Dubai — Al Quoz, Al Barsha, Jumeirah, Dubai Marina, Business Bay, Downtown Dubai and JVC.',
+    ]);
+
+    View::pageHero($lang, [
+        'crumb' => $ar ? 'المناطق' : 'Areas We Serve',
+        'eyebrow' => $ar ? 'مناطق الخدمة' : 'Service Areas',
+        'title' => $ar ? 'المناطق التي نخدمها في دبي' : 'Areas we serve in Dubai',
+        'lead' => $ar
+            ? 'نعمل في مختلف أنحاء دبي. اختر منطقتك لمعرفة الأعمال التي نقوم بها هناك عادةً.'
+            : 'We work across Dubai. Pick your area to see the kind of jobs we usually do there.',
+    ]);
+    ?>
+  <section class="section">
+    <div class="container">
+      <!-- VERIFY F1: confirm each area is genuinely covered -->
+      <div class="card-grid">
+<?php foreach ($areas as $slug => $area): ?>
+        <a class="info-card area-card" href="<?= $b ?>areas/<?= View::e($slug) ?>/">
+          <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+          <h3><?= View::e($area['name']) ?></h3>
+          <p><?= View::e($area['blurb']) ?></p>
+          <span class="more"><?= $ar ? 'التفاصيل' : 'See details' ?> <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+<?php endforeach; ?>
+      </div>
+      <p class="area-ask">
+        <a href="<?= View::e(View::whatsappLink($ar ? 'مرحبًا، هل تخدمون منطقتي؟' : 'Hi, do you cover my area?')) ?>" data-track="whatsapp_click">
+          <?= $ar ? 'لا تجد منطقتك؟ اسألنا عبر واتساب' : 'Don’t see your area? Ask us on WhatsApp' ?> <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+      </p>
+    </div>
+  </section>
+<?php
+    View::ctaBand($lang, $b . 'contact-us/#quote');
+    View::foot($lang);
+}
+
+function render_area_page(string $lang, string $slug): void
+{
+    $ar = $lang === 'ar';
+    $area = View::areaDetail($lang, $slug);
+
+    if ($area === null) {
+        http_response_code(404);
+        echo 'Area not found';
+        return;
+    }
+
+    $b = View::base($lang);
+    $t = View::t($lang);
+    $name = $area['name'];
+    $title = $ar ? 'إزالة المخلفات في ' . $name : 'Junk Removal in ' . $name;
+
+    View::head([
+        'lang' => $lang,
+        'path' => 'areas/' . $slug . '/',
+        'active' => 'areas',
+        'title' => $title . ' | Junk Removal Team Dubai',
+        'description' => $ar
+            ? 'خدمات إزالة المخلفات وإخلاء المنازل والمكاتب في ' . $name . '، دبي. اتصل بنا أو راسلنا عبر واتساب للحصول على سعر.'
+            : 'Junk removal, furniture removal and property clearance in ' . $name . ', Dubai. Call or WhatsApp us for a price.',
+    ]);
+
+    View::pageHero($lang, [
+        'crumb' => $name,
+        'parents' => [$t['nav']['areas'] => $b . 'areas/'],
+        'eyebrow' => $ar ? 'مناطق الخدمة' : 'Service Areas',
+        'title' => $title,
+        'lead' => $area['blurb'],
+    ]);
+    ?>
+  <section class="section">
+    <div class="container split center">
+      <div class="section-intro">
+        <h2><?= $ar ? 'ما الذي نقوم به في ' . View::e($name) : 'What we do in ' . View::e($name) ?></h2>
+        <p><?= $ar
+            ? 'نتولى إزالة الأثاث والأجهزة والأغراض غير المرغوب فيها من العقارات في ' . View::e($name) . '. أخبرنا بما تريد التخلص منه، ونتفق على السعر قبل البدء، ثم نتولى الحمل والتحميل والنقل.'
+            : 'We remove unwanted furniture, appliances and general junk from properties in ' . View::e($name) . '. Tell us what needs to go, we agree the price before starting, then we carry, load and take it away.' ?></p>
+        <ul class="tick-list">
+<?php foreach ($area['typical'] as $item): ?>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><?= View::e($item) ?></li>
+<?php endforeach; ?>
+        </ul>
+        <div class="btn-group">
+          <a class="btn btn-wa" href="<?= View::e(View::whatsappLink($ar ? 'مرحبًا، أحتاج إلى خدمة في ' . $name : 'Hi, I need a job done in ' . $name)) ?>" data-track="whatsapp_click">
+            <svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg><?= View::e($t['whatsapp_us']) ?>
+          </a>
+          <a class="btn btn-outline" href="tel:<?= View::PHONE_TEL ?>" data-track="phone_click">
+            <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="ltr"><?= View::PHONE_DISPLAY ?></span>
+          </a>
+        </div>
+      </div>
+      <div class="svc-media">
+        <img src="/assets/images/areas-bg.jpg" alt="<?= $ar ? 'شاحنة Junk Removal Team Dubai أثناء العمل في دبي' : 'Junk Removal Team Dubai truck on a job in Dubai' ?>" width="1800" height="600" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-intro">
+        <h2><?= $ar ? 'الخدمات المتاحة في ' . View::e($name) : 'Services available in ' . View::e($name) ?></h2>
+      </div>
+      <div class="card-grid">
+<?php foreach (View::services($lang) as $s): ?>
+        <a class="info-card area-card" href="<?= $b ?>services/<?= View::e($s['slug']) ?>/">
+          <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#<?= View::e($s['icon']) ?>"/></svg></span>
+          <h3><?= View::e($s['title']) ?></h3>
+          <p><?= View::e(mb_strimwidth($s['text'], 0, 95, '…')) ?></p>
+          <span class="more"><?= $ar ? 'التفاصيل' : 'See details' ?> <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+<?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h2><?= $ar ? 'طريقة العمل' : 'How it works' ?></h2>
+      </div>
+      <ol class="steps">
+<?php foreach (View::steps($lang) as [$stepTitle, $stepText]): ?>
+        <li class="step"><h3><?= View::e($stepTitle) ?></h3><p><?= View::e($stepText) ?></p></li>
+<?php endforeach; ?>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container split center">
+      <div class="section-intro">
+        <h2><?= $ar ? 'احصل على سعر في ' . View::e($name) : 'Get a price in ' . View::e($name) ?></h2>
+        <p><?= $ar
+            ? 'أرسل لنا التفاصيل وسنعاود التواصل معك بالسعر.'
+            : 'Send us the details and we’ll come back to you with a price.' ?></p>
+        <ul class="tick-list">
+<?php foreach (View::fasterQuote($lang) as $item): ?>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><?= View::e($item) ?></li>
+<?php endforeach; ?>
+        </ul>
+      </div>
+<?php View::quoteForm($lang); ?>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-intro">
+        <h2><?= $ar ? 'مناطق أخرى نخدمها' : 'Other areas we serve' ?></h2>
+      </div>
+      <ul class="areas-chips" style="justify-content:flex-start">
+<?php foreach (View::areaDetail($lang) as $otherSlug => $other):
+        if ($otherSlug === $slug) { continue; } ?>
+        <li><a href="<?= $b ?>areas/<?= View::e($otherSlug) ?>/"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><?= View::e($other['name']) ?></a></li>
+<?php endforeach; ?>
+      </ul>
+    </div>
+  </section>
+<?php
+    View::ctaBand($lang, '#quote');
+    View::foot($lang);
+}
+
 function render_projects_page(string $lang): void
 {
     $ar = $lang === 'ar';
@@ -192,20 +369,27 @@ function render_projects_page(string $lang): void
             !empty($p['date']) ? date('F Y', strtotime((string) $p['date'])) : '',
         ]); ?>
         <article class="project-item">
+<?php if (!empty($p['image'])): ?>
+          <!-- One photo that already contains the before/after split -->
+          <div class="project-photo-single">
+            <img src="<?= View::e(Uploads::publicUrl((string) $p['image'])) ?>" alt="<?= View::e($title) ?>" loading="lazy" decoding="async">
+          </div>
+<?php else: ?>
           <div class="ba-pair">
 <?php if (!empty($p['before'])): ?>
             <figure>
-              <img src="<?= View::e(Uploads::url((string) $p['before'])) ?>" alt="<?= View::e($title) ?> — <?= $ar ? 'قبل' : 'before' ?>" loading="lazy" decoding="async">
+              <img src="<?= View::e(Uploads::publicUrl((string) $p['before'])) ?>" alt="<?= View::e($title) ?> — <?= $ar ? 'قبل' : 'before' ?>" loading="lazy" decoding="async">
               <figcaption><?= $ar ? 'قبل' : 'Before' ?></figcaption>
             </figure>
 <?php endif; ?>
 <?php if (!empty($p['after'])): ?>
             <figure>
-              <img src="<?= View::e(Uploads::url((string) $p['after'])) ?>" alt="<?= View::e($title) ?> — <?= $ar ? 'بعد' : 'after' ?>" loading="lazy" decoding="async">
+              <img src="<?= View::e(Uploads::publicUrl((string) $p['after'])) ?>" alt="<?= View::e($title) ?> — <?= $ar ? 'بعد' : 'after' ?>" loading="lazy" decoding="async">
               <figcaption class="is-after"><?= $ar ? 'بعد' : 'After' ?></figcaption>
             </figure>
 <?php endif; ?>
           </div>
+<?php endif; ?>
           <div class="project-body">
             <h2><?= View::e($title) ?></h2>
 <?php if ($meta !== []): ?>
