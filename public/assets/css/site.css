@@ -653,6 +653,12 @@ html[lang="ar"] .areas-eyebrow { letter-spacing: 0; text-transform: none; font-s
 .project-meta { color: var(--text-muted); font-size: .88rem; margin-block-end: .6rem; }
 .project-body p { color: var(--text-muted); margin: 0; }
 
+/* ---------- Admin sign-in (uses the public header and footer) ---------- */
+.admin-login { max-inline-size: 30rem; margin-inline: auto; }
+.admin-login .quote-card h2 { font-size: 1.5rem; }
+.admin-login .form-note { text-align: center; }
+.admin-login .field-label { position: static; inline-size: auto; block-size: auto; clip-path: none; display: block; color: #fff; font-weight: 600; font-size: .9rem; margin-block-end: .35rem; }
+
 /* ---------- Form states ---------- */
 .hp { position: absolute !important; inset-inline-start: -10000px; inline-size: 1px; block-size: 1px; overflow: hidden; }
 .field-error { display: block; color: #FFB4A8; font-size: .8rem; margin-block-start: .3rem; }

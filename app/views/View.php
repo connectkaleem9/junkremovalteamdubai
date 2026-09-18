@@ -11,7 +11,7 @@ declare(strict_types=1);
 final class View
 {
     /** Bump together with ?v= in public/index.html and public/ar/index.html. */
-    public const ASSET_VERSION = '14';
+    public const ASSET_VERSION = '15';
 
     public const SITE          = 'https://junkremovalteamdubai.com';
     public const PHONE_TEL     = '+971567021884';
@@ -505,6 +505,8 @@ final class View
             ? 'family=Tajawal:wght@400;500;700&family=Poppins:wght@600;700'
             : 'family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=Caveat:wght@600;700';
         $v = self::ASSET_VERSION;
+        $robots = $p['robots'] ?? 'index, follow';
+        $indexable = !str_contains($robots, 'noindex');
 
         $nav = [
             'home'     => $b,
@@ -523,11 +525,13 @@ final class View
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= self::e($p['title']) ?></title>
 <meta name="description" content="<?= self::e($p['description']) ?>">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="<?= self::e($robots) ?>">
+<?php if ($indexable): ?>
 <link rel="canonical" href="<?= self::e($lang === 'ar' ? $arUrl : $enUrl) ?>">
 <link rel="alternate" hreflang="en" href="<?= self::e($enUrl) ?>">
 <link rel="alternate" hreflang="ar" href="<?= self::e($arUrl) ?>">
 <link rel="alternate" hreflang="x-default" href="<?= self::e($enUrl) ?>">
+<?php endif; ?>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
