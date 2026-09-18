@@ -46,6 +46,16 @@ Mark Yes / No / Limited (explain).
 | Office clearance | | |
 | Commercial junk removal | | |
 | Construction waste removal | | Capability? Truck types? Permits needed for this in Dubai? |
+| Waste & rubbish removal | | Live since 18 Sep 2026 — confirm |
+| Sofa removal | | Live since 18 Sep 2026 — confirm |
+| Mattress removal | | Live since 18 Sep 2026 — confirm |
+| Appliance removal | | Live since 18 Sep 2026 — confirm. Do we disconnect, or must the customer? Page currently says the customer must. |
+| Garden waste removal | | Live since 18 Sep 2026 — confirm. Where is green waste taken? |
+| E-waste disposal | | Confirm the disposal route we can state publicly |
+
+**18 Sep 2026 — 13 service pages are live** (`/services/<slug>/` in EN and AR). The owner asked for the full list
+after seeing a competitor's site. Every one of these must be a service the business will actually turn up and do;
+if any is not, tell me and I will remove the page rather than leave it indexed.
 
 ## D. Items accepted / refused
 
@@ -84,6 +94,13 @@ Each "Yes" must be something the business can prove.
 | F2 | Areas outside Dubai (Sharjah, Ajman, Abu Dhabi)? | |
 | F3 | Any areas with extra charges or restrictions? | |
 | F4 | Real completed jobs in Al Quoz, Jumeirah, Downtown, Marina, Business Bay, Al Barsha? | |
+| F5 | Are all 21 areas below genuinely covered, at the same price? | |
+
+**18 Sep 2026 — 21 area pages are live** (EN + AR): Al Quoz, Al Barsha, Jumeirah, Dubai Marina, Business Bay,
+Downtown Dubai, JVC, JLT, Palm Jumeirah, Dubai Hills Estate, Arabian Ranches, DAMAC Hills, Emirates Hills,
+Mirdif, Deira, Bur Dubai, International City, Discovery Gardens, Dubai Silicon Oasis, Jebel Ali, Dubai South.
+Each page describes the property mix of that area (general knowledge) and the jobs that suit it — no page claims
+a job was done there. If the team does not travel to one of these, say so and the page comes down.
 
 ## G. Proof assets
 
