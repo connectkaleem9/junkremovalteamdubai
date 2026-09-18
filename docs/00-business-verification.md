@@ -122,3 +122,26 @@ a job was done there. If the team does not travel to one of these, say so and th
 | H4 | Google Analytics 4 / Tag Manager / Ads / Search Console accounts exist? | |
 | H5 | SMTP provider for lead notification emails | |
 | H6 | Who reviews Arabic content (native speaker)? | |
+
+---
+
+## I. Google Ads readiness — checked 18 Sep 2026
+
+Technical side of the audit is done (schema, Open Graph, canonical, hreflang, one H1
+per page, unique titles and descriptions, www redirect, branded 404, privacy/terms/
+cookie pages, HTTPS, Brotli). What is left is **not** technical — it is whether the
+claims already published are true. Google's Misrepresentation policy is the one that
+suspends accounts, and it covers all of the following:
+
+| # | On the page (homepage) | Why it matters | Owner answer |
+|---|---|---|---|
+| I1 | "Google 5.0 — Based on 800+ Reviews" card | A rating and review count shown as Google's. If the Google Business Profile does not show exactly this, it is misrepresentation. | |
+| I2 | "More than 1,200 Happy Clients", "(Rating 4.9)" | Same — needs a real, countable source. | |
+| I3 | "24/7 Availability" | Must be answerable at any hour. | |
+| I4 | "Same Day Service" | Must be genuinely offered. | |
+| I5 | "We Arrive In 30 Minutes" | Hardest to defend across all 21 areas. | |
+| I6 | "Free Quote" (every page) | Quotes must actually cost nothing. | |
+| I7 | The 3 seeded reviews and 4 project photos | Must be real customers and real jobs. | |
+| I8 | Social icons link to "#" | Dead links on a landing page. Supply the real profile URLs or the icons come off. | |
+
+Nothing above is fixed in code yet, because each one is a business fact, not a bug.
