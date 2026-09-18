@@ -319,9 +319,13 @@ final class View
 
         foreach ($items as &$item) {
             $item['ask'] = $ar ? 'اسأل عن ' . $item['title'] : 'Ask about ' . $item['title'];
+            // Same wording as the general WhatsApp message in whatsappLink(),
+            // with the service the visitor was reading named in it
             $item['wa_text'] = $ar
-                ? 'مرحبًا، أرغب في عرض سعر لخدمة ' . $item['title'] . '.'
-                : 'Hi, I’d like a quote for ' . $item['title'] . '.';
+                ? 'مرحبًا Junk Removal Team Dubai، أرغب في الحصول على عرض سعر لخدمة ' . $item['title']
+                  . ' في دبي. هل يمكنكم تزويدي بمزيد من المعلومات عن الخدمة؟ شكرًا لكم.'
+                : 'Hello Junk Removal Team Dubai, I would like to get a quote for '
+                  . $item['title'] . ' in Dubai. Could you please provide more information about your service? Thank you.';
         }
         unset($item);
 
