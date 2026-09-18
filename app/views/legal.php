@@ -168,8 +168,8 @@ function render_legal_page(string $lang, string $which): void
             'slug' => 'cookie-policy/',
             'title' => $ar ? 'سياسة ملفات تعريف الارتباط' : 'Cookie Policy',
             'desc' => $ar
-                ? 'ملفات تعريف الارتباط التي يستخدمها هذا الموقع، وكيف يمكنك إيقافها.'
-                : 'The cookies this website uses and how you can turn them off.',
+                ? 'ملفات تعريف الارتباط التي يستخدمها هذا الموقع، وما الذي يخزّنه Google Analytics، وكيف يمكنك إيقافها من متصفحك.'
+                : 'The cookies this website uses, what Google Analytics stores, and how you can turn them off in your browser.',
             'lead' => $ar
                 ? 'يستخدم هذا الموقع عددًا محدودًا جدًا من ملفات تعريف الارتباط.'
                 : 'This website uses very few cookies.',

@@ -355,7 +355,7 @@ function render_projects_page(string $lang): void
         'active' => 'projects',
         'title' => $ar ? 'مشاريعنا | Junk Removal Team Dubai' : 'Our Projects | Junk Removal Team Dubai',
         'description' => $ar
-            ? 'صور قبل وبعد من أعمال إزالة المخلفات والإخلاء التي نفذناها في دبي.'
+            ? 'صور قبل وبعد من أعمال إزالة المخلفات وإخلاء المنازل والمكاتب التي نفذناها في مناطق مختلفة من دبي.'
             : 'Before and after photos from junk removal and clearance jobs we have completed across Dubai.',
     ]);
 
