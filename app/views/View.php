@@ -11,7 +11,7 @@ declare(strict_types=1);
 final class View
 {
     /** Bump together with ?v= in public/index.html and public/ar/index.html. */
-    public const ASSET_VERSION = '15';
+    public const ASSET_VERSION = '16';
 
     public const SITE          = 'https://junkremovalteamdubai.com';
     public const PHONE_TEL     = '+971567021884';
@@ -45,6 +45,8 @@ final class View
                 'main_nav' => 'القائمة الرئيسية',
                 'menu' => 'القائمة',
                 'nav' => ['home' => 'الرئيسية', 'services' => 'الخدمات', 'areas' => 'المناطق', 'projects' => 'المشاريع', 'reviews' => 'آراء العملاء', 'about' => 'من نحن'],
+                'all_services' => 'جميع الخدمات',
+                'all_areas' => 'جميع المناطق',
                 'breadcrumb' => 'مسار التنقل',
                 'call' => 'اتصال',
                 'whatsapp' => 'واتساب',
@@ -89,6 +91,8 @@ final class View
             'main_nav' => 'Main',
             'menu' => 'Menu',
             'nav' => ['home' => 'Home', 'services' => 'Services', 'areas' => 'Areas We Serve', 'projects' => 'Projects', 'reviews' => 'Reviews', 'about' => 'About Us'],
+            'all_services' => 'All Services',
+            'all_areas' => 'All Areas',
             'breadcrumb' => 'Breadcrumb',
             'call' => 'Call',
             'whatsapp' => 'WhatsApp',
@@ -206,6 +210,89 @@ final class View
                 'list' => $ar
                     ? ['التلفزيونات والشاشات', 'أجهزة الكمبيوتر والطابعات', 'الكابلات والملحقات', 'الأجهزة الكهربائية الصغيرة']
                     : ['TVs and monitors', 'Computers and printers', 'Cables and accessories', 'Small appliances'],
+            ],
+            [
+                'slug' => 'villa-clearance', 'value' => 'Villa Clearance', 'icon' => 'i-home', 'image' => 'svc-house-clearance.jpg',
+                'title' => $ar ? 'إخلاء الفلل' : 'Villa Clearance',
+                'alt' => $ar ? 'فيلا في دبي أثناء الإعداد لخدمة إخلاء الفلل' : 'Dubai villa being prepared for a villa clearance',
+                'text' => $ar
+                    ? 'إخلاء كامل أو جزئي للفلل: غرف النوم والمجلس وغرف التخزين والمرآب وأثاث الحديقة، مرتّب حول موعد الانتقال أو التسليم.'
+                    : 'Full or partial villa clearances: bedrooms, majlis, storage rooms, the garage and garden furniture, planned around your move or handover date.',
+                'list' => $ar
+                    ? ['الفيلا بالكامل أو غرف محددة', 'غرف التخزين والمرائب', 'أثاث الحدائق والمساحات الخارجية', 'غرف الخدم والمجالس']
+                    : ['The whole villa or selected rooms', 'Storage rooms and garages', 'Garden and outdoor furniture', 'Maid’s rooms and majlis'],
+            ],
+            [
+                'slug' => 'waste-rubbish-removal', 'value' => 'Waste & Rubbish Removal', 'icon' => 'i-truck-fast', 'image' => 'svc-junk-removal.jpg',
+                'title' => $ar ? 'إزالة النفايات والقمامة' : 'Waste & Rubbish Removal',
+                'alt' => $ar ? 'أكياس ومواد تغليف جاهزة لإزالة النفايات' : 'Bagged rubbish and packaging ready for waste removal',
+                'text' => $ar
+                    ? 'جمع النفايات العامة من المنازل والمحلات والمواقع: الأكياس ومواد التغليف وما يتبقى بعد الترتيب أو التجديد.'
+                    : 'General waste collected from homes, shops and sites: bagged rubbish, packaging and the odds and ends left after a clear-out.',
+                'list' => $ar
+                    ? ['أكياس النفايات المنزلية', 'الكراتين ومواد التغليف', 'ما يتبقى بعد الترتيب', 'نفايات المحلات والمخازن']
+                    : ['Bagged household rubbish', 'Boxes and packaging', 'Leftovers after a tidy-up', 'Shop and storeroom waste'],
+                'note' => $ar
+                    ? 'لا نتعامل مع المواد الخطرة أو الكيميائية أو النفايات الطبية.'
+                    : 'We don’t handle hazardous, chemical or medical waste.',
+            ],
+            [
+                'slug' => 'sofa-removal', 'value' => 'Sofa Removal', 'icon' => 'i-sofa', 'image' => 'svc-furniture-removal.jpg',
+                'title' => $ar ? 'إزالة الكنب' : 'Sofa Removal',
+                'alt' => $ar ? 'كنبة قديمة جاهزة للإزالة من الشقة' : 'Old sofa ready to be removed from an apartment',
+                'text' => $ar
+                    ? 'كنبة مفردة أو طقم زاوية أو كرسي مريح — نأخذه من أي طابق، ونفكه أولًا إذا لم يمر من الباب أو المصعد.'
+                    : 'A single sofa, a corner unit or an armchair — taken from any floor, and dismantled first if it won’t fit through the door or the lift.',
+                'list' => $ar
+                    ? ['الكنب المفرد وأطقم الزاوية', 'الكراسي المريحة والبفات', 'كنب السرير', 'فك القطع الكبيرة عند الحاجة']
+                    : ['Single sofas and corner units', 'Armchairs and footstools', 'Sofa beds', 'Dismantling where needed'],
+            ],
+            [
+                'slug' => 'mattress-removal', 'value' => 'Mattress Removal', 'icon' => 'i-box', 'image' => 'svc-furniture-removal.jpg',
+                'title' => $ar ? 'إزالة المراتب' : 'Mattress Removal',
+                'alt' => $ar ? 'مرتبة قديمة معدّة للنقل من غرفة النوم' : 'Old mattress being taken out of a bedroom',
+                'text' => $ar
+                    ? 'نأخذ المراتب وقواعد الأسرّة القديمة من أي طابق، ونغلّفها قبل حملها للخارج حتى تبقى الممرات نظيفة.'
+                    : 'Old mattresses and bed bases collected from any floor, wrapped before they’re carried out so hallways stay clean.',
+                'list' => $ar
+                    ? ['المراتب بجميع المقاسات', 'قواعد الأسرّة والهياكل', 'مراتب السرير القابل للطي', 'الكميات الكبيرة للسكنات']
+                    : ['Mattresses of any size', 'Bed bases and frames', 'Folding bed mattresses', 'Bulk lots for accommodation'],
+            ],
+            [
+                'slug' => 'appliance-removal', 'value' => 'Appliance Removal', 'icon' => 'i-monitor', 'image' => 'svc-ewaste-disposal.jpg',
+                'title' => $ar ? 'إزالة الأجهزة' : 'Appliance Removal',
+                'alt' => $ar ? 'غسالة وثلاجة قديمة جاهزة للإزالة' : 'Old washing machine and fridge ready for removal',
+                'text' => $ar
+                    ? 'الثلاجات والغسالات والأفران ومكيفات النوافذ وغيرها من الأجهزة الكبيرة — نحملها من مكانها وننقلها بعيدًا.'
+                    : 'Fridges, washing machines, ovens, window air conditioners and other large appliances carried out and taken away.',
+                'list' => $ar
+                    ? ['الثلاجات والمجمدات', 'الغسالات والنشافات', 'الأفران والمواقد', 'الأجهزة الصغيرة']
+                    : ['Fridges and freezers', 'Washing machines and dryers', 'Ovens and cookers', 'Smaller appliances'],
+                'note' => $ar
+                    ? 'يرجى فصل الأجهزة عن الكهرباء والماء قبل موعد الاستلام.'
+                    : 'Please disconnect appliances from power and water before the collection time.',
+            ],
+            [
+                'slug' => 'garden-waste-removal', 'value' => 'Garden Waste Removal', 'icon' => 'i-leaf', 'image' => 'svc-house-clearance.jpg',
+                'title' => $ar ? 'إزالة مخلفات الحدائق' : 'Garden Waste Removal',
+                'alt' => $ar ? 'أثاث حديقة ومخلفات نباتية جاهزة للإزالة' : 'Garden furniture and cuttings ready for removal',
+                'text' => $ar
+                    ? 'أثاث الحدائق ومخلفات التقليم والأغراض المتراكمة في المساحات الخارجية للفلل والشرفات.'
+                    : 'Garden furniture, cuttings and the clutter that builds up in villa gardens, yards and balconies.',
+                'list' => $ar
+                    ? ['أثاث الحدائق والمظلات', 'مخلفات التقليم والنباتات', 'الأحواض وأكياس التربة', 'أغراض الشرفات والأسطح']
+                    : ['Garden furniture and parasols', 'Cuttings and green waste', 'Pots and soil bags', 'Balcony and terrace items'],
+            ],
+            [
+                'slug' => 'commercial-junk-removal', 'value' => 'Commercial Junk Removal', 'icon' => 'i-building', 'image' => 'svc-office-clearance.jpg',
+                'title' => $ar ? 'إزالة المخلفات التجارية' : 'Commercial Junk Removal',
+                'alt' => $ar ? 'مخزن تجاري أثناء إزالة الأغراض غير المستخدمة' : 'Commercial storeroom being cleared of unused stock and fittings',
+                'text' => $ar
+                    ? 'خدمة للمحلات والمطاعم والمستودعات ومديري المرافق: إخلاء المخازن والتجهيزات القديمة ومخلفات التشطيب، بمواعيد تناسب عملك.'
+                    : 'For shops, restaurants, warehouses and facilities managers: storerooms cleared, old fittings taken out and fit-out debris removed, at a time that suits your business.',
+                'list' => $ar
+                    ? ['المخازن والمستودعات', 'تجهيزات المحلات والعرض', 'الطبالي ومواد التغليف', 'مخلفات ما بعد التشطيب']
+                    : ['Storerooms and warehouses', 'Shop fittings and display units', 'Pallets and packaging', 'Debris after a fit-out'],
             ],
         ];
 
@@ -355,6 +442,153 @@ final class View
                        ['Should I wipe my data first?', 'Yes. Please wipe or remove anything that holds data before collection.']],
                 'related' => ['office-clearance', 'junk-removal'],
             ],
+            'villa-clearance' => [
+                'intro' => $ar
+                    ? ['الفيلا فيها مساحات أكثر مما يظهر: غرف التخزين والمرآب وغرفة الخادمة والحديقة. نُخليها بالكامل أو نأخذ ما تحدده أنت فقط.',
+                       'نتفق معك قبل البدء على ما يخرج وما يبقى، ثم نعمل غرفة بعد أخرى حتى ينتهي كل ما تم الاتفاق عليه.']
+                    : ['A villa holds more space than it looks: storage rooms, the garage, the maid’s room and the garden. We clear all of it, or only the parts you point out.',
+                       'We agree before we start what goes and what stays, then work room by room until everything agreed is done.'],
+                'includes' => $ar
+                    ? ['الفيلا بالكامل أو غرف محددة', 'المرآب وغرف التخزين', 'أثاث الحديقة والمساحات الخارجية', 'الأثاث والأجهزة الكبيرة']
+                    : ['The whole villa or selected rooms', 'The garage and storage rooms', 'Garden and outdoor furniture', 'Large furniture and appliances'],
+                'good_for' => $ar
+                    ? ['العائلات عند الانتقال', 'الملاك قبل التسليم أو البيع', 'وكلاء العقارات']
+                    : ['Families relocating', 'Owners before a handover or sale', 'Property agents'],
+                'faqs' => $ar
+                    ? [['هل يمكنكم إخلاء جزء من الفيلا فقط؟', 'نعم. حدّد الغرف أو المساحات التي تريدها وسنعمل عليها فقط.'],
+                       ['هل تأخذون أثاث الحديقة والمظلات؟', 'نعم، الأغراض الخارجية تُجمع ضمن العمل نفسه.'],
+                       ['كم من الوقت يستغرق إخلاء فيلا؟', 'يعتمد على عدد الغرف وكمية الأغراض. أرسل صورًا أو تفاصيل وسنقدّر لك المدة قبل الحجز.']]
+                    : [['Can you clear only part of the villa?', 'Yes. Point out the rooms or areas you want cleared and we work on those only.'],
+                       ['Do you take garden furniture and parasols?', 'Yes — outdoor items are collected in the same job.'],
+                       ['How long does a villa take?', 'It depends on the number of rooms and how much there is. Send photos or details and we’ll estimate the time before you book.']],
+                'related' => ['house-clearance', 'furniture-removal'],
+            ],
+            'waste-rubbish-removal' => [
+                'intro' => $ar
+                    ? ['بعد الترتيب أو التجديد أو الانتقال تبقى أكياس وكراتين وأغراض متفرقة لا تتسع لها حاويات المبنى. نأتي ونأخذها دفعة واحدة.',
+                       'أخبرنا بالكمية تقريبًا وأين توجد، وسنحدد السعر والموعد قبل الحضور.']
+                    : ['After a tidy-up, a renovation or a move there are bags, boxes and loose items that the building’s bins can’t take. We collect the lot in one go.',
+                       'Tell us roughly how much there is and where it sits, and we’ll confirm the price and the time before we come.'],
+                'includes' => $ar
+                    ? ['أكياس النفايات المنزلية', 'الكراتين ومواد التغليف', 'الأغراض المتفرقة بعد الترتيب', 'الحمل من داخل العقار']
+                    : ['Bagged household rubbish', 'Boxes and packaging', 'Loose items after a clear-out', 'Carrying it out from inside'],
+                'good_for' => $ar
+                    ? ['المنازل بعد الترتيب الكبير', 'المحلات والمخازن الصغيرة', 'الملاك بين المستأجرين']
+                    : ['Homes after a big tidy-up', 'Shops and small storerooms', 'Landlords between tenants'],
+                'faqs' => $ar
+                    ? [['هل يجب أن أضع كل شيء في أكياس؟', 'ليس شرطًا، لكنه يسرّع العمل. أخبرنا بالوضع كما هو.'],
+                       ['هل تأخذون المواد الخطرة؟', 'لا. المواد الكيميائية والدهانات وأسطوانات الغاز والنفايات الطبية خارج نطاق خدمتنا.'],
+                       ['هل هناك حد أدنى للكمية؟', 'نتعامل مع الكميات الصغيرة والكبيرة. أرسل صورة وسنحدد السعر.']]
+                    : [['Do I need to bag everything first?', 'Not necessarily, though it speeds the job up. Tell us how it is now.'],
+                       ['Do you take hazardous material?', 'No. Chemicals, paint, gas cylinders and medical waste are outside what we handle.'],
+                       ['Is there a minimum load?', 'We handle small loads as well as large ones. Send a photo and we’ll price it.']],
+                'related' => ['junk-removal', 'construction-waste'],
+            ],
+            'sofa-removal' => [
+                'intro' => $ar
+                    ? ['الكنب من أكثر ما يصعب إخراجه: ثقيل، وغالبًا لا يمر من الباب أو المصعد. نتولى ذلك عنك.',
+                       'أرسل صورة للكنبة وأخبرنا بالطابق ووجود مصعد من عدمه، وسنصلك بالعدد المناسب من الأشخاص والأدوات اللازمة.']
+                    : ['A sofa is one of the harder things to get out: heavy, and often too big for the door or the lift. We deal with that part.',
+                       'Send a photo of the sofa and tell us the floor and whether there’s a lift — we’ll come with the right number of people and the tools to take it apart.'],
+                'includes' => $ar
+                    ? ['الحمل من أي طابق', 'فك القطعة عند الحاجة', 'حماية الممرات والجدران', 'النقل بعيدًا في اليوم نفسه المتفق عليه']
+                    : ['Carrying from any floor', 'Dismantling the piece where needed', 'Care taken in hallways and lifts', 'Taking it away on the agreed visit'],
+                'good_for' => $ar
+                    ? ['من يستبدل كنبته', 'الشقق في الطوابق العليا', 'الملاك والمستأجرون']
+                    : ['Anyone replacing a sofa', 'Upper-floor apartments', 'Landlords and tenants'],
+                'faqs' => $ar
+                    ? [['ماذا لو لم تمر الكنبة من الباب؟', 'نفكها قبل الإخراج. هذا جزء معتاد من العمل.'],
+                       ['هل تأخذون كنبة واحدة فقط؟', 'نعم، القطعة الواحدة مرحّب بها.'],
+                       ['هل تحتاجون إلى حجز مصعد الخدمة؟', 'في كثير من الأبراج نعم. أخبر إدارة المبنى بالموعد بعد تأكيده.']]
+                    : [['What if the sofa won’t fit through the door?', 'We take it apart before carrying it out — that’s a normal part of the job.'],
+                       ['Will you take just one sofa?', 'Yes, single items are welcome.'],
+                       ['Does the service lift need booking?', 'In many towers, yes. Let your building know once the time is confirmed.']],
+                'related' => ['furniture-removal', 'mattress-removal'],
+            ],
+            'mattress-removal' => [
+                'intro' => $ar
+                    ? ['نأخذ المراتب وقواعد الأسرّة القديمة من الشقق والفلل وسكنات الموظفين، من أي طابق.',
+                       'نغلّف المرتبة قبل حملها للخارج حتى تبقى الممرات والمصاعد نظيفة.']
+                    : ['We take old mattresses and bed bases from apartments, villas and staff accommodation, from any floor.',
+                       'The mattress is wrapped before it’s carried out so hallways and lifts stay clean.'],
+                'includes' => $ar
+                    ? ['المراتب بجميع المقاسات', 'قواعد الأسرّة والهياكل', 'التغليف قبل الحمل', 'الكميات الكبيرة عند الحاجة']
+                    : ['Mattresses of any size', 'Bed bases and frames', 'Wrapping before carrying', 'Bulk lots where needed'],
+                'good_for' => $ar
+                    ? ['المنازل عند تجديد الأسرّة', 'سكنات الموظفين', 'الشقق المفروشة']
+                    : ['Homes replacing beds', 'Staff accommodation', 'Furnished apartments'],
+                'faqs' => $ar
+                    ? [['كم مرتبة يمكنكم أخذها؟', 'من مرتبة واحدة إلى حمولة كاملة. أخبرنا بالعدد وسنرسل المركبة المناسبة.'],
+                       ['هل تفكّون السرير أيضًا؟', 'نعم، نفك الهيكل عند الحاجة لإخراجه.'],
+                       ['هل تأخذون المراتب المتضررة؟', 'نعم. أخبرنا بحالتها عند الحجز.']]
+                    : [['How many mattresses can you take?', 'From one to a full load. Tell us the number and we’ll send the right vehicle.'],
+                       ['Do you dismantle the bed as well?', 'Yes — we take the frame apart when that’s needed to get it out.'],
+                       ['Do you take damaged mattresses?', 'Yes. Just tell us the condition when you book.']],
+                'related' => ['furniture-removal', 'sofa-removal'],
+            ],
+            'appliance-removal' => [
+                'intro' => $ar
+                    ? ['الأجهزة الكبيرة ثقيلة وغير عملية للحمل على الدرج. نأتي بالعدد المناسب من الأشخاص ونأخذها من مكانها.',
+                       'يرجى فصل الجهاز عن الكهرباء والماء قبل الموعد، وتفريغ الثلاجة إن أمكن.']
+                    : ['Large appliances are heavy and awkward on a staircase. We come with enough people and take them from where they stand.',
+                       'Please disconnect the appliance from power and water before the visit, and empty a fridge if you can.'],
+                'includes' => $ar
+                    ? ['الثلاجات والمجمدات', 'الغسالات والنشافات', 'الأفران والمواقد ومكيفات النوافذ', 'الحمل من أي طابق']
+                    : ['Fridges and freezers', 'Washing machines and dryers', 'Ovens, cookers and window ACs', 'Carrying from any floor'],
+                'good_for' => $ar
+                    ? ['المنازل عند ترقية الأجهزة', 'الشقق المفروشة والملاك', 'المطاعم والمحلات الصغيرة']
+                    : ['Homes upgrading appliances', 'Furnished apartments and landlords', 'Restaurants and small shops'],
+                'faqs' => $ar
+                    ? [['هل تفصلون الجهاز عن التوصيلات؟', 'لا. يرجى فصل الكهرباء والماء قبل وصولنا.'],
+                       ['هل تأخذون المكيفات المركّبة؟', 'مكيفات النوافذ نعم. أما الأنظمة المركّبة في السقف فتحتاج إلى فني لفكّها أولًا.'],
+                       ['هل تأخذون أكثر من جهاز في زيارة واحدة؟', 'نعم، أخبرنا بالقائمة كاملة وسنسعّرها معًا.']]
+                    : [['Do you disconnect the appliance?', 'No. Please disconnect power and water before we arrive.'],
+                       ['Do you take air conditioners?', 'Window units, yes. Fitted split systems need a technician to remove them first.'],
+                       ['Can you take several appliances in one visit?', 'Yes — send us the full list and we’ll price it together.']],
+                'related' => ['e-waste-disposal', 'junk-removal'],
+            ],
+            'garden-waste-removal' => [
+                'intro' => $ar
+                    ? ['المساحات الخارجية تتراكم فيها الأشياء بهدوء: أثاث حديقة قديم، أحواض مكسورة، مخلفات تقليم، وأغراض لم تعد تُستخدم.',
+                       'نُخلي الحديقة أو الفناء أو الشرفة ونأخذ كل ما تم الاتفاق عليه في الزيارة نفسها.']
+                    : ['Outdoor space fills up quietly: old garden furniture, broken pots, cuttings and things that stopped being used.',
+                       'We clear the garden, yard or balcony and take everything agreed away in the same visit.'],
+                'includes' => $ar
+                    ? ['أثاث الحدائق والمظلات', 'مخلفات التقليم والنباتات', 'الأحواض وأكياس التربة', 'أغراض الشرفات والأسطح']
+                    : ['Garden furniture and parasols', 'Cuttings and green waste', 'Pots and soil bags', 'Balcony and terrace items'],
+                'good_for' => $ar
+                    ? ['أصحاب الفلل', 'الملاك قبل التسليم', 'المجمعات السكنية']
+                    : ['Villa owners', 'Landlords before a handover', 'Residential communities'],
+                'faqs' => $ar
+                    ? [['هل تقومون بأعمال التشذيب؟', 'لا، نحن ننقل المخلفات فقط. إذا كانت جاهزة فسنأخذها.'],
+                       ['هل تأخذون التربة والرمل؟', 'أخبرنا بالكمية أولًا؛ الوزن يؤثر في السعر وفي نوع المركبة.'],
+                       ['هل يجب أن أجمع المخلفات مسبقًا؟', 'ليس شرطًا، لكن ذلك يجعل العمل أسرع وأقل تكلفة.']]
+                    : [['Do you do the trimming as well?', 'No — we remove the waste. If it’s already cut, we’ll take it.'],
+                       ['Do you take soil and sand?', 'Tell us the quantity first; weight affects the price and the vehicle we send.'],
+                       ['Should I pile it up beforehand?', 'Not required, but it makes the job quicker and cheaper.']],
+                'related' => ['house-clearance', 'waste-rubbish-removal'],
+            ],
+            'commercial-junk-removal' => [
+                'intro' => $ar
+                    ? ['نعمل مع المحلات والمطاعم والمستودعات ومديري المرافق لإخلاء ما لم يعد مستخدمًا: مخزون قديم، تجهيزات، أثاث، ومخلفات تشطيب.',
+                       'نرتب الموعد حول ساعات عملك وقواعد المبنى حتى لا يتأثر نشاطك أثناء العمل.']
+                    : ['We work with shops, restaurants, warehouses and facilities managers to clear what’s no longer used: old stock, fittings, furniture and fit-out debris.',
+                       'We schedule around your trading hours and the building’s rules so the work doesn’t get in the way of business.'],
+                'includes' => $ar
+                    ? ['المخازن والمستودعات', 'تجهيزات المحلات ووحدات العرض', 'الطبالي ومواد التغليف', 'مخلفات ما بعد التشطيب']
+                    : ['Storerooms and warehouses', 'Shop fittings and display units', 'Pallets and packaging', 'Debris after a fit-out'],
+                'good_for' => $ar
+                    ? ['المحلات والمطاعم', 'المستودعات والوحدات الصناعية', 'مديرو المرافق والعقارات']
+                    : ['Shops and restaurants', 'Warehouses and industrial units', 'Facilities and property managers'],
+                'faqs' => $ar
+                    ? [['هل يمكنكم العمل خارج ساعات الدوام؟', 'أخبرنا بالوقت الذي يناسب موقعك وسنرى ما يمكننا ترتيبه.'],
+                       ['هل تصدرون فاتورة باسم الشركة؟', 'نعم، أرسل اسم الشركة وتفاصيلها عند الحجز.'],
+                       ['هل تتعاملون مع المواقع المتكررة؟', 'أخبرنا بعدد المواقع وجدولها وسنرتب السعر على هذا الأساس.']]
+                    : [['Can you work outside trading hours?', 'Tell us what time suits your site and we’ll see what we can arrange.'],
+                       ['Can you invoice the company?', 'Yes — send the company name and details when you book.'],
+                       ['Do you handle repeat or multi-site work?', 'Tell us how many sites and how often, and we’ll price it on that basis.']],
+                'related' => ['office-clearance', 'construction-waste'],
+            ],
         ];
 
         if (!isset($detail[$slug])) {
@@ -378,6 +612,120 @@ final class View
     public static function areaDetail(string $lang, ?string $slug = null): array|null
     {
         $ar = $lang === 'ar';
+
+        // The jobs that come up most often for each kind of neighbourhood
+        $typical = $ar ? [
+            'villa' => ['إخلاء الفلل بالكامل أو جزئيًا', 'أثاث الحدائق والمساحات الخارجية', 'غرف التخزين والمرائب', 'الأثاث والأجهزة القديمة'],
+            'apartment' => ['إخلاء الشقق عند الانتقال', 'الكنب والأسرّة والمراتب', 'الأجهزة المنزلية', 'أغراض الشرفات'],
+            'mixed' => ['إخلاء الشقق والفلل', 'الأثاث والأجهزة القديمة', 'أغراض المكاتب والمحلات', 'مخلفات ما بعد التجديد'],
+            'commercial' => ['إخلاء المستودعات والمخازن', 'أثاث المكاتب والورش', 'الطبالي ومواد التغليف', 'مخلفات ما بعد التشطيب'],
+        ] : [
+            'villa' => ['Full or partial villa clearances', 'Garden and outdoor furniture', 'Storage rooms and garages', 'Old furniture and appliances'],
+            'apartment' => ['Move-out apartment clearances', 'Sofas, beds and mattresses', 'Household appliances', 'Balcony items'],
+            'mixed' => ['Apartment and villa clearances', 'Old furniture and appliances', 'Office and shop items', 'Post-renovation debris'],
+            'commercial' => ['Warehouse and storeroom clear-outs', 'Office and workshop furniture', 'Pallets and packaging waste', 'Debris after a fit-out'],
+        ];
+
+        $extra = [
+            'jumeirah-lake-towers' => [
+                'name' => $ar ? 'أبراج بحيرات جميرا' : 'Jumeirah Lake Towers',
+                'blurb' => $ar
+                    ? 'أبراج سكنية ومكاتب صغيرة في مجموعات، وعادةً يُحجز مصعد الخدمة ومنطقة التحميل مسبقًا.'
+                    : 'Clusters of towers with apartments and small offices, where the service lift and loading bay are booked in advance.',
+                'type' => 'apartment',
+            ],
+            'palm-jumeirah' => [
+                'name' => $ar ? 'نخلة جميرا' : 'Palm Jumeirah',
+                'blurb' => $ar
+                    ? 'فلل على السعف وشقق على الجذع، مع بوابات ونقاط دخول محددة.'
+                    : 'Villas on the fronds and apartments along the trunk, with gated access points.',
+                'type' => 'villa',
+            ],
+            'dubai-hills-estate' => [
+                'name' => $ar ? 'دبي هيلز إستيت' : 'Dubai Hills Estate',
+                'blurb' => $ar
+                    ? 'فلل وتاون هاوس ومبانٍ سكنية حديثة، مع شوارع واسعة تسهّل وصول الشاحنات.'
+                    : 'Newer villas, townhouses and apartment buildings, with wide streets that make truck access easy.',
+                'type' => 'villa',
+            ],
+            'arabian-ranches' => [
+                'name' => $ar ? 'المرابع العربية' : 'Arabian Ranches',
+                'blurb' => $ar
+                    ? 'مجتمع فلل عائلية بحدائق ومرائب ومساحات تخزين.'
+                    : 'A community of family villas with gardens, garages and storage space.',
+                'type' => 'villa',
+            ],
+            'damac-hills' => [
+                'name' => $ar ? 'داماك هيلز' : 'DAMAC Hills',
+                'blurb' => $ar
+                    ? 'فلل وتاون هاوس وشقق داخل مجتمع مسوّر.'
+                    : 'Villas, townhouses and apartments inside a gated community.',
+                'type' => 'villa',
+            ],
+            'emirates-hills' => [
+                'name' => $ar ? 'تلال الإمارات' : 'Emirates Hills',
+                'blurb' => $ar
+                    ? 'فلل خاصة كبيرة بحدائق واسعة وأكثر من مساحة تخزين.'
+                    : 'Large private villas with gardens and more than one storage area.',
+                'type' => 'villa',
+            ],
+            'mirdif' => [
+                'name' => $ar ? 'مردف' : 'Mirdif',
+                'blurb' => $ar
+                    ? 'فلل عائلية ومبانٍ سكنية منخفضة، وغالبًا موقف السيارة أمام الباب مباشرة.'
+                    : 'Family villas and low-rise apartment buildings, usually with parking right at the door.',
+                'type' => 'mixed',
+            ],
+            'deira' => [
+                'name' => $ar ? 'ديرة' : 'Deira',
+                'blurb' => $ar
+                    ? 'مبانٍ سكنية أقدم ومحلات ومكاتب صغيرة في منطقة مزدحمة.'
+                    : 'Older apartment buildings, shops and small offices in a busy part of the city.',
+                'type' => 'mixed',
+            ],
+            'bur-dubai' => [
+                'name' => $ar ? 'بر دبي' : 'Bur Dubai',
+                'blurb' => $ar
+                    ? 'شقق ومحلات ومكاتب في واحدة من أقدم مناطق دبي.'
+                    : 'Apartments, shops and offices in one of the oldest parts of Dubai.',
+                'type' => 'mixed',
+            ],
+            'international-city' => [
+                'name' => $ar ? 'المدينة العالمية' : 'International City',
+                'blurb' => $ar
+                    ? 'مجمعات سكنية منخفضة الارتفاع مع مواقف مشتركة.'
+                    : 'Low-rise apartment clusters with shared parking areas.',
+                'type' => 'apartment',
+            ],
+            'discovery-gardens' => [
+                'name' => $ar ? 'ديسكفري جاردنز' : 'Discovery Gardens',
+                'blurb' => $ar
+                    ? 'مبانٍ سكنية منخفضة بسلالم مشتركة ومواقف قريبة.'
+                    : 'Low-rise apartment buildings with shared stairwells and parking close by.',
+                'type' => 'apartment',
+            ],
+            'dubai-silicon-oasis' => [
+                'name' => $ar ? 'واحة دبي للسيليكون' : 'Dubai Silicon Oasis',
+                'blurb' => $ar
+                    ? 'شقق وفلل ووحدات تجارية جنبًا إلى جنب.'
+                    : 'Apartments, villas and business units side by side.',
+                'type' => 'mixed',
+            ],
+            'jebel-ali' => [
+                'name' => $ar ? 'جبل علي' : 'Jebel Ali',
+                'blurb' => $ar
+                    ? 'وحدات صناعية ومستودعات وسكن للعمال.'
+                    : 'Industrial units, warehouses and staff accommodation.',
+                'type' => 'commercial',
+            ],
+            'dubai-south' => [
+                'name' => $ar ? 'دبي الجنوب' : 'Dubai South',
+                'blurb' => $ar
+                    ? 'أحياء سكنية حديثة ووحدات أعمال ولوجستيات.'
+                    : 'Newer residential districts alongside business and logistics units.',
+                'type' => 'mixed',
+            ],
+        ];
 
         $areas = [
             'al-quoz' => [
@@ -445,6 +793,30 @@ final class View
             ],
         ];
 
+        // Fill in the typical-jobs list for the areas defined by type
+        foreach ($extra as $extraSlug => $row) {
+            $areas[$extraSlug] = [
+                'name' => $row['name'],
+                'blurb' => $row['blurb'],
+                'typical' => $typical[$row['type']],
+            ];
+        }
+
+        // Keep a sensible order: the busiest areas first
+        $order = [
+            'al-quoz', 'al-barsha', 'jumeirah', 'dubai-marina', 'business-bay', 'downtown-dubai', 'jvc',
+            'jumeirah-lake-towers', 'palm-jumeirah', 'dubai-hills-estate', 'arabian-ranches', 'damac-hills',
+            'emirates-hills', 'mirdif', 'deira', 'bur-dubai', 'international-city', 'discovery-gardens',
+            'dubai-silicon-oasis', 'jebel-ali', 'dubai-south',
+        ];
+        $sorted = [];
+        foreach ($order as $key) {
+            if (isset($areas[$key])) {
+                $sorted[$key] = $areas[$key];
+            }
+        }
+        $areas = $sorted + $areas;
+
         if ($slug === null) {
             return $areas;
         }
@@ -480,12 +852,13 @@ final class View
     /** value => label. VERIFY F1: only areas the business genuinely serves. */
     public static function areas(string $lang): array
     {
-        $values = ['Al Quoz', 'Al Barsha', 'Jumeirah', 'Dubai Marina', 'Business Bay', 'Downtown Dubai', 'JVC', 'Other'];
-        if ($lang !== 'ar') {
-            return array_combine($values, $values);
+        $out = [];
+        foreach (self::areaDetail('en') as $slug => $area) {
+            $out[$area['name']] = $lang === 'ar' ? self::areaDetail('ar', $slug)['name'] : $area['name'];
         }
+        $out['Other'] = $lang === 'ar' ? 'منطقة أخرى' : 'Other';
 
-        return array_combine($values, ['القوز', 'البرشاء', 'جميرا', 'دبي مارينا', 'الخليج التجاري', 'وسط مدينة دبي', 'قرية جميرا الدائرية', 'منطقة أخرى']);
+        return $out;
     }
 
     /* ------------------------------------------------------------------ layout */
@@ -578,16 +951,18 @@ final class View
         <li<?= $hasSub ? ' class="has-sub"' : '' ?>>
           <a href="<?= self::e($href) ?>"<?= $active ? ' class="is-active" aria-current="page"' : '' ?>><?= self::e($t['nav'][$key]) ?><?= $hasSub ? ' <svg class="icon caret" aria-hidden="true"><use href="#i-caret"/></svg>' : '' ?></a>
 <?php if ($key === 'services'): ?>
-          <ul class="submenu">
+          <ul class="submenu submenu-2col">
 <?php foreach ($serviceLinks as $s): ?>
             <li><a href="<?= $b ?>services/<?= self::e($s['slug']) ?>/"><?= self::e($s['title']) ?></a></li>
 <?php endforeach; ?>
+            <li class="sub-all"><a href="<?= $b ?>services/"><?= self::e($t['all_services']) ?></a></li>
           </ul>
 <?php elseif ($key === 'areas'): ?>
-          <ul class="submenu">
+          <ul class="submenu submenu-3col">
 <?php foreach (self::areaDetail($lang) as $areaSlug => $area): ?>
             <li><a href="<?= $b ?>areas/<?= self::e($areaSlug) ?>/"><?= self::e($area['name']) ?></a></li>
 <?php endforeach; ?>
+            <li class="sub-all"><a href="<?= $b ?>areas/"><?= self::e($t['all_areas']) ?></a></li>
           </ul>
 <?php endif; ?>
         </li>
@@ -748,16 +1123,17 @@ final class View
           <li><a href="<?= $b ?>contact-us/"><?= self::e($t['contact']) ?></a></li>
           <li><a href="<?= $b ?>reviews/"><?= self::e($t['nav']['reviews']) ?></a></li>
           <li><a href="#"><?= self::e($t['blog']) ?></a></li>
-          <li><a href="<?= $b ?>#areas"><?= self::e($t['nav']['areas']) ?></a></li>
+          <li><a href="<?= $b ?>areas/"><?= self::e($t['nav']['areas']) ?></a></li>
           <li><a href="<?= $b ?>projects/"><?= self::e($t['nav']['projects']) ?></a></li>
         </ul>
       </div>
       <div>
         <h3><?= self::e($t['services_heading']) ?></h3>
-        <ul>
-<?php foreach (self::services($lang) as $s): ?>
+        <ul class="footer-links">
+<?php foreach (array_slice(self::services($lang), 0, 8) as $s): ?>
           <li><a href="<?= $b ?>services/<?= self::e($s['slug']) ?>/"><?= self::e($s['title']) ?></a></li>
 <?php endforeach; ?>
+          <li><a href="<?= $b ?>services/"><?= self::e($t['all_services']) ?></a></li>
         </ul>
       </div>
       <div>

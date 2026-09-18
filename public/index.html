@@ -19,7 +19,7 @@
 <!-- ?v= is a cache buster: the server sends Cache-Control max-age=604800 (7 days),
      so bump this number whenever site.css or site.js changes, otherwise repeat
      visitors keep the old stylesheet and the layout breaks. -->
-<link rel="stylesheet" href="assets/css/site.css?v=15">
+<link rel="stylesheet" href="assets/css/site.css?v=16">
 </head>
 <body>
 
@@ -89,16 +89,50 @@
         <li><a href="index.html" class="is-active" aria-current="page">Home</a></li>
         <li class="has-sub">
           <a href="/services/">Services <svg class="icon caret" aria-hidden="true"><use href="#i-caret"/></svg></a>
-          <ul class="submenu">
+          <ul class="submenu submenu-2col">
             <li><a href="/services/junk-removal/">Junk Removal</a></li>
             <li><a href="/services/furniture-removal/">Furniture Removal</a></li>
             <li><a href="/services/house-clearance/">House Clearance</a></li>
             <li><a href="/services/office-clearance/">Office Clearance</a></li>
             <li><a href="/services/construction-waste/">Construction Waste</a></li>
             <li><a href="/services/e-waste-disposal/">E-Waste Disposal</a></li>
+            <li><a href="/services/villa-clearance/">Villa Clearance</a></li>
+            <li><a href="/services/waste-rubbish-removal/">Waste &amp; Rubbish Removal</a></li>
+            <li><a href="/services/sofa-removal/">Sofa Removal</a></li>
+            <li><a href="/services/mattress-removal/">Mattress Removal</a></li>
+            <li><a href="/services/appliance-removal/">Appliance Removal</a></li>
+            <li><a href="/services/garden-waste-removal/">Garden Waste Removal</a></li>
+            <li><a href="/services/commercial-junk-removal/">Commercial Junk Removal</a></li>
+            <li class="sub-all"><a href="/services/">All Services</a></li>
           </ul>
         </li>
-        <li><a href="/#areas">Areas We Serve</a></li>
+        <li class="has-sub">
+          <a href="/areas/">Areas We Serve <svg class="icon caret" aria-hidden="true"><use href="#i-caret"/></svg></a>
+          <ul class="submenu submenu-3col">
+            <li><a href="/areas/al-quoz/">Al Quoz</a></li>
+            <li><a href="/areas/al-barsha/">Al Barsha</a></li>
+            <li><a href="/areas/jumeirah/">Jumeirah</a></li>
+            <li><a href="/areas/dubai-marina/">Dubai Marina</a></li>
+            <li><a href="/areas/business-bay/">Business Bay</a></li>
+            <li><a href="/areas/downtown-dubai/">Downtown Dubai</a></li>
+            <li><a href="/areas/jvc/">Jumeirah Village Circle</a></li>
+            <li><a href="/areas/jumeirah-lake-towers/">Jumeirah Lake Towers</a></li>
+            <li><a href="/areas/palm-jumeirah/">Palm Jumeirah</a></li>
+            <li><a href="/areas/dubai-hills-estate/">Dubai Hills Estate</a></li>
+            <li><a href="/areas/arabian-ranches/">Arabian Ranches</a></li>
+            <li><a href="/areas/damac-hills/">DAMAC Hills</a></li>
+            <li><a href="/areas/emirates-hills/">Emirates Hills</a></li>
+            <li><a href="/areas/mirdif/">Mirdif</a></li>
+            <li><a href="/areas/deira/">Deira</a></li>
+            <li><a href="/areas/bur-dubai/">Bur Dubai</a></li>
+            <li><a href="/areas/international-city/">International City</a></li>
+            <li><a href="/areas/discovery-gardens/">Discovery Gardens</a></li>
+            <li><a href="/areas/dubai-silicon-oasis/">Dubai Silicon Oasis</a></li>
+            <li><a href="/areas/jebel-ali/">Jebel Ali</a></li>
+            <li><a href="/areas/dubai-south/">Dubai South</a></li>
+            <li class="sub-all"><a href="/areas/">All Areas</a></li>
+          </ul>
+        </li>
         <li><a href="/projects/">Projects</a></li>
         <li><a href="/reviews/">Reviews</a></li>
         <li><a href="/about-us/">About Us</a></li>
@@ -448,6 +482,11 @@
         <li><a href="/areas/business-bay/"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Business Bay</a></li>
         <li><a href="/areas/downtown-dubai/"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Downtown Dubai</a></li>
         <li><a href="/areas/jvc/"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>JVC</a></li>
+        <li><a href="/areas/jumeirah-lake-towers/"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>JLT</a></li>
+        <li><a href="/areas/palm-jumeirah/"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Palm Jumeirah</a></li>
+        <li><a href="/areas/dubai-hills-estate/"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Dubai Hills Estate</a></li>
+        <li><a href="/areas/mirdif/"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Mirdif</a></li>
+        <li><a href="/areas/bur-dubai/"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Bur Dubai</a></li>
       </ul>
       <a class="btn btn-green" href="/areas/">View All Areas <svg class="icon flip" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
@@ -589,19 +628,22 @@
           <li><a href="/contact-us/">Contact</a></li>
           <li><a href="/reviews/">Reviews</a></li>
           <li><a href="#">Blog</a></li>
-          <li><a href="/#areas">Areas We Serve</a></li>
+          <li><a href="/areas/">Areas We Serve</a></li>
           <li><a href="/projects/">Projects</a></li>
         </ul>
       </div>
       <div>
         <h3>Services</h3>
-        <ul>
+        <ul class="footer-links">
           <li><a href="/services/junk-removal/">Junk Removal</a></li>
           <li><a href="/services/furniture-removal/">Furniture Removal</a></li>
           <li><a href="/services/house-clearance/">House Clearance</a></li>
           <li><a href="/services/office-clearance/">Office Clearance</a></li>
           <li><a href="/services/construction-waste/">Construction Waste</a></li>
           <li><a href="/services/e-waste-disposal/">E-Waste Disposal</a></li>
+          <li><a href="/services/villa-clearance/">Villa Clearance</a></li>
+          <li><a href="/services/sofa-removal/">Sofa Removal</a></li>
+          <li><a href="/services/">All Services</a></li>
         </ul>
       </div>
       <div>
@@ -642,6 +684,6 @@
   <a class="m-wa" href="https://wa.me/971567021884" data-track="whatsapp_click"><svg class="icon" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
 </nav>
 
-<script src="assets/js/site.js?v=15"></script>
+<script src="assets/js/site.js?v=16"></script>
 </body>
 </html>

@@ -562,6 +562,18 @@ html[lang="ar"] .page-hero .eyebrow { letter-spacing: 0; text-transform: none; f
 .has-sub:hover > .submenu, .has-sub:focus-within > .submenu, .submenu[data-open="true"] { display: block; }
 .submenu a { display: block; padding: .55rem .75rem; border-radius: var(--radius-sm); font-size: .92rem; font-weight: 500; white-space: nowrap; color: var(--navy-800); }
 .submenu a:hover { background: var(--bg-light); color: var(--teal); }
+.submenu .sub-all a { font-weight: 600; color: var(--teal); }
+@media (min-width: 1024px) {
+  /* Long menus are split into columns so they never run off the screen */
+  .submenu-2col, .submenu-3col { display: none; }
+  .has-sub:hover > .submenu-2col, .has-sub:focus-within > .submenu-2col,
+  .has-sub:hover > .submenu-3col, .has-sub:focus-within > .submenu-3col { display: grid; }
+  .submenu-2col { grid-template-columns: repeat(2, minmax(11rem, 1fr)); }
+  .submenu-3col { grid-template-columns: repeat(3, minmax(10rem, 1fr)); }
+  .submenu-2col .sub-all, .submenu-3col .sub-all { grid-column: 1 / -1; border-block-start: 1px solid var(--border); margin-block-start: .25rem; padding-block-start: .25rem; }
+  .main-nav > ul > li:nth-last-child(-n+3) .submenu-2col,
+  .main-nav > ul > li:nth-last-child(-n+3) .submenu-3col { inset-inline-start: auto; inset-inline-end: 0; }
+}
 @media (max-width: 1023px) {
   .submenu { position: static; box-shadow: none; border: 0; padding: 0 0 .35rem .6rem; min-inline-size: 0; }
   .has-sub:hover > .submenu, .has-sub:focus-within > .submenu { display: none; }
