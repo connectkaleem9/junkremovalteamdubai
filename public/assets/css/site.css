@@ -404,24 +404,28 @@ ul { margin: 0; padding: 0; list-style: none; }
 .mobile-bar {
   position: fixed; inset-inline: 0; inset-block-end: 0; z-index: 90; display: none;
   grid-template-columns: repeat(2, 1fr); gap: .5rem;
-  background: #fff; border-block-start: 1px solid var(--border);
-  box-shadow: 0 -6px 18px rgb(6 42 68 / .12);
-  padding: .5rem .6rem calc(.5rem + env(safe-area-inset-bottom));
+  /* No white strip — the buttons float straight over the page. The bar itself
+     ignores taps so the content behind the gaps stays scrollable and clickable. */
+  background: transparent; border: 0; box-shadow: none; pointer-events: none;
+  padding: .35rem .6rem calc(.35rem + env(safe-area-inset-bottom));
 }
 .mobile-bar a {
-  display: flex; align-items: center; justify-content: center; gap: .5rem;
-  min-block-size: 50px; border-radius: var(--radius);
-  font-family: var(--font-head); font-size: .95rem; font-weight: 600;
+  pointer-events: auto;
+  display: flex; align-items: center; justify-content: center; gap: .45rem;
+  min-block-size: 44px; border-radius: var(--radius);
+  font-family: var(--font-head); font-size: .875rem; font-weight: 600;
   color: #fff; letter-spacing: .01em;
+  /* Stands the button off whatever happens to scroll underneath it */
+  box-shadow: 0 6px 18px rgb(6 42 68 / .28);
 }
 .mobile-bar a:active { transform: scale(.98); }
 .mobile-bar .m-call { background: var(--green-dark); }
 .mobile-bar .m-wa { background: var(--whatsapp); }
 .mobile-bar .m-quote { background: var(--teal); }
-.mobile-bar .icon { inline-size: 1.15rem; block-size: 1.15rem; stroke-width: 2; }
+.mobile-bar .icon { inline-size: 1.05rem; block-size: 1.05rem; stroke-width: 2; }
 @media (max-width: 767px) {
   .mobile-bar { display: grid; }
-  body { padding-block-end: calc(66px + env(safe-area-inset-bottom)); }
+  body { padding-block-end: calc(56px + env(safe-area-inset-bottom)); }
 
   /* Angled gradient keeps the truck visible instead of washing the hero dark */
   .hero::after {
