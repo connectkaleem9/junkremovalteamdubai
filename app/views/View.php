@@ -11,7 +11,7 @@ declare(strict_types=1);
 final class View
 {
     /** Bump together with ?v= in public/index.html and public/ar/index.html. */
-    public const ASSET_VERSION = '22';
+    public const ASSET_VERSION = '23';
 
     public const SITE          = 'https://junkremovalteamdubai.com';
     public const PHONE_TEL     = '+971567021884';
@@ -166,7 +166,7 @@ final class View
             [
                 'slug' => 'junk-removal', 'value' => 'Junk Removal', 'icon' => 'i-truck', 'image' => 'svc-junk-removal.jpg',
                 'title' => $ar ? 'إزالة المخلفات' : 'Junk Removal',
-                'alt' => $ar ? 'كنبة في غرفة معيشة جاهزة للنقل ضمن خدمة إزالة المخلفات' : 'Living room sofa ready for junk removal',
+                'alt' => $ar ? 'مخلفات متنوعة من كراتين وأكياس وأجهزة قديمة وأغراض مكتبية جاهزة للإزالة' : 'Mixed junk — boxes, bags, old electronics and office items — ready for removal',
                 'text' => $ar
                     ? 'إزالة المخلفات العامة للمنازل والمكاتب والمحلات — من بضع قطع غير مرغوب فيها إلى حمولة كاملة. أخبرنا بما تريد التخلص منه، واتفق معنا على السعر والموعد، ونتولى نحن الحمل والتحميل والنقل.'
                     : 'General junk removal for homes, offices and shops — from a few unwanted items to a full load. Tell us what needs to go, agree a price and a time, and we carry it out, load it and take it away.',
@@ -177,7 +177,7 @@ final class View
             [
                 'slug' => 'furniture-removal', 'value' => 'Furniture Removal', 'icon' => 'i-sofa', 'image' => 'svc-furniture-removal.jpg',
                 'title' => $ar ? 'نقل الأثاث' : 'Furniture Removal',
-                'alt' => $ar ? 'كرسي وطاولة جانبية ضمن خدمة نقل الأثاث القديم' : 'Armchair and side table collected during a furniture removal job',
+                'alt' => $ar ? 'كرسي أخضر ومصباح أرضي وكراتين جاهزة لنقل الأثاث' : 'Green armchair, floor lamp and boxes ready for furniture removal',
                 'text' => $ar
                     ? 'تستبدل أثاثك أو تُخلي غرفة؟ ننقل الكنب والأسرّة والخزائن والطاولات وأثاث المكاتب، ونفك القطع الكبيرة عندما لا تمر من الباب أو المصعد.'
                     : 'Replacing furniture or clearing a room? We remove sofas, beds, wardrobes, tables and office furniture, and take large pieces apart when they won’t fit through a door or lift.',
@@ -188,7 +188,7 @@ final class View
             [
                 'slug' => 'house-clearance', 'value' => 'House Clearance', 'icon' => 'i-home', 'image' => 'svc-house-clearance.jpg',
                 'title' => $ar ? 'إخلاء المنازل' : 'House Clearance',
-                'alt' => $ar ? 'فيلا في دبي جاهزة لخدمة الإخلاء الكامل' : 'Villa exterior in Dubai prepared for a full house clearance',
+                'alt' => $ar ? 'كراتين معبأة وأكياس نفايات من إخلاء منزل' : 'Packed boxes and bin bags from a house clearance',
                 'text' => $ar
                     ? 'إخلاء كامل أو جزئي للشقق والفلل — قبل الانتقال أو التسليم أو البيع أو التجديد. نخطط العمل حسب موعدك ونُخلي الغرف والمخازن والمساحات الخارجية التي تحددها.'
                     : 'Full or partial clearance of apartments and villas — before a move, a handover, a sale or a renovation. We plan the job around your date and clear the rooms, storage and outdoor areas you choose.',
@@ -199,7 +199,7 @@ final class View
             [
                 'slug' => 'office-clearance', 'value' => 'Office Clearance', 'icon' => 'i-building', 'image' => 'svc-office-clearance.jpg',
                 'title' => $ar ? 'إخلاء المكاتب' : 'Office Clearance',
-                'alt' => $ar ? 'مكتب يحتوي على طاولات وكراسي بانتظار الإخلاء' : 'Office meeting room with desks and chairs awaiting clearance',
+                'alt' => $ar ? 'مكتب وكرسي وشاشة جاهزة لإخلاء المكتب' : 'Office desk, chair and monitor ready for clearance',
                 'text' => $ar
                     ? 'تنتقل أو تقلص مساحة مكتبك أو تسلّمه؟ نُخلي محطات العمل والكراسي والخزائن والأغراض المكتبية، ونرتب العمل وفق قواعد الدخول في المبنى.'
                     : 'Relocating, downsizing or handing an office back? We clear workstations, chairs, cabinets and general office junk, and plan the work around your building’s access rules.',
@@ -213,7 +213,7 @@ final class View
             [
                 'slug' => 'construction-waste', 'value' => 'Construction Waste', 'icon' => 'i-brick', 'image' => 'svc-construction-waste.jpg',
                 'title' => $ar ? 'مخلفات البناء' : 'Construction Waste',
-                'alt' => $ar ? 'كومة من مخلفات البناء جاهزة للإزالة' : 'Pile of construction rubble ready for removal',
+                'alt' => $ar ? 'طوب وركام وعربة يد محمّلة بالحجارة المكسورة جاهزة للإزالة' : 'Bricks, rubble and a wheelbarrow of broken stone ready for removal',
                 'text' => $ar
                     ? 'المخلفات المتبقية بعد أعمال التجديد أو التشطيب، نزيلها من المنازل والوحدات التجارية.'
                     : 'Debris left after renovation or fit-out work, removed from homes and commercial units.',
@@ -224,7 +224,7 @@ final class View
             [
                 'slug' => 'e-waste-disposal', 'value' => 'E-Waste Disposal', 'icon' => 'i-monitor', 'image' => 'svc-ewaste-disposal.jpg',
                 'title' => $ar ? 'النفايات الإلكترونية' : 'E-Waste Disposal',
-                'alt' => $ar ? 'شاشات حاسوب وأجهزة إلكترونية قديمة جاهزة للتخلص منها' : 'Old computer monitors and electronics collected for e-waste disposal',
+                'alt' => $ar ? 'أجهزة كمبيوتر وراديو وهواتف وكابلات قديمة مجمعة للتخلص من النفايات الإلكترونية' : 'Old computers, radios, phones and cables collected for e-waste disposal',
                 'text' => $ar
                     ? 'نجمع الأجهزة الإلكترونية والكهربائية القديمة من المنازل والمكاتب — الشاشات وأجهزة الكمبيوتر والطابعات والأجهزة الصغيرة.'
                     : 'Old electronics and appliances collected from homes and offices — screens, computers, printers and small appliances.',
@@ -233,9 +233,9 @@ final class View
                     : ['TVs and monitors', 'Computers and printers', 'Cables and accessories', 'Small appliances'],
             ],
             [
-                'slug' => 'villa-clearance', 'value' => 'Villa Clearance', 'icon' => 'i-home', 'image' => 'svc-house-clearance.jpg',
+                'slug' => 'villa-clearance', 'value' => 'Villa Clearance', 'icon' => 'i-home', 'image' => 'svc-villa-clearance.jpg',
                 'title' => $ar ? 'إخلاء الفلل' : 'Villa Clearance',
-                'alt' => $ar ? 'فيلا في دبي أثناء الإعداد لخدمة إخلاء الفلل' : 'Dubai villa being prepared for a villa clearance',
+                'alt' => $ar ? 'كرسي ومرآة ومصابيح وكتب وصناديق من إخلاء فيلا' : 'Armchair, mirror, lamps, books and crates from a villa clearance',
                 'text' => $ar
                     ? 'إخلاء كامل أو جزئي للفلل: غرف النوم والمجلس وغرف التخزين والمرآب وأثاث الحديقة، مرتّب حول موعد الانتقال أو التسليم.'
                     : 'Full or partial villa clearances: bedrooms, majlis, storage rooms, the garage and garden furniture, planned around your move or handover date.',
@@ -244,9 +244,9 @@ final class View
                     : ['The whole villa or selected rooms', 'Storage rooms and garages', 'Garden and outdoor furniture', 'Maid’s rooms and majlis'],
             ],
             [
-                'slug' => 'waste-rubbish-removal', 'value' => 'Waste & Rubbish Removal', 'icon' => 'i-truck-fast', 'image' => 'svc-junk-removal.jpg',
+                'slug' => 'waste-rubbish-removal', 'value' => 'Waste & Rubbish Removal', 'icon' => 'i-truck-fast', 'image' => 'svc-waste-rubbish-removal.jpg',
                 'title' => $ar ? 'إزالة النفايات والقمامة' : 'Waste & Rubbish Removal',
-                'alt' => $ar ? 'أكياس ومواد تغليف جاهزة لإزالة النفايات' : 'Bagged rubbish and packaging ready for waste removal',
+                'alt' => $ar ? 'أكياس نفايات وتجهيزات مكسورة وقمامة منزلية مكدسة للإزالة' : 'Bin bags, broken fittings and household rubbish piled up for removal',
                 'text' => $ar
                     ? 'جمع النفايات العامة من المنازل والمحلات والمواقع: الأكياس ومواد التغليف وما يتبقى بعد الترتيب أو التجديد.'
                     : 'General waste collected from homes, shops and sites: bagged rubbish, packaging and the odds and ends left after a clear-out.',
@@ -258,9 +258,9 @@ final class View
                     : 'We don’t handle hazardous, chemical or medical waste.',
             ],
             [
-                'slug' => 'sofa-removal', 'value' => 'Sofa Removal', 'icon' => 'i-sofa', 'image' => 'svc-furniture-removal.jpg',
+                'slug' => 'sofa-removal', 'value' => 'Sofa Removal', 'icon' => 'i-sofa', 'image' => 'svc-sofa-removal.jpg',
                 'title' => $ar ? 'إزالة الكنب' : 'Sofa Removal',
-                'alt' => $ar ? 'كنبة قديمة جاهزة للإزالة من الشقة' : 'Old sofa ready to be removed from an apartment',
+                'alt' => $ar ? 'كنبة جلدية قديمة وسجادة ملفوفة وأغراض منزلية جاهزة للإزالة' : 'Old leather sofa, rolled rug and household items ready for removal',
                 'text' => $ar
                     ? 'كنبة مفردة أو طقم زاوية أو كرسي مريح — نأخذه من أي طابق، ونفكه أولًا إذا لم يمر من الباب أو المصعد.'
                     : 'A single sofa, a corner unit or an armchair — taken from any floor, and dismantled first if it won’t fit through the door or the lift.',
@@ -269,9 +269,9 @@ final class View
                     : ['Single sofas and corner units', 'Armchairs and footstools', 'Sofa beds', 'Dismantling where needed'],
             ],
             [
-                'slug' => 'mattress-removal', 'value' => 'Mattress Removal', 'icon' => 'i-box', 'image' => 'svc-furniture-removal.jpg',
+                'slug' => 'mattress-removal', 'value' => 'Mattress Removal', 'icon' => 'i-box', 'image' => 'svc-mattress-removal.jpg',
                 'title' => $ar ? 'إزالة المراتب' : 'Mattress Removal',
-                'alt' => $ar ? 'مرتبة قديمة معدّة للنقل من غرفة النوم' : 'Old mattress being taken out of a bedroom',
+                'alt' => $ar ? 'كومة من المراتب والمفارش وهياكل الأسرّة القديمة جاهزة للإزالة' : 'Stack of old mattresses, bedding and bed frames ready for removal',
                 'text' => $ar
                     ? 'نأخذ المراتب وقواعد الأسرّة القديمة من أي طابق، ونغلّفها قبل حملها للخارج حتى تبقى الممرات نظيفة.'
                     : 'Old mattresses and bed bases collected from any floor, wrapped before they’re carried out so hallways stay clean.',
@@ -282,7 +282,7 @@ final class View
             [
                 'slug' => 'appliance-removal', 'value' => 'Appliance Removal', 'icon' => 'i-monitor', 'image' => 'svc-ewaste-disposal.jpg',
                 'title' => $ar ? 'إزالة الأجهزة' : 'Appliance Removal',
-                'alt' => $ar ? 'غسالة وثلاجة قديمة جاهزة للإزالة' : 'Old washing machine and fridge ready for removal',
+                'alt' => $ar ? 'أجهزة تلفزيون وكمبيوتر وأجهزة صغيرة قديمة جاهزة للإزالة' : 'Old TVs, computers and small appliances ready for removal',
                 'text' => $ar
                     ? 'الثلاجات والغسالات والأفران ومكيفات النوافذ وغيرها من الأجهزة الكبيرة — نحملها من مكانها وننقلها بعيدًا.'
                     : 'Fridges, washing machines, ovens, window air conditioners and other large appliances carried out and taken away.',
@@ -294,9 +294,9 @@ final class View
                     : 'Please disconnect appliances from power and water before the collection time.',
             ],
             [
-                'slug' => 'garden-waste-removal', 'value' => 'Garden Waste Removal', 'icon' => 'i-leaf', 'image' => 'svc-house-clearance.jpg',
+                'slug' => 'garden-waste-removal', 'value' => 'Garden Waste Removal', 'icon' => 'i-leaf', 'image' => 'svc-garden-waste-removal.jpg',
                 'title' => $ar ? 'إزالة مخلفات الحدائق' : 'Garden Waste Removal',
-                'alt' => $ar ? 'أثاث حديقة ومخلفات نباتية جاهزة للإزالة' : 'Garden furniture and cuttings ready for removal',
+                'alt' => $ar ? 'أكياس مخلفات تقليم وحطب وأحواض وأغراض خارجية جاهزة للإزالة' : 'Bags of garden cuttings, logs, pots and outdoor clutter ready for removal',
                 'text' => $ar
                     ? 'أثاث الحدائق ومخلفات التقليم والأغراض المتراكمة في المساحات الخارجية للفلل والشرفات.'
                     : 'Garden furniture, cuttings and the clutter that builds up in villa gardens, yards and balconies.',
@@ -305,9 +305,9 @@ final class View
                     : ['Garden furniture and parasols', 'Cuttings and green waste', 'Pots and soil bags', 'Balcony and terrace items'],
             ],
             [
-                'slug' => 'commercial-junk-removal', 'value' => 'Commercial Junk Removal', 'icon' => 'i-building', 'image' => 'svc-office-clearance.jpg',
+                'slug' => 'commercial-junk-removal', 'value' => 'Commercial Junk Removal', 'icon' => 'i-building', 'image' => 'svc-commercial-junk-removal.jpg',
                 'title' => $ar ? 'إزالة المخلفات التجارية' : 'Commercial Junk Removal',
-                'alt' => $ar ? 'مخزن تجاري أثناء إزالة الأغراض غير المستخدمة' : 'Commercial storeroom being cleared of unused stock and fittings',
+                'alt' => $ar ? 'معدات مكتبية وتجهيزات محلات وبضائع مكدسة لإزالة المخلفات التجارية' : 'Office equipment, shop fittings and stock piled up for commercial junk removal',
                 'text' => $ar
                     ? 'خدمة للمحلات والمطاعم والمستودعات ومديري المرافق: إخلاء المخازن والتجهيزات القديمة ومخلفات التشطيب، بمواعيد تناسب عملك.'
                     : 'For shops, restaurants, warehouses and facilities managers: storerooms cleared, old fittings taken out and fit-out debris removed, at a time that suits your business.',

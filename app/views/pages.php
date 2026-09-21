@@ -272,7 +272,7 @@ function render_area_page(string $lang, string $slug): void
           </a>
         </div>
       </div>
-      <div class="svc-media">
+      <div class="svc-media is-photo">
         <img src="/assets/images/areas-bg.jpg" alt="<?= $ar ? 'شاحنة Junk Removal Team Dubai أثناء العمل في دبي' : 'Junk Removal Team Dubai truck on a job in Dubai' ?>" width="1800" height="600" loading="lazy" decoding="async">
       </div>
     </div>
@@ -460,7 +460,7 @@ function render_services_page(string $lang): void
 <?php foreach (View::services($lang) as $i => $s): ?>
       <article class="svc-row" id="<?= View::e($s['slug']) ?>">
         <div class="svc-media">
-          <img src="/assets/images/<?= View::e($s['image']) ?>" alt="<?= View::e($s['alt']) ?>" width="760" height="475"<?= $i === 0 ? '' : ' loading="lazy"' ?> decoding="async">
+          <img src="/assets/images/<?= View::e($s['image']) ?>?v=<?= View::ASSET_VERSION ?>" alt="<?= View::e($s['alt']) ?>" width="760" height="475"<?= $i === 0 ? '' : ' loading="lazy"' ?> decoding="async">
         </div>
         <div class="svc-body">
           <h2><svg class="icon" aria-hidden="true"><use href="#<?= View::e($s['icon']) ?>"/></svg><?= View::e($s['title']) ?></h2>
@@ -576,7 +576,7 @@ function render_service_detail_page(string $lang, string $slug): void
 <?php endif; ?>
       </div>
       <div class="svc-media">
-        <img src="/assets/images/<?= View::e($s['image']) ?>" alt="<?= View::e($s['alt']) ?>" width="760" height="475" decoding="async">
+        <img src="/assets/images/<?= View::e($s['image']) ?>?v=<?= View::ASSET_VERSION ?>" alt="<?= View::e($s['alt']) ?>" width="760" height="475" decoding="async">
       </div>
     </div>
   </section>
@@ -642,7 +642,7 @@ function render_service_detail_page(string $lang, string $slug): void
         $r = View::serviceDetail($lang, $relatedSlug);
         if ($r === null) { continue; } ?>
         <a class="card-service" href="<?= $b ?>services/<?= View::e($r['slug']) ?>/">
-          <div class="thumb"><img src="/assets/images/<?= View::e($r['image']) ?>" alt="" width="760" height="475" loading="lazy" decoding="async"></div>
+          <div class="thumb"><img src="/assets/images/<?= View::e($r['image']) ?>?v=<?= View::ASSET_VERSION ?>" alt="" width="760" height="475" loading="lazy" decoding="async"></div>
           <div class="body">
             <div class="title-row"><svg class="icon" aria-hidden="true"><use href="#<?= View::e($r['icon']) ?>"/></svg><h3><?= View::e($r['title']) ?></h3></div>
             <p><?= View::e(mb_strimwidth($r['text'], 0, 90, '…')) ?></p>
